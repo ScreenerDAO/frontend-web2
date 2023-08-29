@@ -34,9 +34,12 @@ export async function getStaticProps(): Promise<{
     revalidate: number
 }> {
     // const companies: IGetStaticPropsResult = (await client.query({ query: query })).data
+    let data: IGetStaticPropsResult = await (
+        await fetch(`${process.env.BACKEND_ENDPOINT}Companies/GetCompaniesAndEvents`,)
+    ).json()
 
     return {
-        props: companies,
+        props: data,
         revalidate: 60
     }
 }
