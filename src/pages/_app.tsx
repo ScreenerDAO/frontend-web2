@@ -19,6 +19,7 @@ import store from '../store'
 import 'react-perfect-scrollbar/dist/css/styles.css'
 import '../../styles/globals.css'
 import '@rainbow-me/rainbowkit/styles.css';
+import { GoogleOAuthProvider } from '@react-oauth/google'
 
 type ExtendedAppProps = AppProps & {
     Component: NextPage
@@ -28,7 +29,7 @@ type ExtendedAppProps = AppProps & {
 const clientSideEmotionCache = createEmotionCache()
 
 const { chains, provider } = configureChains(
-    [mainnet, goerli, sepolia ],
+    [mainnet, goerli, sepolia],
     [publicProvider()]
 )
 
@@ -74,13 +75,15 @@ const App = (props: ExtendedAppProps) => {
             <WagmiConfig client={wagmiClient}>
                 <RainbowKitProvider coolMode chains={chains}>
                     <Provider store={store}>
-                        <SettingsProvider>
-                            <SettingsConsumer>
-                                {({ settings }) => {
-                                    return <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
-                                }}
-                            </SettingsConsumer>
-                        </SettingsProvider>
+                        <GoogleOAuthProvider clientId='442501733450-k29urho9fvv0vl0pfgn76ljq1tc5rerj.apps.googleusercontent.com'>
+                            <SettingsProvider>
+                                <SettingsConsumer>
+                                    {({ settings }) => {
+                                        return <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
+                                    }}
+                                </SettingsConsumer>
+                            </SettingsProvider>
+                        </GoogleOAuthProvider>
                     </Provider>
                 </RainbowKitProvider>
             </WagmiConfig>
