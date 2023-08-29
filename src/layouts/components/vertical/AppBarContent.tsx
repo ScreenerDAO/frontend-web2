@@ -81,7 +81,26 @@ const AppBarContent = (props: Props) => {
 
                 <div style={{ marginLeft: '10px' }}>
                     <Box sx={{ display: { xs: 'none', md: 'initial' } }}>
-                        <ConnectButton chainStatus={'icon'} accountStatus={'avatar'} showBalance={false} />
+                        {/* <ConnectButton chainStatus={'icon'} accountStatus={'avatar'} showBalance={false} /> */}
+                        <GoogleLogin
+                            // type='icon'
+                            // size='large'
+                            shape='circle'
+                            context='signin'
+                            locale='en'
+                            logo_alignment='left'
+                            text='signin'
+                            onSuccess={(credentialResponse) => {
+                                if (credentialResponse && credentialResponse?.credential && credentialResponse.credential !== "") {
+                                    dispatch(setGoogleOauthToken(credentialResponse.credential))
+                                }
+                            }}
+                            onError={() => {
+                                console.log('Login Failed');
+                            }}
+                            useOneTap
+                            auto_select
+                        />
                     </Box>
 
                     <Box sx={{ display: { xs: 'initial', md: 'none' } }}>
