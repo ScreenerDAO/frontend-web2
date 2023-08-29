@@ -12,10 +12,13 @@ import { Alert, Step, StepContent, StepLabel, Stepper } from '@mui/material';
 import { useContractWrite, usePrepareContractWrite, useWaitForTransaction, useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { setCompanyData } from 'src/features/companyDataSlice';
+import { IGeneral } from 'src/features/general';
+import { useMutation } from 'react-query';
 
 const chainId = process.env.NEXT_PUBLIC_CHAIN_ID
 const registriesContractAddress = process.env.NEXT_PUBLIC_REGISTRIES_CONTRACT_ADDRESS
 const registriesContractABI = process.env.NEXT_PUBLIC_REGISTRIES_CONTRACT_ABI
+const backendEndpoint = process.env.BACKEND_ENDPOINT
 
 interface ISaveDataModalProps {
     handleClose: () => void
@@ -111,7 +114,8 @@ const SaveDataStepper = ({newCompanyData}: { newCompanyData: ICompanyData }) => 
                     <StepLabel>Updating company status on Ethereum network</StepLabel>
 
                     <StepContent>
-                        <SaveDataToEthereumStep cid={state.cid} setState={setState} />
+                        <SaveDataBackend cid={state.cid} setState={setState} />
+                        {/* <SaveDataToEthereumStep cid={state.cid} setState={setState} /> */}
                     </StepContent>
                 </Step>
             </Stepper>
@@ -244,6 +248,62 @@ const SaveDataToEthereumStep = (props: {
                 <Alert severity='error' style={{ marginBottom: '10px' }}>{(prepareError || error)?.message}</Alert>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Button variant='contained' onClick={() => write?.()}>Try again</Button>
+                </div>
+            </>
+        )
+    }
+
+    return <StepSpinner />
+}
+
+const SaveDataBackend = (props: {
+    cid: string,
+    setState: React.Dispatch<React.SetStateAction<{
+        activeStep: number;
+        cid: string;
+    }>>
+}) => {
+    const newCompanyData = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData)
+    const bearerToken = useAppSelector((state: { general: IGeneral }) => state.general.googleOauthToken)
+
+    const dispatch = useAppDispatch()
+
+    const mutation = useMutation({
+        mutationFn: () => {
+            return fetch(`${backendEndpoint}Modification/AddCompany`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${bearerToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    DataHash: props.cid
+                })
+            })
+        },
+    })
+
+    React.useEffect(() => {
+        mutation.mutate()
+    }, [])
+
+    React.useEffect(() => {
+        if (mutation.isSuccess) {
+            props.setState(prevState => ({
+                ...prevState,
+                activeStep: 2
+            }))
+
+            dispatch(setCompanyData(newCompanyData))
+        }
+    }, [mutation.isSuccess])
+
+    if (mutation.isError) {
+        return (
+            <>
+                <Alert severity='error' style={{ marginBottom: '10px' }}>There was an error</Alert>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Button variant='contained' onClick={() => mutation.mutate()}>Try again</Button>
                 </div>
             </>
         )
