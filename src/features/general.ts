@@ -6,7 +6,8 @@ interface IGeneral {
     valuesAsMillions: boolean
     logarithmicScale: boolean
     companies: ICompanyEthData[] | null
-    idToCompany: {[key: number]: ICompanyEthData} | null
+    idToCompany: {[key: number]: ICompanyEthData} | null,
+    googleOauthToken: string | null
 }
 
 const initialState: IGeneral = {
@@ -14,7 +15,8 @@ const initialState: IGeneral = {
     valuesAsMillions: true,
     logarithmicScale: false,
     companies: null,
-    idToCompany: null
+    idToCompany: null,
+    googleOauthToken: null
 }
 
 export const generalSlice = createSlice({
@@ -35,6 +37,9 @@ export const generalSlice = createSlice({
         },
         setIdToCompany: (state, action: PayloadAction<{[key: number]: ICompanyEthData}>) => {
             state.idToCompany = action.payload
+        },
+        setGoogleOauthToken: (state, action: PayloadAction<string>) => {
+            state.googleOauthToken = action.payload
         }
     }
 })
@@ -44,7 +49,8 @@ export const {
     changeValuesAsMillions: changeValuesAsMillions,
     changeLogarithmicScale: changeLogarithmicScale,
     setCompanies: setCompanies,
-    setIdToCompany: setIdToCompany
+    setIdToCompany: setIdToCompany,
+    setGoogleOauthToken: setGoogleOauthToken
 } = generalSlice.actions
 
 export type {

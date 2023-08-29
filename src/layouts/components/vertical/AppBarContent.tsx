@@ -14,6 +14,8 @@ import { setCompanyData, initialState } from 'src/features/companyDataSlice'
 import { setCompanyData as setNewCompanyData, initialState as newCompanyInitialState } from 'src/features/newCompanyDataSlice'
 import Tooltip from '@mui/material/Tooltip';
 import SearchBar from '../SearchBar'
+import { setGoogleOauthToken } from 'src/features/general'
+import { GoogleLogin } from '@react-oauth/google'
 
 interface Props {
     hidden: boolean
