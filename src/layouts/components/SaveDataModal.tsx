@@ -156,7 +156,7 @@ const SaveDataToFilecoinStep = ({newCompanyData, state, setState}: {
             if (response.ok) {
                 setState({
                     activeStep: 1,
-                    cid: await response.text()
+                    cid: await response.json()
                 })
             }
             else {
@@ -304,16 +304,18 @@ const SaveDataBackend = (props: {
         mutationFn: () => {
             calledOnce.current = true
 
+            const body = JSON.stringify({
+                DataHash: props.cid,
+                CompanyId: companyId
+            })
+
             return fetch(`${backendEndpoint}Modifications/UpdateCompany`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${bearerToken}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    DataHash: props.cid,
-                    CompanyId: companyId
-                })
+                body: body
             })
         }
     })
