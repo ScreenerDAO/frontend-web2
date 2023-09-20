@@ -18,7 +18,8 @@ import { useMutation } from 'react-query';
 const chainId = process.env.NEXT_PUBLIC_CHAIN_ID
 const registriesContractAddress = process.env.NEXT_PUBLIC_REGISTRIES_CONTRACT_ADDRESS
 const registriesContractABI = process.env.NEXT_PUBLIC_REGISTRIES_CONTRACT_ABI
-const backendEndpoint = process.env.BACKEND_ENDPOINT
+const backendEndpoint = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT
+const azureFunctionsEndpoint = process.env.NEXT_PUBLIC_AZURE_FUNCTIONS_ENDPOINT
 
 interface ISaveDataModalProps {
     handleClose: () => void
@@ -136,9 +137,20 @@ const SaveDataToFilecoinStep = ({newCompanyData, state, setState}: {
 
     React.useEffect(() => {
         const callback = async() => {
-            const response = await fetch('/api/SaveCompanyData', {
+            // const response = await fetch(`${azureFunctionsEndpoint}/SaveCompanyData`, {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(newCompanyData) 
+            // })
+
+            const formData = new FormData()
+            formData.append('file', new Blob([JSON.stringify(newCompanyData)]))
+
+            const response = await fetch(`${backendEndpoint}UploadFile`, {
                 method: 'POST',
-                body: JSON.stringify(newCompanyData) 
+                body: formData
             })
 
             if (response.ok) {
@@ -263,14 +275,19 @@ const SaveDataBackend = (props: {
         cid: string;
     }>>
 }) => {
+    const companyId = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.id)
     const newCompanyData = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData)
     const bearerToken = useAppSelector((state: { general: IGeneral }) => state.general.googleOauthToken)
 
     const dispatch = useAppDispatch()
 
-    const mutation = useMutation({
+    const calledOnce = React.useRef(false)
+
+    const mutationAddCompany = useMutation({
         mutationFn: () => {
-            return fetch(`${backendEndpoint}Modification/AddCompany`, {
+            calledOnce.current = true
+
+            return fetch(`${backendEndpoint}Modifications/AddCompany`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${bearerToken}`,
@@ -283,12 +300,41 @@ const SaveDataBackend = (props: {
         },
     })
 
+    const mutationUpdateCompany = useMutation({
+        mutationFn: () => {
+            calledOnce.current = true
+
+            return fetch(`${backendEndpoint}Modifications/UpdateCompany`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${bearerToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    DataHash: props.cid,
+                    CompanyId: companyId
+                })
+            })
+        }
+    })
+
     React.useEffect(() => {
-        mutation.mutate()
+        if (calledOnce.current == false && bearerToken && bearerToken !== "") {
+            if (companyId){
+                mutationUpdateCompany.mutate()
+            }
+            else{
+                mutationAddCompany.mutate()
+            }
+        }
     }, [])
 
     React.useEffect(() => {
-        if (mutation.isSuccess) {
+        if (
+                (mutationAddCompany.isSuccess && mutationAddCompany?.data?.status === 200)
+                ||
+                (mutationUpdateCompany.isSuccess && mutationUpdateCompany?.data?.status === 200)
+            ) {
             props.setState(prevState => ({
                 ...prevState,
                 activeStep: 2
@@ -296,14 +342,18 @@ const SaveDataBackend = (props: {
 
             dispatch(setCompanyData(newCompanyData))
         }
-    }, [mutation.isSuccess])
+    }, [mutationAddCompany.isSuccess, mutationUpdateCompany])
 
-    if (mutation.isError) {
+    if (
+        (mutationAddCompany.isError || (mutationAddCompany.isSuccess && mutationAddCompany?.data?.status !== 200))
+        ||
+        (mutationUpdateCompany.isError || (mutationUpdateCompany.isSuccess && mutationUpdateCompany?.data?.status !== 200))
+    ) {
         return (
             <>
                 <Alert severity='error' style={{ marginBottom: '10px' }}>There was an error</Alert>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Button variant='contained' onClick={() => mutation.mutate()}>Try again</Button>
+                    <Button variant='contained' onClick={() => companyId ? mutationAddCompany.mutate() : mutationUpdateCompany.mutate()}>Try again</Button>
                 </div>
             </>
         )

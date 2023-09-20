@@ -15,10 +15,10 @@ import PageWrapper from 'src/layouts/components/PageWrapper'
 import { getStaticProps } from '../lib/getStaticProps'
 
 const getEventCell = (eventType: string) => {
-    if (eventType === "AddComapny") {
+    if (eventType === "Add") {
         return <div style={{ color: '#28a745' }}>Added</div>
     }
-    if (eventType === "EditCompany") {
+    if (eventType === "Update") {
         return <div style={{ color: '#007bff' }}>Edited</div>
     }
 }

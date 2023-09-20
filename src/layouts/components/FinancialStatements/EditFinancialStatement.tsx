@@ -12,6 +12,7 @@ import { setAnnualReportHash } from 'src/features/newCompanyDataSlice';
 import { Alert, CircularProgress } from '@mui/material';
 import { saveFile } from 'src/lib/generalMethods';
 
+const backendEndpoint = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT
 const azureFunctionsEndpoint = process.env.NEXT_PUBLIC_AZURE_FUNCTIONS_ENDPOINT 
 const steps = ['Balance sheet', 'Income statement', 'Cash flow statement'];
 
@@ -85,11 +86,19 @@ const EditFinancialStatements = (props: IEditFinancialStatementsProps): React.Re
                 }
 
                 try {
-                    const base64 = await readFileAsBase64(ev.target.files[0])
+                    // const base64 = await readFileAsBase64(ev.target.files[0])
 
-                    const response = await fetch(`${azureFunctionsEndpoint}/SaveFile`, {
+                    // const response = await fetch(`${azureFunctionsEndpoint}/SaveFile`, {
+                    //     method: 'POST',
+                    //     body: JSON.stringify({file: base64})
+                    // })
+
+                    const formData = new FormData()
+                    formData.append('file', ev.target.files[0])
+
+                    const response = await fetch(`${backendEndpoint}UploadFile`, {
                         method: 'POST',
-                        body: JSON.stringify({file: base64})
+                        body: formData
                     })
 
                     if (response.ok) {

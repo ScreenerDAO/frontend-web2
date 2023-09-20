@@ -163,7 +163,7 @@ const balanceSheetStructure: IElementsGroup[] = [
             { label: 47, operation: AutofillOperation.Add }, 
             { label: 48, operation: AutofillOperation.Subtract }, 
             { label: 49, operation: AutofillOperation.Add }, 
-            { label: 50, operation: AutofillOperation.Add },
+            { label: 50, operation: AutofillOperation.Subtract },
             { label: 54, operation: AutofillOperation.Add}
         ],
         total: { label: 51, operation: AutofillOperation.Add, final: true }

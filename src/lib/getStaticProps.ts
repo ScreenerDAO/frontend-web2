@@ -29,14 +29,22 @@ interface IGetStaticPropsResult {
     events: IEvent[]
 }
 
+const backendEndpoint = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT
+
 export async function getStaticProps(): Promise<{
-    props: IGetStaticPropsResult,
+    props: IGetStaticPropsResult | null,
     revalidate: number
 }> {
     // const companies: IGetStaticPropsResult = (await client.query({ query: query })).data
-    let data: IGetStaticPropsResult = await (
-        await fetch(`${process.env.BACKEND_ENDPOINT}Companies/GetCompaniesAndEvents`,)
-    ).json()
+    let data: IGetStaticPropsResult | null = null
+    let response = await fetch(`${backendEndpoint}Companies/GetCompaniesAndEvents`)
+
+    if (response.ok) {
+        data = (await response.json()) as any
+    }
+    else {
+        console.log(response.text())
+    }
 
     return {
         props: data,

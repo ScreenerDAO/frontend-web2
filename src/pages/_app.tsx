@@ -10,16 +10,13 @@ import UserLayout from 'src/layouts/UserLayout'
 import ThemeComponent from 'src/@core/theme/ThemeComponent'
 import { SettingsConsumer, SettingsProvider } from 'src/@core/context/settingsContext'
 import { createEmotionCache } from 'src/@core/utils/create-emotion-cache'
-import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { configureChains, createClient, WagmiConfig, mainnet, goerli } from 'wagmi';
-import { sepolia } from 'wagmi/chains'
-import { publicProvider } from 'wagmi/providers/public';
 import { Provider } from 'react-redux'
 import store from '../store'
 import 'react-perfect-scrollbar/dist/css/styles.css'
 import '../../styles/globals.css'
 import '@rainbow-me/rainbowkit/styles.css';
 import { GoogleOAuthProvider } from '@react-oauth/google'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 type ExtendedAppProps = AppProps & {
     Component: NextPage
@@ -28,21 +25,7 @@ type ExtendedAppProps = AppProps & {
 
 const clientSideEmotionCache = createEmotionCache()
 
-const { chains, provider } = configureChains(
-    [mainnet, goerli, sepolia],
-    [publicProvider()]
-)
-
-const { connectors } = getDefaultWallets({
-    appName: 'My RainbowKit App',
-    chains
-})
-
-const wagmiClient = createClient({
-    autoConnect: true,
-    connectors,
-    provider
-})
+const queryClient = new QueryClient()
 
 if (themeConfig.routingLoader) {
     Router.events.on('routeChangeStart', () => {
@@ -72,21 +55,19 @@ const App = (props: ExtendedAppProps) => {
                 <meta name='viewport' content='initial-scale=1, width=device-width' />
             </Head>
 
-            <WagmiConfig client={wagmiClient}>
-                <RainbowKitProvider coolMode chains={chains}>
-                    <Provider store={store}>
-                        <GoogleOAuthProvider clientId='442501733450-k29urho9fvv0vl0pfgn76ljq1tc5rerj.apps.googleusercontent.com'>
-                            <SettingsProvider>
-                                <SettingsConsumer>
-                                    {({ settings }) => {
-                                        return <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
-                                    }}
-                                </SettingsConsumer>
-                            </SettingsProvider>
-                        </GoogleOAuthProvider>
-                    </Provider>
-                </RainbowKitProvider>
-            </WagmiConfig>
+            <Provider store={store}>
+                <GoogleOAuthProvider clientId='442501733450-k29urho9fvv0vl0pfgn76ljq1tc5rerj.apps.googleusercontent.com'>
+                    <QueryClientProvider client={queryClient}>
+                        <SettingsProvider>
+                            <SettingsConsumer>
+                                {({ settings }) => {
+                                    return <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
+                                }}
+                            </SettingsConsumer>
+                        </SettingsProvider>
+                    </QueryClientProvider>
+                </GoogleOAuthProvider>
+            </Provider>
         </CacheProvider>
     )
 }

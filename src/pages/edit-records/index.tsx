@@ -21,6 +21,8 @@ import PageWrapper from 'src/layouts/components/PageWrapper'
 import type { IGetStaticPropsResult } from '../../lib/getStaticProps'
 import { getStaticProps } from '../../lib/getStaticProps'
 import { getISOCountries, getISOCurrencies } from 'src/lib/generalMethods'
+import { useBeforeunload } from 'react-beforeunload';
+import Router from 'next/router'
 
 const EditRecords = ({ companies }: {
     companies: ICompanyEthData[]
@@ -35,6 +37,17 @@ const EditRecords = ({ companies }: {
     const dispatch = useAppDispatch()
     const companyLoading = useAppSelector((state: { general: IGeneral }) => state.general.companyLoading)
     const companyIsDelisted = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.isDelisted)
+
+    // React.useEffect(() => setInitialRoute(Router.route), []) 
+
+    // Router.events.on('routeChangeStart', () => {
+        
+
+    //     Router.events.emit('routeChangeError')
+    //     Router.push(initialRoute as string)
+    //         // console.log('********************++')
+    //         // throw "asdfdsa"
+    // })
 
     React.useEffect(() => {
         getISOCountries().then(res => setCountriesList(res.sort()))

@@ -1,4 +1,4 @@
-import { Domain, ClipboardTextOutline, ArchiveEditOutline } from 'mdi-material-ui'
+import { Domain, ClipboardTextOutline, ArchiveEditOutline, PlaylistEdit } from 'mdi-material-ui'
 import { VerticalNavItemsType } from 'src/@core/layouts/types'
 import { useAppSelector } from 'src/hooks'
 import ICompanyData from 'src/types/ICompanyData'
@@ -51,6 +51,10 @@ const Navigation = (): VerticalNavItemsType => {
             title: 'Edit records',
             icon: ArchiveEditOutline,
             path: `/edit-records?id=${companyId ?? 0}`
+        },{
+            title: 'Edit history',
+            icon: PlaylistEdit,
+            path: `/modifications`
         }
     ]
 }
