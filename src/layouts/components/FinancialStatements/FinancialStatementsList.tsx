@@ -37,12 +37,12 @@ const getYearsArray = (financials: { [key: number]: IFinancialStatement }, annua
     let yearsArray: number[] = []
     
     if (financials) {
-        let a = Object.keys(financials).map(key => Number(key))
+        const a = Object.keys(financials).map(key => Number(key))
         yearsArray = yearsArray.concat(a)
     }
 
     if (annualReports) {
-        let a = Object.keys(annualReports).map(key => Number(key))
+        const a = Object.keys(annualReports).map(key => Number(key))
         yearsArray = yearsArray.concat(a)
     }
 
