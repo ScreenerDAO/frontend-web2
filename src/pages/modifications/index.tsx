@@ -40,13 +40,11 @@ const Modifications = ({ companies }: IGetStaticPropsResult) => {
         staleTime: Infinity 
     })
 
-    console.log(data)
-
-    // if (data){
-    //     data.forEach((element: any) => {
-    //         element.id = element.Id
-    //     })
-    // }
+    if (data){
+        data.forEach((element: any) => {
+            element.id = element.Id
+        })
+    }
 
     const columns: GridColumns = [
 
