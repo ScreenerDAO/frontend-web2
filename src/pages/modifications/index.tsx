@@ -27,11 +27,7 @@ const Modifications = ({ companies }: IGetStaticPropsResult) => {
             }
         })
 
-        let a = res.json()
-
-        console.log(a)
-
-        return a
+        return res.json()
     }
 
     const {
@@ -44,18 +40,18 @@ const Modifications = ({ companies }: IGetStaticPropsResult) => {
         staleTime: Infinity 
     })
 
-    console.log(data)
-
-    // if (data){
-    //     data.forEach((element: any) => {
-    //         element.id = element.Id
-    //     })
-    // }
+    if (data){
+        data.forEach((element: any) => {
+            element.id = element.Id
+        })
+    }
 
     const columns: GridColumns = [
+
         // { field: 'Id', headerName: 'Modification Id', flex: 1 },
         { field: 'CompanyTicker', headerName: 'Ticker'},
         { field: 'CompanyName', headerName: 'Company name', flex: 1},
+
         // { field: 'CompanyId', headerName: 'CompanyId', headerAlign: 'center', align: 'center' },
         {
             field: 'ModificationType', headerName: 'Type', headerAlign: 'center', align: 'center', valueGetter: (params) => {
@@ -113,6 +109,7 @@ const Modifications = ({ companies }: IGetStaticPropsResult) => {
                             <DataGrid
                                 rows={data}
                                 columns={columns}
+                                
                                 // getRowId={row => data.indexOf(row)}
                                 sortModel={[
                                     {
