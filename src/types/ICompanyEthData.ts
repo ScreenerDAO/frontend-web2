@@ -1,5 +1,5 @@
 export default interface ICompanyEthData {
-    id: number
+    id: string
     name: string
     ticker: string
     dataHash: string

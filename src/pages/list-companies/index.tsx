@@ -31,7 +31,7 @@ const ListCompanies = ({ companies }: IGetStaticPropsResult) => {
 
 const RenderTicker = (params: {
     row: {
-        id: number,
+        id: string,
         name: string,
         ticker: string,
         dataHash: string,
@@ -53,7 +53,7 @@ const RenderTicker = (params: {
 }
 
 const columns: GridColumns = [
-    { field: 'id', headerName: '#', width: 100, editable: false },
+    // { field: 'id', headerName: '#', width: 100, editable: false },
     { field: 'name', headerName: 'Name', width: 300, editable: false },
     { field: 'ticker', headerName: 'Ticker', width: 100, editable: false, renderCell: RenderTicker },
 ]

@@ -156,7 +156,7 @@ const SaveDataToFilecoinStep = ({newCompanyData, state, setState}: {
             if (response.ok) {
                 setState({
                     activeStep: 1,
-                    cid: await response.json()
+                    cid: await response.text()
                 })
             }
             else {
