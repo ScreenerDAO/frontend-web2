@@ -445,7 +445,7 @@ const MultipleFilesUploader = () => {
                     body: formData
                 })
 
-                const cid = await response.text()
+                const cid = await response.json()
                 const year = Number(file.name.split('.')[0])
 
                 if (year) {
