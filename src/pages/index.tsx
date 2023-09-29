@@ -147,7 +147,7 @@ const RecentActivityTable = ({ events }: {
                                     onClick={() => selectCompany(idToCompany?.[row.companyId] as ICompanyEthData, dispatch)}
                                     style={{ color: theme.palette.primary.main }}
                                 >
-                                    {idToCompany?.[row.companyId].ticker}
+                                    {idToCompany?.[row.companyId]?.ticker}
                                 </Link>
                             </TableCell>
                             <TableCell align="center">{getEventCell(row.eventType)}</TableCell>

@@ -287,7 +287,7 @@ const SaveDataBackend = (props: {
         mutationFn: () => {
             calledOnce.current = true
 
-            return fetch(`${backendEndpoint}Modifications/AddCompany`, {
+            return fetch(`${backendEndpoint}Modifications`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${bearerToken}`,
@@ -309,8 +309,8 @@ const SaveDataBackend = (props: {
                 CompanyId: companyId
             })
 
-            return fetch(`${backendEndpoint}Modifications/UpdateCompany`, {
-                method: 'POST',
+            return fetch(`${backendEndpoint}Modifications`, {
+                method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${bearerToken}`,
                     'Content-Type': 'application/json'

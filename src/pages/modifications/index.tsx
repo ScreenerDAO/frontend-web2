@@ -20,7 +20,7 @@ const Modifications = ({ companies }: IGetStaticPropsResult) => {
     const bearerToken = useAppSelector((state: { general: IGeneral }) => state.general.googleOauthToken)
 
     const retrieveModifications = async () => {
-        const res = await fetch(`${backendEndpoint}Modifications/GetAllForUser`, {
+        const res = await fetch(`${backendEndpoint}Modifications`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${bearerToken}`
