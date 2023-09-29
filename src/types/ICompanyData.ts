@@ -1,7 +1,7 @@
 import IFinancialStatement from "./IFinancialStatement"
 
 export default interface ICompanyData {
-    id: number | null
+    id: string | null
     companyName: string
     ticker: string 
     country: string

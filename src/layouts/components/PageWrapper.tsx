@@ -19,12 +19,19 @@ const PageWrapper = ({companies, children}: {
             const companyId = searchParams.get('id')
             const isNewCompany = searchParams.get('isNewCompany')
 
+            console.log(companyId)
+
             if (!isNewCompany) {
-                if (!companyId && !store.getState().newCompanyData.id) {
+                // if (!companyId && !store.getState().newCompanyData.id) {
+                if (!companyId) {
                     selectCompany(companies[0], store.dispatch)
                 }
                 else {
-                    selectCompany(companies[Number(companyId)], store.dispatch)
+                    const company = companies.find(company => company.id == companyId)
+
+                    console.log(company)
+
+                    selectCompany(company!, store.dispatch)
                 }
             }
             else {
@@ -33,7 +40,7 @@ const PageWrapper = ({companies, children}: {
             
             store.dispatch(setCompanies(companies))
 
-            const idToCompany: { [key: number]: ICompanyEthData } = {}
+            const idToCompany: { [key: string]: ICompanyEthData } = {}
 
             for (const company of companies) {
                 idToCompany[company.id] = company
