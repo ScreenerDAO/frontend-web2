@@ -79,7 +79,7 @@ const EditRecords = ({ companies }: {
                         <Box sx={{ paddingLeft: { xs: '15px', md: '40px' } }}>
                             <h2>
                                 {/* {(companyName == "" && companyTicker == "") ? "New company" : `${companyName} (${companyTicker})`} */}
-                                {!companyId ? "New company" : `#${companyId} ${companyName}`}
+                                {!companyId ? "New company" : `${companyName}`}
                                 {!companyIsDelisted && companyId ? ` (${companyTicker})` : null}
                             </h2>
                         </Box>

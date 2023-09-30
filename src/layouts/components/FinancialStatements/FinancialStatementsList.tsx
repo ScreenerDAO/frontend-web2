@@ -4,7 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Close';
-import { Dialog, Box, Button, Typography, TextField, Alert, Tabs, Tab } from '@mui/material';
+import { Dialog, Box, Button, Typography, TextField, Alert, Tabs, Tab, CircularProgress, Divider } from '@mui/material';
 import {
     DataGrid,
     GridActionsCellItem,
@@ -30,12 +30,14 @@ import { useStore } from 'react-redux';
 import { RootState } from 'src/store';
 import { useDropzone } from 'react-dropzone';
 import readXlsxFile from 'read-excel-file';
+import { ChangeEvent } from 'react';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const backendEndpoint = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT
 
-const getYearsArray = (financials: { [key: number]: IFinancialStatement }, annualReports: {[key: number | string]: string}) => {
+const getYearsArray = (financials: { [key: number]: IFinancialStatement }, annualReports: { [key: number | string]: string }) => {
     let yearsArray: number[] = []
-    
+
     if (financials) {
         const a = Object.keys(financials).map(key => Number(key))
         yearsArray = yearsArray.concat(a)
@@ -112,13 +114,13 @@ const FinancialStatementsList = () => {
                 color: 'text.primary',
             },
         }}>
-            <YearsList 
-                setSelectedYear={setSelectedYear} 
+            <YearsList
+                setSelectedYear={setSelectedYear}
                 setEditFinancialsModal={setEditFinancialsModalOpen}
                 rows={rows}
                 setRows={setRows}
                 rowModesModel={rowModesModel}
-                setRowModesModel={setRowModesModel} 
+                setRowModesModel={setRowModesModel}
                 setNewYearModalOpen={setNewYearModalOpen}
             />
 
@@ -430,6 +432,27 @@ const MultipleFilesUploader = () => {
     const store = useStore<RootState>()
     const dispatch = useAppDispatch()
 
+    const uploadPdfFile = async (file: File): Promise<{
+        cid: string,
+        year: number
+    }> => {
+        const formData = new FormData()
+        formData.append('file', file)
+
+        const response = await fetch(`${backendEndpoint}UploadFile`, {
+            method: 'POST',
+            body: formData
+        })
+
+        const cid = await response.text()
+        const year = Number(file.name.split('.')[0])
+
+        return {
+            cid: cid,
+            year: year
+        }
+    }
+
     const submit = async () => {
         const newCompanyData = JSON.parse(JSON.stringify(store.getState().newCompanyData)) as ICompanyData
 
@@ -468,7 +491,7 @@ const MultipleFilesUploader = () => {
                         return value * 1000
                     }
 
-                    if (valuesAsMillions){
+                    if (valuesAsMillions) {
                         return value * 1000000
                     }
 
@@ -481,13 +504,13 @@ const MultipleFilesUploader = () => {
                             const cellValue = rows[rowIndex][yearIndex + 2] ? parseNumber(rows[rowIndex][yearIndex + 2] as number).toString() : ""
 
                             if (cellValue !== "") {
-                                if(!newCompanyData.financialStatements[years[yearIndex]]) {
+                                if (!newCompanyData.financialStatements[years[yearIndex]]) {
                                     newCompanyData.financialStatements[years[yearIndex]] = {
                                         balanceSheet: {},
                                         incomeStatement: {},
                                         cashFlow: {}
                                     }
-                                }                                
+                                }
 
                                 if (!newCompanyData.financialStatements[years[yearIndex]].balanceSheet[rows[rowIndex][0] as number]) {
                                     newCompanyData.financialStatements[years[yearIndex]].balanceSheet[rows[rowIndex][0] as number] = {
@@ -502,21 +525,21 @@ const MultipleFilesUploader = () => {
                     }
                 }
 
-                for (let rowIndex = 66; rowIndex <= 92; rowIndex++){
+                for (let rowIndex = 66; rowIndex <= 92; rowIndex++) {
                     if (rows[rowIndex][0] != null) {
-                        for (let yearIndex = 0; yearIndex < years.length; yearIndex++){
+                        for (let yearIndex = 0; yearIndex < years.length; yearIndex++) {
                             const cellValue = rows[rowIndex][yearIndex + 2] ? parseNumber(rows[rowIndex][yearIndex + 2] as number).toString() : ""
 
-                            if (cellValue !== ""){
-                                if(!newCompanyData.financialStatements[years[yearIndex]]) {
+                            if (cellValue !== "") {
+                                if (!newCompanyData.financialStatements[years[yearIndex]]) {
                                     newCompanyData.financialStatements[years[yearIndex]] = {
                                         balanceSheet: {},
                                         incomeStatement: {},
                                         cashFlow: {}
                                     }
-                                }  
+                                }
 
-                                if (!newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number]){
+                                if (!newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number]) {
                                     newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number] = {
                                         value: "",
                                         multipleValues: []
@@ -539,32 +562,225 @@ const MultipleFilesUploader = () => {
         dispatch(setCompanyData(newCompanyData))
     }
 
-    const files = acceptedFiles.map((file: any) => {
+    const [files, setFiles] = React.useState<{
+        file: File
+        uploaded: boolean
+    }[]>([]);
+    const [fileBeingUploadedIndex, setFileBeingUploadedIndex] = React.useState<number | null>(null)
+
+    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e?.target?.files) {
+            const newFiles = Array.from(e.target.files);
+
+            // Filter out the repeated files
+            const uniqueNewFiles =
+                newFiles
+                    .filter(newFile => !files.some(file => file.file.name === newFile.name));
+
+            const arrayToBeConcatenated = uniqueNewFiles.map(file => ({
+                file: file,
+                uploaded: false
+            }))
+
+            const filteredUploadedFiles = files.filter(file => !file.uploaded)
+
+            // Append the unique files to the existing files in state
+            setFiles(filteredUploadedFiles.concat(arrayToBeConcatenated));
+        }
+    }
+
+    const uploadFiles = async () => {
+        for (const file of files) {
+            if (file.file.type === "application/pdf") {
+                setFileBeingUploadedIndex(files.indexOf(file))
+
+                const uploadResult = await uploadPdfFile(file.file)
+
+                const newCompanyData = JSON.parse(JSON.stringify(store.getState().newCompanyData)) as ICompanyData
+                newCompanyData.annualReports[uploadResult.year] = uploadResult.cid
+
+                dispatch(setCompanyData(newCompanyData))
+
+                setFiles(prevItems => prevItems.map(item =>
+                    item.file.name === file.file.name ?
+                        {
+                            file: file.file,
+                            uploaded: true
+                        }
+                        :
+                        item
+                ))
+            }
+
+            if (file.file.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                const rows = await readXlsxFile(file.file)
+                const newCompanyData = JSON.parse(JSON.stringify(store.getState().newCompanyData)) as ICompanyData
+
+                const valuesAsThousands = rows[1][2] === 'Yes'
+                const valuesAsMillions = rows[2][2] === 'Yes'
+                const years = rows[6].filter(y => y != null) as number[]
+
+                const parseNumber = (value: number) => {
+                    if (valuesAsThousands) {
+                        return value * 1000
+                    }
+
+                    if (valuesAsMillions) {
+                        return value * 1000000
+                    }
+
+                    return value
+                }
+
+                for (let rowIndex = 9; rowIndex <= 62; rowIndex++) {
+                    if (rows[rowIndex][0] != null) {
+                        for (let yearIndex = 0; yearIndex < years.length; yearIndex++) {
+                            const cellValue = rows[rowIndex][yearIndex + 2] ? parseNumber(rows[rowIndex][yearIndex + 2] as number).toString() : ""
+
+                            if (cellValue !== "") {
+                                if (!newCompanyData.financialStatements[years[yearIndex]]) {
+                                    newCompanyData.financialStatements[years[yearIndex]] = {
+                                        balanceSheet: {},
+                                        incomeStatement: {},
+                                        cashFlow: {}
+                                    }
+                                }
+
+                                if (!newCompanyData.financialStatements[years[yearIndex]].balanceSheet[rows[rowIndex][0] as number]) {
+                                    newCompanyData.financialStatements[years[yearIndex]].balanceSheet[rows[rowIndex][0] as number] = {
+                                        value: "",
+                                        multipleValues: []
+                                    }
+                                }
+
+                                newCompanyData.financialStatements[years[yearIndex]].balanceSheet[rows[rowIndex][0] as number].value = cellValue
+                            }
+                        }
+                    }
+                }
+
+                for (let rowIndex = 66; rowIndex <= 92; rowIndex++) {
+                    if (rows[rowIndex][0] != null) {
+                        for (let yearIndex = 0; yearIndex < years.length; yearIndex++) {
+                            const cellValue = rows[rowIndex][yearIndex + 2] ? parseNumber(rows[rowIndex][yearIndex + 2] as number).toString() : ""
+
+                            if (cellValue !== "") {
+                                if (!newCompanyData.financialStatements[years[yearIndex]]) {
+                                    newCompanyData.financialStatements[years[yearIndex]] = {
+                                        balanceSheet: {},
+                                        incomeStatement: {},
+                                        cashFlow: {}
+                                    }
+                                }
+
+                                if (!newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number]) {
+                                    newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number] = {
+                                        value: "",
+                                        multipleValues: []
+                                    }
+                                }
+
+                                newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number].value = cellValue
+                            }
+                        }
+                    }
+                }
+
+                dispatch(setCompanyData(newCompanyData))
+            }
+        }
+
+        setFileBeingUploadedIndex(null)
+    }
+
+    const UploadButton = () => {
+        const fileInputRef = React.useRef<HTMLInputElement>(null);
+
         return (
-            <li key={file.path}>
-                {file.path} - {file.size} bytes
-            </li>
+            <>
+                <input
+                    type="file"
+                    style={{ display: 'none' }}
+                    disabled={fileBeingUploadedIndex !== null}
+                    onChange={handleFileChange}
+                    ref={fileInputRef}
+                    multiple
+                />
+                <Button onClick={() => fileInputRef?.current?.click()} disabled={fileBeingUploadedIndex !== null}>
+                    Select files
+                </Button>
+            </>
         )
-    })
+    }
 
     return (
-        <div>
-            <button onClick={() => open('/Template.xlsx')}>Download template</button>
-            <form onSubmit={submit} style={{ padding: '20px', display: 'flex', flexDirection: 'column' }}>
-                <section className="container">
-                    <div {...getRootProps({ className: 'dropzone' })}>
-                        <input {...getInputProps()} />
-                        <p>Drag 'n' drop some files here, or click to select files</p>
-                    </div>
-                    <aside>
-                        <h4>Files</h4>
-                        <ul>{files}</ul>
-                    </aside>
-                </section>
-                <Button onClick={submit}>Upload files</Button>
-            </form>
-        </div>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Button onClick={() => open('/Template.xlsx')}>Download template</Button>
+
+            <Divider />
+
+            <div style={{}}>
+                {files.length > 0 ?
+                    !files.some(file => file.uploaded == false) ?
+                        <Alert severity="success">All files successfully uploaded</Alert>
+                        :
+                        files.map(file => (
+                            <div key={files.indexOf(file)} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+                                <div>{file.file.name}</div>
+                                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                                    {fileBeingUploadedIndex === null ?
+                                        <DeleteIcon />
+                                        :
+                                        files.indexOf(file) == fileBeingUploadedIndex ?
+                                            <CircularProgress />
+                                            :
+                                            file.uploaded ? <CheckCircleIcon style={{ color: 'green' }} /> : null
+                                    }
+                                </div>
+                            </div>
+                        ))
+                    :
+                    <div style={{textAlign: 'center'}}>No files selected yet</div>
+                }
+            </div>
+
+            <Divider />
+            {/* <input type='file' disabled={fileBeingUploadedIndex !== null} onChange={handleFileChange} multiple /> */}
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+                {/* <Button onClick={uploadFiles} disabled={fileBeingUploadedIndex !== null}>Select files</Button> */}
+                <UploadButton />
+                <Button onClick={uploadFiles} disabled={fileBeingUploadedIndex !== null}>Execute upload</Button>
+            </div>
+        </ div>
     )
+
+    // const files = acceptedFiles.map((file: any) => {
+    //     return (
+    //         <li key={file.path}>
+    //             {file.path} - {file.size} bytes
+    //         </li>
+    //     )
+    // })
+
+    // return (
+    //     <div>
+    //         <button onClick={() => open('/Template.xlsx')}>Download template</button>
+    //         <form onSubmit={submit} style={{ padding: '20px', display: 'flex', flexDirection: 'column' }}>
+    //             <section className="container">
+    //                 <div {...getRootProps({ className: 'dropzone' })}>
+    //                     <input {...getInputProps()} />
+    //                     <p>Drag 'n' drop some files here, or click to select files</p>
+    //                 </div>
+    //                 <aside>
+    //                     <h4>Files</h4>
+    //                     <ul>{files}</ul>
+    //                 </aside>
+    //             </section>
+    //             <Button onClick={submit}>Upload files</Button>
+    //         </form>
+    //     </div>
+    // )
 }
 
 const UpdateYearFinancialsModal = ({
