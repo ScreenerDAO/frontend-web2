@@ -32,24 +32,9 @@ import { useDropzone } from 'react-dropzone';
 import readXlsxFile from 'read-excel-file';
 import { ChangeEvent } from 'react';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { getYearsArrayWithAnnualReports } from 'src/lib/financialStatements';
 
 const backendEndpoint = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT
-
-const getYearsArray = (financials: { [key: number]: IFinancialStatement }, annualReports: { [key: number | string]: string }) => {
-    let yearsArray: number[] = []
-
-    if (financials) {
-        const a = Object.keys(financials).map(key => Number(key))
-        yearsArray = yearsArray.concat(a)
-    }
-
-    if (annualReports) {
-        const a = Object.keys(annualReports).map(key => Number(key))
-        yearsArray = yearsArray.concat(a)
-    }
-
-    return [...new Set(yearsArray)].sort()
-}
 
 const FinancialStatementsList = () => {
     const [editFinancialsModalOpen, setEditFinancialsModalOpen] = React.useState<boolean>(false)
@@ -61,12 +46,15 @@ const FinancialStatementsList = () => {
     const dispatch = useAppDispatch()
     const store = useStore<RootState>()
     const annualReports = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.annualReports)
+    
+    // const financials = useAppSelector((state: {newCompanyData: ICompanyData}) => state.newCompanyData).financialStatements
 
     React.useEffect(() => {
         const initialRows = []
 
         const financials = store.getState().newCompanyData.financialStatements
-        const yearsArray = getYearsArray(financials, annualReports)
+
+        const yearsArray = getYearsArrayWithAnnualReports(financials, annualReports)
 
         for (const year of yearsArray) {
             initialRows.push({
