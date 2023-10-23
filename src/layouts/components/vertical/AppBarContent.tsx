@@ -14,7 +14,7 @@ import { setCompanyData, initialState } from 'src/features/companyDataSlice'
 import { setCompanyData as setNewCompanyData, initialState as newCompanyInitialState } from 'src/features/newCompanyDataSlice'
 import Tooltip from '@mui/material/Tooltip';
 import SearchBar from '../SearchBar'
-import { setGoogleOauthToken } from 'src/features/general'
+import { setGoogleOauthToken, setUserFavoriteCompanies } from 'src/features/general'
 import { GoogleLogin } from '@react-oauth/google'
 
 interface Props {
@@ -93,9 +93,19 @@ const AppBarContent = (props: Props) => {
                             locale='en'
                             logo_alignment='left'
                             text='signin'
-                            onSuccess={(credentialResponse) => {
+                            onSuccess={async(credentialResponse) => {
                                 if (credentialResponse && credentialResponse?.credential && credentialResponse.credential !== "") {
                                     dispatch(setGoogleOauthToken(credentialResponse.credential))
+
+                                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_ENDPOINT}UsersFavoriteCompanies/`, {
+                                        headers: {
+                                            'Authorization': `Bearer ${credentialResponse.credential}`
+                                        }
+                                    })
+
+                                    const json = await response.json()
+
+                                    dispatch(setUserFavoriteCompanies(json))
                                 }
                             }}
                             onError={() => {
@@ -117,9 +127,19 @@ const AppBarContent = (props: Props) => {
                             locale='en'
                             logo_alignment='left'
                             text='signin'
-                            onSuccess={(credentialResponse) => {
+                            onSuccess={async(credentialResponse) => {
                                 if (credentialResponse && credentialResponse?.credential && credentialResponse.credential !== "") {
                                     dispatch(setGoogleOauthToken(credentialResponse.credential))
+
+                                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_ENDPOINT}UsersFavoriteCompanies/`, {
+                                        headers: {
+                                            'Authorization': `Bearer ${credentialResponse.credential}`
+                                        }
+                                    })
+
+                                    const json = await response.json()
+
+                                    dispatch(setUserFavoriteCompanies(json))
                                 }
                             }}
                             onError={() => {

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import ICompanyEthData from 'src/types/ICompanyEthData'
+import IUserFavoriteCompany from 'src/types/IUserFavoriteCompany'
 
 interface IGeneral {
     companyLoading: boolean
@@ -7,7 +8,8 @@ interface IGeneral {
     logarithmicScale: boolean
     companies: ICompanyEthData[] | null
     idToCompany: {[key: number]: ICompanyEthData} | null,
-    googleOauthToken: string | null
+    googleOauthToken: string | null,
+    userFavoriteCompanies: IUserFavoriteCompany[] | null
 }
 
 const initialState: IGeneral = {
@@ -16,7 +18,8 @@ const initialState: IGeneral = {
     logarithmicScale: false,
     companies: null,
     idToCompany: null,
-    googleOauthToken: null
+    googleOauthToken: null,
+    userFavoriteCompanies: null
 }
 
 export const generalSlice = createSlice({
@@ -40,6 +43,9 @@ export const generalSlice = createSlice({
         },
         setGoogleOauthToken: (state, action: PayloadAction<string>) => {
             state.googleOauthToken = action.payload
+        },
+        setUserFavoriteCompanies: (state, action: PayloadAction<IUserFavoriteCompany[]>) => {
+            state.userFavoriteCompanies = action.payload
         }
     }
 })
@@ -50,7 +56,8 @@ export const {
     changeLogarithmicScale: changeLogarithmicScale,
     setCompanies: setCompanies,
     setIdToCompany: setIdToCompany,
-    setGoogleOauthToken: setGoogleOauthToken
+    setGoogleOauthToken: setGoogleOauthToken,
+    setUserFavoriteCompanies: setUserFavoriteCompanies
 } = generalSlice.actions
 
 export type {

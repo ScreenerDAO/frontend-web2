@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box, Card, Chip, CircularProgress, Grid, IconButton, MenuItem, Typography } from '@mui/material';
+import { Box, Card, Checkbox, Chip, CircularProgress, Grid, IconButton, MenuItem, Typography } from '@mui/material';
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts';
 import FinancialStatements from 'src/layouts/components/FinancialStatements/FinancialStatements';
 import SearchBar from 'src/layouts/components/SearchBar';
-import { useAppSelector } from 'src/hooks';
+import { useAppDispatch, useAppSelector } from 'src/hooks';
 import ICompanyData from 'src/types/ICompanyData';
-import { IGeneral } from 'src/features/general';
+import { IGeneral, setUserFavoriteCompanies } from 'src/features/general';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import EditIcon from '@mui/icons-material/Edit';
@@ -17,6 +17,8 @@ import { IGetStaticPropsResult } from '../../lib/getStaticProps';
 import { getStaticProps } from '../../lib/getStaticProps';
 import { getWikipediaSummary } from 'src/lib/generalMethods';
 import { SymbolInfo } from 'react-ts-tradingview-widgets';
+import { Favorite, FavoriteBorder } from '@mui/icons-material';
+import FavoriteCompanyCheckbox from 'src/layouts/components/FavoriteCompanyCheckbox';
 
 const Dashboard = ({ companies }: IGetStaticPropsResult) => {
     const data = useAppSelector((state: { companyData: ICompanyData }) => state.companyData)
@@ -77,7 +79,16 @@ const CompanyDashboard = ({ data, wikipediaSumary }: { data: ICompanyData, wikip
                         <CompanyMoreOptions data={data} />
                     </Card>
                     :
-                    <Card>
+                    <Card style={{position: 'relative'}}>
+                        <div
+                            style={{
+                                position: 'absolute',
+                                right: '3px',
+                                bottom: '0px'
+                            }}
+                        >
+                            <FavoriteCompanyCheckbox data={data} />
+                        </ div>
                         <SymbolInfo symbol={data.ticker} isTransparent={true} autosize></SymbolInfo>
                     </Card>
                 }

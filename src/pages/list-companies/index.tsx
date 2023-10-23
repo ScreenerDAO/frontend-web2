@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { useTheme } from '@mui/material/styles';
 import PageWrapper from 'src/layouts/components/PageWrapper'
 import { IGetStaticPropsResult } from 'src/lib/getStaticProps'
+import FavoriteCompanyCheckbox from 'src/layouts/components/FavoriteCompanyCheckbox'
 
 const ListCompanies = ({ companies }: IGetStaticPropsResult) => {
     return (
@@ -17,6 +18,7 @@ const ListCompanies = ({ companies }: IGetStaticPropsResult) => {
                         <DataGrid
                             rows={companies}
                             columns={columns}
+                            isRowSelectable={() => false}
                             sx={{ minHeight: {
                                 xs: 'calc(100vh - 64px - 56px - 3rem)',
                                 md: 'calc(100vh - 76px - 56px - 3rem)'
@@ -54,8 +56,15 @@ const RenderTicker = (params: {
 
 const columns: GridColumns = [
     // { field: 'id', headerName: '#', width: 100, editable: false },
-    { field: 'name', headerName: 'Name', width: 300, editable: false },
     { field: 'ticker', headerName: 'Ticker', width: 100, editable: false, renderCell: RenderTicker },
+    { field: 'name', headerName: 'Name', flex: 1, editable: false },
+    {
+        field: 'icon',
+        headerName: '',
+        width: 100,
+        align: 'center',
+        renderCell: (params) => <FavoriteCompanyCheckbox data={params.row} />
+    },
 ]
 
 export { getStaticProps } from '../../lib/getStaticProps'

@@ -180,10 +180,7 @@ const selectCompany = async (
         dispatch(setCompanyLoading(true))
 
         companyData = (await getCompanyData(item.dataHash)) ?? {} as ICompanyData
-
-        if (!companyData?.id) {
-            companyData.id = item.id
-        }
+        companyData.id = item.id
     }
     catch (error) {
         companyData.id = item.id
@@ -194,6 +191,8 @@ const selectCompany = async (
         companyData.annualReports = {}
     }
     finally {
+        console.log(companyData)
+
         dispatch(setNewCompanyData(companyData as ICompanyData))
         dispatch(setCompanyData(companyData as ICompanyData))
         dispatch(setCompanyLoading(false))

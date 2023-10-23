@@ -322,6 +322,8 @@ const SaveDataBackend = (props: {
 
     React.useEffect(() => {
         if (calledOnce.current == false && bearerToken && bearerToken !== "") {
+            console.log(companyId)
+
             if (companyId){
                 mutationUpdateCompany.mutate()
             }

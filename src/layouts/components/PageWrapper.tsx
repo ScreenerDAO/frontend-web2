@@ -19,8 +19,6 @@ const PageWrapper = ({companies, children}: {
             const companyId = searchParams.get('id')
             const isNewCompany = searchParams.get('isNewCompany')
 
-            console.log(companyId)
-
             if (!isNewCompany) {
                 // if (!companyId && !store.getState().newCompanyData.id) {
                 if (!companyId) {
@@ -28,8 +26,6 @@ const PageWrapper = ({companies, children}: {
                 }
                 else {
                     const company = companies.find(company => company.id == companyId)
-
-                    console.log(company)
 
                     selectCompany(company!, store.dispatch)
                 }
