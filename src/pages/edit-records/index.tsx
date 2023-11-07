@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from 'src/hooks'
 import { IGeneral } from 'src/features/general'
 import ICompanyData from 'src/types/ICompanyData'
 import { Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Slide, Tab, Tabs, TextField, Select, MenuItem, FormControl, InputLabel, Switch, FormControlLabel, Paper, Chip } from '@mui/material'
-import { setCompanyCountry, setCompanyCurrency, setCompanyData, setCompanyIsDelisted, setCompanyIsin, setCompanyName, setCompanyTicker, setCompanyWikipediaPage } from 'src/features/newCompanyDataSlice'
+import { setCompanyCountry, setCompanyCurrency, setCompanyData, setCompanyIsDelisted, setCompanyIsin, setCompanyName, setCompanyTicker, setCompanyWikipediaPage, setcompanyCik } from 'src/features/newCompanyDataSlice'
 import FinancialStatementsList from 'src/layouts/components/FinancialStatements/FinancialStatementsList'
 import SaveDataModal from 'src/layouts/components/SaveDataModal'
 import { initialState } from 'src/features/newCompanyDataSlice'
@@ -41,7 +41,7 @@ const EditRecords = ({ companies }: {
     // React.useEffect(() => setInitialRoute(Router.route), []) 
 
     // Router.events.on('routeChangeStart', () => {
-        
+
 
     //     Router.events.emit('routeChangeError')
     //     Router.push(initialRoute as string)
@@ -172,6 +172,10 @@ const EditRecords = ({ companies }: {
 
                                     <Grid item xs={12} md={6}>
                                         <CompanyCountry countries={countriesList} />
+                                    </Grid>
+
+                                    <Grid item xs={12} md={6}>
+                                        <CompanyCik />
                                     </Grid>
 
                                     <Grid item xs={12} md={6}>
@@ -349,6 +353,24 @@ const EditRecords = ({ companies }: {
                     {currencies.map((currency, index) => <MenuItem value={currency} key={index}>{currency}</MenuItem>)}
                 </Select>
             </FormControl>
+        )
+    }
+
+    const CompanyCik = () => {
+        const companyCik = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.cik)
+
+        return (
+            <TextField
+                label="Cik"
+                variant="outlined"
+                autoComplete='off'
+                style={{
+                    marginTop: '10px'
+                }}
+                value={companyCik}
+                onChange={ev => dispatch(setcompanyCik(ev.target.value as unknown as number))}
+                fullWidth
+            />
         )
     }
 

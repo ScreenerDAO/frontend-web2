@@ -427,7 +427,7 @@ const MultipleFilesUploader = () => {
         const formData = new FormData()
         formData.append('file', file)
 
-        const response = await fetch(`${backendEndpoint}UploadFile`, {
+        const response = await fetch(`${backendEndpoint}/Files`, {
             method: 'POST',
             body: formData
         })
@@ -451,7 +451,7 @@ const MultipleFilesUploader = () => {
                 const formData = new FormData()
                 formData.append('file', file)
 
-                const response = await fetch(`${backendEndpoint}UploadFile`, {
+                const response = await fetch(`${backendEndpoint}/Files`, {
                     method: 'POST',
                     body: formData
                 })

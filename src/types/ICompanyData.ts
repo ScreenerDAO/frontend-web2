@@ -7,6 +7,7 @@ export default interface ICompanyData {
     country: string
     wikipediaPage?: string
     isin?: string
+    cik?: number
     currency?: number
     isDelisted: boolean
     financialStatements: {

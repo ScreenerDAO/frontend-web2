@@ -16,6 +16,7 @@ import Tooltip from '@mui/material/Tooltip';
 import SearchBar from '../SearchBar'
 import { setGoogleOauthToken, setUserFavoriteCompanies } from 'src/features/general'
 import { GoogleLogin } from '@react-oauth/google'
+import UserDropdown from 'src/@core/layouts/components/shared-components/UserDropdown'
 
 interface Props {
     hidden: boolean

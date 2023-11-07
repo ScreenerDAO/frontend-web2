@@ -96,7 +96,7 @@ const EditFinancialStatements = (props: IEditFinancialStatementsProps): React.Re
                     const formData = new FormData()
                     formData.append('file', ev.target.files[0])
 
-                    const response = await fetch(`${backendEndpoint}UploadFile`, {
+                    const response = await fetch(`${backendEndpoint}/Files`, {
                         method: 'POST',
                         body: formData
                     })

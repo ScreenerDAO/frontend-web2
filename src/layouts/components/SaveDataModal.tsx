@@ -148,7 +148,7 @@ const SaveDataToFilecoinStep = ({newCompanyData, state, setState}: {
             const formData = new FormData()
             formData.append('file', new Blob([JSON.stringify(newCompanyData)]))
 
-            const response = await fetch(`${backendEndpoint}UploadFile`, {
+            const response = await fetch(`${backendEndpoint}/Files`, {
                 method: 'POST',
                 body: formData
             })

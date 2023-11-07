@@ -12,6 +12,7 @@ const initialState: ICompanyData = {
     country: "",
     wikipediaPage: undefined,
     isin: undefined,
+    cik: undefined,
     currency: undefined,
     isDelisted: false,
     financialStatements: {},
@@ -29,6 +30,7 @@ export const newCompanyDataSlice = createSlice({
             state.country = action.payload.country
             state.wikipediaPage = action.payload.wikipediaPage
             state.isin = action.payload.isin
+            state.cik = action.payload.cik
             state.currency = action.payload.currency
             state.isDelisted = action.payload.isDelisted
             state.financialStatements = action.payload.financialStatements ?? {}
@@ -48,7 +50,10 @@ export const newCompanyDataSlice = createSlice({
         },
         setCompanyIsin: (state, action: PayloadAction<string>) => {
             state.isin = action.payload
-        },        
+        },  
+        setcompanyCik: (state, action: PayloadAction<number>) => {
+            state.cik = action.payload
+        },      
         setCompanyCurrency: (state, action: PayloadAction<number>) => {
             state.currency = action.payload
         },
@@ -99,6 +104,7 @@ export const {
     setCompanyTicker,
     setCompanyWikipediaPage,
     setCompanyIsin,
+    setcompanyCik,
     setCompanyCurrency,
     setCompanyIsDelisted,
     addNewYear,
