@@ -37,7 +37,7 @@ export async function getStaticProps(): Promise<{
 }> {
     // const companies: IGetStaticPropsResult = (await client.query({ query: query })).data
     let data: IGetStaticPropsResult | null = null
-    const response = await fetch(`${backendEndpoint}Companies/GetCompaniesAndEvents`)
+    const response = await fetch(`${backendEndpoint}/CompaniesAndEvents`)
 
     if (response.ok) {
         data = (await response.json()) as any
