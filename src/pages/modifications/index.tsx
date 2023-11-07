@@ -202,7 +202,7 @@ const AccountMenu = ({id, bearerToken}: {id: string, bearerToken: string}) => {
                 </MenuItem>
                 <MenuItem onClick={() => {
                     fetch(`${backendEndpoint}Modifications/Discard`, {
-                        method: 'PUT',
+                        method: 'PATCH',
                         headers: {
                             'Authorization': `Bearer ${bearerToken}`
                         },
