@@ -19,6 +19,9 @@ import { RootState } from 'src/store';
 import { StatementType } from 'src/types/IStatement';
 import { useAppSelector } from 'src/hooks';
 import { IChartLabel } from './FinancialStatements/FinancialStatements';
+import { AnyAction, Store } from '@reduxjs/toolkit';
+import { IGeneral } from 'src/features/general';
+import ICompanyData from 'src/types/ICompanyData';
 
 ChartJS.register(
     LinearScale,
@@ -59,20 +62,24 @@ const getLabel = (label: IChartLabel ) => {
 
 const getValue = (
     year: number,
-    store: any,
+    store: Store<{
+        companyData: ICompanyData;
+        newCompanyData: ICompanyData;
+        general: IGeneral;
+    }, AnyAction>,
     label: {
         statement: StatementType,
         label: number
     }
 ) => {
     if (label.statement === StatementType.BalanceSheet) {
-        return store.getState().companyData.financialStatements[year].balanceSheet[label.label]?.value
+        return store.getState().companyData.FinancialStatements[year].BalanceSheet[label.label]?.Value
     }
     if (label.statement === StatementType.IncomeStatement) {
-        const incomeStatement = store.getState().companyData.financialStatements[year].incomeStatement
+        const incomeStatement = store.getState().companyData.FinancialStatements[year].IncomeStatement
 
         if (incomeStatement) {
-            return store.getState().companyData.financialStatements[year].incomeStatement[label.label]?.value
+            return store.getState().companyData.FinancialStatements[year].IncomeStatement[label.label]?.Value
         }
 
         return null

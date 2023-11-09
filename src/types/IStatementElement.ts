@@ -1,4 +1,4 @@
 export default interface IStatementElement {
-    value: string
-    multipleValues: string[] | number[] | null
+    Value: string
+    MultipleValues: string[] | number[] | null
 }

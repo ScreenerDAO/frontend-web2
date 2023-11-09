@@ -36,7 +36,7 @@ const EditRecords = ({ companies }: {
     const store = useStore<RootState>()
     const dispatch = useAppDispatch()
     const companyLoading = useAppSelector((state: { general: IGeneral }) => state.general.companyLoading)
-    const companyIsDelisted = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.isDelisted)
+    const companyIsDelisted = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.IsDelisted)
 
     // React.useEffect(() => setInitialRoute(Router.route), []) 
 
@@ -57,7 +57,7 @@ const EditRecords = ({ companies }: {
     const resetData = () => {
         const companyData = store.getState().companyData
 
-        if (companyData.id == null) {
+        if (companyData.Id == null) {
             dispatch(setCompanyData(initialState))
 
             return
@@ -67,10 +67,10 @@ const EditRecords = ({ companies }: {
     }
 
     const CompanyDashboard = () => {
-        const companyName = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData["companyName"] as string)
-        const companyTicker = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData["ticker"] as string)
-        const companyId = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.id)
-        const companyIsDelisted = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.isDelisted)
+        const companyName = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData["Name"] as string)
+        const companyTicker = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData["Ticker"] as string)
+        const companyId = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Id)
+        const companyIsDelisted = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.IsDelisted)
 
         return (
             <>
@@ -223,7 +223,7 @@ const EditRecords = ({ companies }: {
     );
 
     const CompanyName = () => {
-        const companyName = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData["companyName"])
+        const companyName = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData["Name"])
 
         return (
             <TextField
@@ -242,7 +242,7 @@ const EditRecords = ({ companies }: {
     }
 
     const CompanyTicker = () => {
-        const companyTicker = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData["ticker"])
+        const companyTicker = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData["Ticker"])
 
         return (
             <TextField
@@ -263,7 +263,7 @@ const EditRecords = ({ companies }: {
     const CompanyCountry = ({ countries }: {
         countries: string[]
     }) => {
-        const companyCountry = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.country)
+        const companyCountry = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Country)
 
         return (
             <FormControl sx={{ marginTop: '10px' }} fullWidth>
@@ -282,7 +282,7 @@ const EditRecords = ({ companies }: {
     }
 
     const CompanyWikipediaPage = () => {
-        const companyDescription = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.wikipediaPage)
+        const companyDescription = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.WikipediaPage)
 
         return (
             <TextField
@@ -300,7 +300,7 @@ const EditRecords = ({ companies }: {
     }
 
     const CompanyIsin = () => {
-        const companyIsin = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.isin)
+        const companyIsin = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Isin)
 
         return (
             <TextField
@@ -318,7 +318,7 @@ const EditRecords = ({ companies }: {
     }
 
     const CompanyIsDelisted = () => {
-        const companyIsDelisted = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.isDelisted)
+        const companyIsDelisted = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.IsDelisted)
 
         return (
             <Paper variant='outlined' sx={{ marginTop: '10px', height: '56px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -338,7 +338,7 @@ const EditRecords = ({ companies }: {
     const CompanyCurrency = ({ currencies }: {
         currencies: string[]
     }) => {
-        const companyCurrency = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.currency)
+        const companyCurrency = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Currency)
 
         return (
             <FormControl sx={{ marginTop: '10px' }} fullWidth>
@@ -357,7 +357,7 @@ const EditRecords = ({ companies }: {
     }
 
     const CompanyCik = () => {
-        const companyCik = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.cik)
+        const companyCik = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Cik)
 
         return (
             <TextField

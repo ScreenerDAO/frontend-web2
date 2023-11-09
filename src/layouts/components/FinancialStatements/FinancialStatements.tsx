@@ -93,7 +93,7 @@ const FinancialStatements = (props: { companyData: ICompanyData, wikipediaSumary
     //     "cashFlow": []
     // })
 
-    const years = getYearsArray(props.companyData.financialStatements)
+    const years = getYearsArray(props.companyData.FinancialStatements)
 
     React.useEffect(() => {
         setYearsSelected([years[0], years[years.length - 1]])
@@ -155,10 +155,10 @@ const FinancialStatements = (props: { companyData: ICompanyData, wikipediaSumary
             <Grid item xs={12}>
                 <TabPanel value={tabIndex} index={0}>
                     <Grid container spacing={3}>
-                        {!props.companyData.isDelisted ?
+                        {!props.companyData.IsDelisted ?
                             <Grid item xs={12}>
                                 <Paper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
-                                    <StockPriceChart companyTicker={props.companyData.ticker} />
+                                    <StockPriceChart companyTicker={props.companyData.Ticker} />
                                 </Paper>
                             </Grid>
                             : null
@@ -169,38 +169,38 @@ const FinancialStatements = (props: { companyData: ICompanyData, wikipediaSumary
                                 <Grid container spacing={2}>
                                     <Grid item xs={6}>
                                         <div>Country</div>
-                                        <b>{props.companyData.country}</b>
+                                        <b>{props.companyData.Country}</b>
                                     </Grid>
 
                                     <Grid item xs={6}>
                                         <div>Currency</div>
-                                        <b>{props.companyData.currency ?? 'N/A'}</b>
+                                        <b>{props.companyData.Currency ?? 'N/A'}</b>
                                     </Grid>
 
-                                    {!props.companyData.isDelisted ?
+                                    {!props.companyData.IsDelisted ?
                                         <Grid item xs={6}>
                                             <div>ISIN</div>
-                                            <b>{props.companyData.isin ?? 'N/A'}</b>
+                                            <b>{props.companyData.Isin ?? 'N/A'}</b>
                                         </Grid>
                                         : null
                                     }
                                 </Grid>
                             </Paper>
 
-                            {!props.companyData.isDelisted ?
+                            {!props.companyData.IsDelisted ?
                                 <Paper sx={{ marginTop: '0.75rem' }}>
-                                    <FundamentalData symbol={props.companyData.ticker} height={800} width='100%' isTransparent></FundamentalData>
+                                    <FundamentalData symbol={props.companyData.Ticker} height={800} width='100%' isTransparent></FundamentalData>
                                 </Paper>
                                 : null
                             }
                         </Grid>
 
                         <Grid item xs={12} md={6}>
-                            {props.companyData.isDelisted ?
-                                <WikipediaSummary summary={props.wikipediaSumary} wikipediaPage={props.companyData.wikipediaPage as string} />
+                            {props.companyData.IsDelisted ?
+                                <WikipediaSummary summary={props.wikipediaSumary} wikipediaPage={props.companyData.WikipediaPage as string} />
                                 :
                                 <Paper>
-                                    <CompanyProfile symbol={props.companyData.ticker} height="550" width="100%" isTransparent></CompanyProfile>
+                                    <CompanyProfile symbol={props.companyData.Ticker} height="550" width="100%" isTransparent></CompanyProfile>
                                 </Paper>
                             }
                         </Grid>

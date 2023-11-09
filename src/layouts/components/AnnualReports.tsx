@@ -20,7 +20,7 @@ const AnnualReports = ({data}: {
     ]
 
     React.useEffect(() => {
-        const yearsArray = getYearsArrayWithAnnualReports(data.financialStatements, data.annualReports)
+        const yearsArray = getYearsArrayWithAnnualReports(data.FinancialStatements, data.AnnualReports)
 
         if (yearsArray?.length > 0) {
             const initialRows = []
@@ -29,8 +29,8 @@ const AnnualReports = ({data}: {
                 initialRows.push({
                     id: year,
                     year: year,
-                    ipfsLink: data.annualReports[year] ?? '-',
-                    pdfLink: data.annualReports[year]
+                    ipfsLink: data.AnnualReports[year]?.Report ?? '-',
+                    pdfLink: data.AnnualReports[year]?.Report
                 })
             }
 

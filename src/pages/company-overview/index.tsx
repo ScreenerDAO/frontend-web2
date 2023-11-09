@@ -20,14 +20,14 @@ import { SymbolInfo } from 'react-ts-tradingview-widgets';
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
 import FavoriteCompanyCheckbox from 'src/layouts/components/FavoriteCompanyCheckbox';
 
-const Dashboard = ({ companies }: IGetStaticPropsResult) => {
+const Dashboard = ({ Companies: companies }: IGetStaticPropsResult) => {
     const data = useAppSelector((state: { companyData: ICompanyData }) => state.companyData)
     const companyLoading = useAppSelector((state: { general: IGeneral }) => state.general.companyLoading)
     const [wikipediaSumary, setWikipediaSumary] = React.useState<string>("")
 
     React.useEffect(() => {
-        if (data.wikipediaPage) {
-            getWikipediaSummary(data.wikipediaPage)
+        if (data.WikipediaPage) {
+            getWikipediaSummary(data.WikipediaPage)
                 .then(res => setWikipediaSumary(res.extract))
         }
     }, [data])
@@ -35,7 +35,7 @@ const Dashboard = ({ companies }: IGetStaticPropsResult) => {
     return (
         <PageWrapper companies={companies}>
             <ApexChartWrapper>
-                {companyLoading || data.id === null ?
+                {companyLoading || data.Id === null ?
                     <div style={{
                         height: '400px',
                         display: 'flex',
@@ -66,10 +66,10 @@ const CompanyDashboard = ({ data, wikipediaSumary }: { data: ICompanyData, wikip
             </Grid>
 
             <Grid item xs={12}>
-                {data.isDelisted ?
+                {data.IsDelisted ?
                     <Card sx={{ display: 'flex', alignItems: 'center', paddingRight: '5px' }}>
                         <Box sx={{ paddingLeft: {xs: '15px', md: '40px'} }}>
-                            <h2>#{data.id} {data.companyName}</h2>
+                            <h2>#{data.Id} {data.Name}</h2>
                         </Box>
 
                         <Box sx={{ flex: 1, marginLeft: { xs: '5px', md: '20px' } }}>
@@ -89,7 +89,7 @@ const CompanyDashboard = ({ data, wikipediaSumary }: { data: ICompanyData, wikip
                         >
                             <FavoriteCompanyCheckbox data={data} />
                         </ div>
-                        <SymbolInfo symbol={data.ticker} isTransparent={true} autosize></SymbolInfo>
+                        <SymbolInfo symbol={data.Ticker} isTransparent={true} autosize></SymbolInfo>
                     </Card>
                 }
             </Grid>
@@ -129,7 +129,7 @@ const CompanyMoreOptions = ({ data }: {
                 onClose={handleClose}
             >
                 <MenuItem onClick={() => {
-                    router.push(`/edit-records?id=${data.id}`)
+                    router.push(`/edit-records?id=${data.Id}`)
                     handleClose()
                 }} disableRipple>
                     <EditIcon />
@@ -142,7 +142,7 @@ const CompanyMoreOptions = ({ data }: {
                     a.href = URL.createObjectURL(
                         new Blob([JSON.stringify(data)], { type: 'application/json' })
                     )
-                    a.download = `${data.companyName}.json`;
+                    a.download = `${data.Name}.json`;
                     a.click()
 
                     handleClose()

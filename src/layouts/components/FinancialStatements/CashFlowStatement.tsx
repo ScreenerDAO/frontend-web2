@@ -69,7 +69,7 @@ const Rows = (props: IStatementDisplayProps) => {
                     props.yearsSelected.map((year, index) => {
                         return (
                             <TableCell align="right" key={index} sx={{ fontWeight: bold ? 900 : 'initial' }}>
-                                <CellValue value={props.data.financialStatements[year].cashFlow[label]?.value} />
+                                <CellValue value={props.data.FinancialStatements[year].CashFlow[label]?.Value} />
                             </TableCell>
                         )
                     })

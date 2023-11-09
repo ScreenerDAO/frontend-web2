@@ -1,3 +1,4 @@
+import { AnnualReports } from "src/types/ICompanyData"
 import IFinancialStatement from "src/types/IFinancialStatement"
 
 const getYearsArray = (financials: { [key: number]: IFinancialStatement }) => {
@@ -8,7 +9,7 @@ const getYearsArray = (financials: { [key: number]: IFinancialStatement }) => {
     return []
 }
 
-const getYearsArrayWithAnnualReports = (financials: { [key: number]: IFinancialStatement }, annualReports: { [key: number | string]: string }) => {
+const getYearsArrayWithAnnualReports = (financials: { [key: number]: IFinancialStatement }, annualReports: AnnualReports) => {
     let yearsArray: number[] = []
 
     if (financials) {

@@ -179,16 +179,16 @@ const selectCompany = async (
     try {
         dispatch(setCompanyLoading(true))
 
-        companyData = (await getCompanyData(item.dataHash)) ?? {} as ICompanyData
-        companyData.id = item.id
+        companyData = (await getCompanyData(item.DataHash)) ?? {} as ICompanyData
+        companyData.Id = item.Id
     }
     catch (error) {
-        companyData.id = item.id
-        companyData.companyName = item.name
-        companyData.ticker = item.ticker
-        companyData.country = ""
-        companyData.financialStatements = {}
-        companyData.annualReports = {}
+        companyData.Id = item.Id
+        companyData.Name = item.Name
+        companyData.Ticker = item.Ticker
+        companyData.Country = ""
+        companyData.FinancialStatements = {}
+        companyData.AnnualReports = {}
     }
     finally {
         console.log(companyData)

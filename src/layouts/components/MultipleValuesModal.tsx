@@ -37,12 +37,12 @@ const MultipleValuesModal = ({
     label,
     setValue
 }: IProps) => {
-    const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.financialStatements[year]?.[statementType as keyof IFinancialStatement][label])
+    const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.FinancialStatements[year]?.[statementType as keyof IFinancialStatement][label])
 
     const updateStateAndCloseModal = () => {
         let total = 0
 
-        for (const multipleValuesElement of element?.multipleValues ?? []) {
+        for (const multipleValuesElement of element?.MultipleValues ?? []) {
             const value = Number(multipleValuesElement)
 
             if (!isNaN(value)) {
@@ -50,11 +50,11 @@ const MultipleValuesModal = ({
             }
         }
 
-        const newElementMultipleValues = (element?.multipleValues as string[] ?? []).filter((element: any) => element !== '')
+        const newElementMultipleValues = (element?.MultipleValues as string[] ?? []).filter((element: any) => element !== '')
 
         setValue({
-            value: total !== 0 ? parseFloat(total.toFixed(2)).toString() : "",
-            multipleValues: newElementMultipleValues.length > 0 ? newElementMultipleValues : null
+            Value: total !== 0 ? parseFloat(total.toFixed(2)).toString() : "",
+            MultipleValues: newElementMultipleValues.length > 0 ? newElementMultipleValues : null
         })
         closeModal()
     }
@@ -82,7 +82,7 @@ const ModalContent = ({ element, setValue }: {
 }) => {
     return (
         <>
-            {(element?.multipleValues ?? ['']).map((multipleValuesElement, index) => (
+            {(element?.MultipleValues ?? ['']).map((multipleValuesElement, index) => (
                 <FormControl key={index} variant="outlined" sx={{ width: '100%', marginBottom: '10px' }}>
                     <InputLabel>{`Value ${index + 1}`}</InputLabel>
                     <OutlinedInput
@@ -97,11 +97,11 @@ const ModalContent = ({ element, setValue }: {
                                         <Tooltip title="Clear">
                                             <ClearIcon
                                                 onClick={() => {
-                                                    const newElementMultipleValues = [...element.multipleValues ?? ['']]
+                                                    const newElementMultipleValues = [...element.MultipleValues ?? ['']]
                                                     newElementMultipleValues[index] = ''
 
                                                     const newElement = { ...element }
-                                                    newElement.multipleValues = newElementMultipleValues as any
+                                                    newElement.MultipleValues = newElementMultipleValues as any
 
                                                     setValue(newElement)
                                                 }}
@@ -116,11 +116,11 @@ const ModalContent = ({ element, setValue }: {
                         }
                         value={multipleValuesElement ?? ''}
                         onChange={ev => {
-                            const newElementMultipleValues = [...element?.multipleValues ?? ['']]
+                            const newElementMultipleValues = [...element?.MultipleValues ?? ['']]
                             newElementMultipleValues[index] = ev.target.value
 
                             const newElement = { ...element }
-                            newElement.multipleValues = newElementMultipleValues as any
+                            newElement.MultipleValues = newElementMultipleValues as any
 
                             setValue(newElement)
                         }}
@@ -145,11 +145,11 @@ const ModalContent = ({ element, setValue }: {
                             },
                         }}
                         onClick={() => {
-                            const newElementMultipleValues = [...element?.multipleValues ?? ['']]
+                            const newElementMultipleValues = [...element?.MultipleValues ?? ['']]
                             newElementMultipleValues.push('')
 
                             const newElement = { ...element }
-                            newElement.multipleValues = newElementMultipleValues as any
+                            newElement.MultipleValues = newElementMultipleValues as any
 
                             setValue(newElement)
                         }}

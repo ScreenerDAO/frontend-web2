@@ -14,10 +14,10 @@ const FavoriteCompanyCheckbox = ({data}:{data: ICompanyData}) => {
             <Checkbox 
                 icon={<FavoriteBorder />} 
                 checkedIcon={<Favorite />} 
-                checked={userFavoriteCompanies !== null && userFavoriteCompanies.some(item => item.CompanyId == data.id)}
+                checked={userFavoriteCompanies !== null && userFavoriteCompanies.some(item => item.CompanyId == data.Id)}
                 onChange={async(ev) => {
                     if (!ev.target.checked) {
-                        const id = userFavoriteCompanies?.find(e => e.CompanyId == data.id)?.Id
+                        const id = userFavoriteCompanies?.find(e => e.CompanyId == data.Id)?.Id
 
                         const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_ENDPOINT}UsersFavoriteCompanies/${id}`, {
                             method: 'DELETE',
@@ -28,7 +28,7 @@ const FavoriteCompanyCheckbox = ({data}:{data: ICompanyData}) => {
 
                         if (response.ok) {
                             let newUserFavoriteCompanies = userFavoriteCompanies ? [...userFavoriteCompanies] : []
-                            newUserFavoriteCompanies = newUserFavoriteCompanies.filter(entity => entity.CompanyId !== data.id)
+                            newUserFavoriteCompanies = newUserFavoriteCompanies.filter(entity => entity.CompanyId !== data.Id)
 
                             dispatch(setUserFavoriteCompanies(newUserFavoriteCompanies))
                         }
@@ -37,7 +37,7 @@ const FavoriteCompanyCheckbox = ({data}:{data: ICompanyData}) => {
                         const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_ENDPOINT}UsersFavoriteCompanies/`, {
                             method: 'POST', 
                             body: JSON.stringify({
-                                'CompanyId': data.id
+                                'CompanyId': data.Id
                             }),
                             headers: {
                                 'Authorization': `Bearer ${bearerToken}`,
@@ -45,7 +45,7 @@ const FavoriteCompanyCheckbox = ({data}:{data: ICompanyData}) => {
                             }
                         })
 
-                        const newEntity = JSON.parse(await response.json())
+                        const newEntity = await response.json()
 
                         const newUserFavoriteCompanies = userFavoriteCompanies ? [...userFavoriteCompanies] : []
                         newUserFavoriteCompanies.push(newEntity)

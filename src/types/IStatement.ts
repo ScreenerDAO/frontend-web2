@@ -5,7 +5,7 @@ export default interface IStatement {
 }
 
 export enum StatementType {
-    BalanceSheet="balanceSheet",
-    IncomeStatement="incomeStatement",
-    CashFlowStatement="cashFlow"
+    BalanceSheet="BalanceSheet",
+    IncomeStatement="IncomeStatement",
+    CashFlowStatement="CashFlow"
 }

@@ -1,19 +1,24 @@
 import IFinancialStatement from "./IFinancialStatement"
 
 export default interface ICompanyData {
-    id: string | null
-    companyName: string
-    ticker: string 
-    country: string
-    wikipediaPage?: string
-    isin?: string
-    cik?: number
-    currency?: number
-    isDelisted: boolean
-    financialStatements: {
+    Id: string | null
+    Name: string
+    Ticker: string 
+    Country: string
+    WikipediaPage?: string
+    Isin?: string
+    Cik?: number
+    Currency?: number
+    IsDelisted: boolean
+    FinancialStatements: {
         [key: number | string]: IFinancialStatement
     },
-    annualReports: {
-        [key: number | string]: string 
-    }
+    AnnualReports: AnnualReports
+}
+
+export interface AnnualReports{
+        [key: number | string]: {
+            Filing?: string,
+            Report?: string
+        } 
 }

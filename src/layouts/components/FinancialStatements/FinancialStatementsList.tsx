@@ -45,14 +45,14 @@ const FinancialStatementsList = () => {
 
     const dispatch = useAppDispatch()
     const store = useStore<RootState>()
-    const annualReports = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.annualReports)
+    const annualReports = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.AnnualReports)
     
     // const financials = useAppSelector((state: {newCompanyData: ICompanyData}) => state.newCompanyData).financialStatements
 
     React.useEffect(() => {
         const initialRows = []
 
-        const financials = store.getState().newCompanyData.financialStatements
+        const financials = store.getState().newCompanyData.FinancialStatements
 
         const yearsArray = getYearsArrayWithAnnualReports(financials, annualReports)
 
@@ -177,7 +177,7 @@ const YearsList = ({ setSelectedYear, setEditFinancialsModal, rows, setRows, row
     };
 
     const RenderStatement = (params: GridValueFormatterParams<StatementType>) => {
-        const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.financialStatements[params.id as number]?.[params.value as StatementType])
+        const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.FinancialStatements[params.id as number]?.[params.value as StatementType])
 
         if (element) {
             return Object.keys(element).length > 0
@@ -187,7 +187,7 @@ const YearsList = ({ setSelectedYear, setEditFinancialsModal, rows, setRows, row
     }
 
     const RenderReport = (params: GridValueFormatterParams<StatementType>) => {
-        const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.annualReports[params.id as number])
+        const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.AnnualReports[params.id as number])
 
         if (element) {
             return true
@@ -365,7 +365,7 @@ const ManualGui = ({ newYearModalOpen, setNewYearModalOpen, addRecordListener }:
 
     const submit = () => {
         if (newYear) {
-            if (Object.keys(store.getState().newCompanyData.financialStatements).map(key => Number(key)).includes(newYear)) {
+            if (Object.keys(store.getState().newCompanyData.FinancialStatements).map(key => Number(key)).includes(newYear)) {
                 setError(true)
 
                 return
@@ -460,7 +460,7 @@ const MultipleFilesUploader = () => {
                 const year = Number(file.name.split('.')[0])
 
                 if (year) {
-                    newCompanyData.annualReports[year] = cid
+                    newCompanyData.AnnualReports[year].Filing = cid
                 }
             }
 
@@ -492,22 +492,22 @@ const MultipleFilesUploader = () => {
                             const cellValue = rows[rowIndex][yearIndex + 2] ? parseNumber(rows[rowIndex][yearIndex + 2] as number).toString() : ""
 
                             if (cellValue !== "") {
-                                if (!newCompanyData.financialStatements[years[yearIndex]]) {
-                                    newCompanyData.financialStatements[years[yearIndex]] = {
-                                        balanceSheet: {},
-                                        incomeStatement: {},
-                                        cashFlow: {}
+                                if (!newCompanyData.FinancialStatements[years[yearIndex]]) {
+                                    newCompanyData.FinancialStatements[years[yearIndex]] = {
+                                        BalanceSheet: {},
+                                        IncomeStatement: {},
+                                        CashFlow: {}
                                     }
                                 }
 
-                                if (!newCompanyData.financialStatements[years[yearIndex]].balanceSheet[rows[rowIndex][0] as number]) {
-                                    newCompanyData.financialStatements[years[yearIndex]].balanceSheet[rows[rowIndex][0] as number] = {
-                                        value: "",
-                                        multipleValues: []
+                                if (!newCompanyData.FinancialStatements[years[yearIndex]].BalanceSheet[rows[rowIndex][0] as number]) {
+                                    newCompanyData.FinancialStatements[years[yearIndex]].BalanceSheet[rows[rowIndex][0] as number] = {
+                                        Value: "",
+                                        MultipleValues: []
                                     }
                                 }
 
-                                newCompanyData.financialStatements[years[yearIndex]].balanceSheet[rows[rowIndex][0] as number].value = cellValue
+                                newCompanyData.FinancialStatements[years[yearIndex]].BalanceSheet[rows[rowIndex][0] as number].Value = cellValue
                             }
                         }
                     }
@@ -519,22 +519,22 @@ const MultipleFilesUploader = () => {
                             const cellValue = rows[rowIndex][yearIndex + 2] ? parseNumber(rows[rowIndex][yearIndex + 2] as number).toString() : ""
 
                             if (cellValue !== "") {
-                                if (!newCompanyData.financialStatements[years[yearIndex]]) {
-                                    newCompanyData.financialStatements[years[yearIndex]] = {
-                                        balanceSheet: {},
-                                        incomeStatement: {},
-                                        cashFlow: {}
+                                if (!newCompanyData.FinancialStatements[years[yearIndex]]) {
+                                    newCompanyData.FinancialStatements[years[yearIndex]] = {
+                                        BalanceSheet: {},
+                                        IncomeStatement: {},
+                                        CashFlow: {}
                                     }
                                 }
 
-                                if (!newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number]) {
-                                    newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number] = {
-                                        value: "",
-                                        multipleValues: []
+                                if (!newCompanyData.FinancialStatements[years[yearIndex]].IncomeStatement[rows[rowIndex][0] as number]) {
+                                    newCompanyData.FinancialStatements[years[yearIndex]].IncomeStatement[rows[rowIndex][0] as number] = {
+                                        Value: "",
+                                        MultipleValues: []
                                     }
                                 }
 
-                                newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number].value = cellValue
+                                newCompanyData.FinancialStatements[years[yearIndex]].IncomeStatement[rows[rowIndex][0] as number].Value = cellValue
                             }
                         }
                     }
@@ -585,7 +585,7 @@ const MultipleFilesUploader = () => {
                 const uploadResult = await uploadPdfFile(file.file)
 
                 const newCompanyData = JSON.parse(JSON.stringify(store.getState().newCompanyData)) as ICompanyData
-                newCompanyData.annualReports[uploadResult.year] = uploadResult.cid
+                newCompanyData.AnnualReports[uploadResult.year].Report = uploadResult.cid
 
                 dispatch(setCompanyData(newCompanyData))
 
@@ -626,22 +626,22 @@ const MultipleFilesUploader = () => {
                             const cellValue = rows[rowIndex][yearIndex + 2] ? parseNumber(rows[rowIndex][yearIndex + 2] as number).toString() : ""
 
                             if (cellValue !== "") {
-                                if (!newCompanyData.financialStatements[years[yearIndex]]) {
-                                    newCompanyData.financialStatements[years[yearIndex]] = {
-                                        balanceSheet: {},
-                                        incomeStatement: {},
-                                        cashFlow: {}
+                                if (!newCompanyData.FinancialStatements[years[yearIndex]]) {
+                                    newCompanyData.FinancialStatements[years[yearIndex]] = {
+                                        BalanceSheet: {},
+                                        IncomeStatement: {},
+                                        CashFlow: {}
                                     }
                                 }
 
-                                if (!newCompanyData.financialStatements[years[yearIndex]].balanceSheet[rows[rowIndex][0] as number]) {
-                                    newCompanyData.financialStatements[years[yearIndex]].balanceSheet[rows[rowIndex][0] as number] = {
-                                        value: "",
-                                        multipleValues: []
+                                if (!newCompanyData.FinancialStatements[years[yearIndex]].BalanceSheet[rows[rowIndex][0] as number]) {
+                                    newCompanyData.FinancialStatements[years[yearIndex]].BalanceSheet[rows[rowIndex][0] as number] = {
+                                        Value: "",
+                                        MultipleValues: []
                                     }
                                 }
 
-                                newCompanyData.financialStatements[years[yearIndex]].balanceSheet[rows[rowIndex][0] as number].value = cellValue
+                                newCompanyData.FinancialStatements[years[yearIndex]].BalanceSheet[rows[rowIndex][0] as number].Value = cellValue
                             }
                         }
                     }
@@ -653,22 +653,22 @@ const MultipleFilesUploader = () => {
                             const cellValue = rows[rowIndex][yearIndex + 2] ? parseNumber(rows[rowIndex][yearIndex + 2] as number).toString() : ""
 
                             if (cellValue !== "") {
-                                if (!newCompanyData.financialStatements[years[yearIndex]]) {
-                                    newCompanyData.financialStatements[years[yearIndex]] = {
-                                        balanceSheet: {},
-                                        incomeStatement: {},
-                                        cashFlow: {}
+                                if (!newCompanyData.FinancialStatements[years[yearIndex]]) {
+                                    newCompanyData.FinancialStatements[years[yearIndex]] = {
+                                        BalanceSheet: {},
+                                        IncomeStatement: {},
+                                        CashFlow: {}
                                     }
                                 }
 
-                                if (!newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number]) {
-                                    newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number] = {
-                                        value: "",
-                                        multipleValues: []
+                                if (!newCompanyData.FinancialStatements[years[yearIndex]].IncomeStatement[rows[rowIndex][0] as number]) {
+                                    newCompanyData.FinancialStatements[years[yearIndex]].IncomeStatement[rows[rowIndex][0] as number] = {
+                                        Value: "",
+                                        MultipleValues: []
                                     }
                                 }
 
-                                newCompanyData.financialStatements[years[yearIndex]].incomeStatement[rows[rowIndex][0] as number].value = cellValue
+                                newCompanyData.FinancialStatements[years[yearIndex]].IncomeStatement[rows[rowIndex][0] as number].Value = cellValue
                             }
                         }
                     }

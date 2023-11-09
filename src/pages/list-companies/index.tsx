@@ -9,7 +9,7 @@ import PageWrapper from 'src/layouts/components/PageWrapper'
 import { IGetStaticPropsResult } from 'src/lib/getStaticProps'
 import FavoriteCompanyCheckbox from 'src/layouts/components/FavoriteCompanyCheckbox'
 
-const ListCompanies = ({ companies }: IGetStaticPropsResult) => {
+const ListCompanies = ({ Companies: companies }: IGetStaticPropsResult) => {
     return (
         <PageWrapper companies={companies}>
             <Grid container spacing={3} sx={{height: 'calc(100%)'}}>
@@ -33,11 +33,11 @@ const ListCompanies = ({ companies }: IGetStaticPropsResult) => {
 
 const RenderTicker = (params: {
     row: {
-        id: string,
-        name: string,
-        ticker: string,
-        dataHash: string,
-        isDelisted: boolean
+        Id: string,
+        Name: string,
+        Ticker: string,
+        DataHash: string,
+        IsDelisted: boolean
     }
 }) => {
     const dispatch = useAppDispatch()
@@ -45,11 +45,11 @@ const RenderTicker = (params: {
 
     return (
         <Link
-            href={`/company-overview?id=${params.row.id}`}
+            href={`/company-overview?id=${params.row.Id}`}
             onClick={() => selectCompany(params.row, dispatch)}
             style={{ color: theme.palette.primary.main }}
         >
-            {params.row.ticker === '' ? 'DELISTED' : params.row.ticker}
+            {params.row.Ticker === '' ? 'DELISTED' : params.row.Ticker}
         </Link>
     )
 }

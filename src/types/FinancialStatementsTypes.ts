@@ -207,8 +207,8 @@ interface IRatio {
 
 const ratios: IRatio[] = [
     {name: 'Net margin', function: (year: number, companyData: ICompanyData) => {
-        const netIncome = Number(companyData.financialStatements[year].incomeStatement[19]?.value)
-        const revenue = Number(companyData.financialStatements[year].incomeStatement[1]?.value)
+        const netIncome = Number(companyData.FinancialStatements[year].IncomeStatement[19]?.Value)
+        const revenue = Number(companyData.FinancialStatements[year].IncomeStatement[1]?.Value)
 
         if (!netIncome || !revenue) {
             return "-"
@@ -219,8 +219,8 @@ const ratios: IRatio[] = [
         return result ? `${(result * 100).toFixed(2)}%` : "-"
     }}, 
     {name: 'Gross margin', function: (year: number, companyData: ICompanyData) => {
-        const grossProfit = Number(companyData.financialStatements[year].incomeStatement[3]?.value)
-        const revenue = Number(companyData.financialStatements[year].incomeStatement[1]?.value)
+        const grossProfit = Number(companyData.FinancialStatements[year].IncomeStatement[3]?.Value)
+        const revenue = Number(companyData.FinancialStatements[year].IncomeStatement[1]?.Value)
 
         if (!grossProfit || !revenue) {
             return "-"
@@ -231,8 +231,8 @@ const ratios: IRatio[] = [
         return result ? `${(result * 100).toFixed(2)}%` : "-"
     }},
     {name: 'ROE', function: (year: number, companyData: ICompanyData) => {
-        const netIncome = Number(companyData.financialStatements[year].incomeStatement[19]?.value)
-        const previousEquity = Number(companyData.financialStatements[year - 1]?.balanceSheet[51]?.value)
+        const netIncome = Number(companyData.FinancialStatements[year].IncomeStatement[19]?.Value)
+        const previousEquity = Number(companyData.FinancialStatements[year - 1]?.BalanceSheet[51]?.Value)
 
         if (!netIncome || !previousEquity) {
             return "-"
@@ -243,8 +243,8 @@ const ratios: IRatio[] = [
         return result ? `${(result * 100).toFixed(2)}%` : "-"
     }},
     {name: 'ROA', function: (year: number, companyData: ICompanyData) => {
-        const netIncome = Number(companyData.financialStatements[year].incomeStatement[19]?.value)
-        const previousAssets = Number(companyData.financialStatements[year - 1]?.balanceSheet[28]?.value)
+        const netIncome = Number(companyData.FinancialStatements[year].IncomeStatement[19]?.Value)
+        const previousAssets = Number(companyData.FinancialStatements[year - 1]?.BalanceSheet[28]?.Value)
 
         if (!netIncome || !previousAssets) {
             return "-"
@@ -255,8 +255,8 @@ const ratios: IRatio[] = [
         return result ? `${(result * 100).toFixed(2)}%` : "-"
     }},
     {name: 'Current ratio', function: (year: number, companyData: ICompanyData) => {
-        const currentAssets = Number(companyData.financialStatements[year].balanceSheet[15]?.value)
-        const currentLiabilities = Number(companyData.financialStatements[year].balanceSheet[36]?.value)
+        const currentAssets = Number(companyData.FinancialStatements[year].BalanceSheet[15]?.Value)
+        const currentLiabilities = Number(companyData.FinancialStatements[year].BalanceSheet[36]?.Value)
 
         if (!currentAssets || !currentLiabilities) {
             return "-"
@@ -267,8 +267,8 @@ const ratios: IRatio[] = [
         return result ? `${result.toFixed(2)}x` : "-"
     }},
     {name: 'Liabilities / Assets', function: (year: number, companyData: ICompanyData) => {
-        const totalLiabilities = Number(companyData.financialStatements[year].balanceSheet[43]?.value)
-        const totalAssets = Number(companyData.financialStatements[year].balanceSheet[28]?.value)
+        const totalLiabilities = Number(companyData.FinancialStatements[year].BalanceSheet[43]?.Value)
+        const totalAssets = Number(companyData.FinancialStatements[year].BalanceSheet[28]?.Value)
 
         if (!totalLiabilities || !totalAssets) {
             return "-"
@@ -279,8 +279,8 @@ const ratios: IRatio[] = [
         return result ? `${result.toFixed(2)}%` : "-"
     }},
     {name: 'EBIT / Interest expense', function: (year: number, companyData: ICompanyData) => {
-        const operatingIncome = Number(companyData.financialStatements[year].incomeStatement[9]?.value)
-        const interestExpense = Number(companyData.financialStatements[year].incomeStatement[12]?.value)
+        const operatingIncome = Number(companyData.FinancialStatements[year].IncomeStatement[9]?.Value)
+        const interestExpense = Number(companyData.FinancialStatements[year].IncomeStatement[12]?.Value)
 
         if (!operatingIncome || !interestExpense) {
             return "-"
@@ -291,8 +291,8 @@ const ratios: IRatio[] = [
         return result ? `${result.toFixed(2)}x` : "-"
     }}, 
     {name: 'Total debt / EBIT', function: (year: number, companyData: ICompanyData) => {
-        const totalLiabilities = Number(companyData.financialStatements[year].balanceSheet[43]?.value)
-        const operatingIncome = Number(companyData.financialStatements[year].incomeStatement[9]?.value)
+        const totalLiabilities = Number(companyData.FinancialStatements[year].BalanceSheet[43]?.Value)
+        const operatingIncome = Number(companyData.FinancialStatements[year].IncomeStatement[9]?.Value)
 
         if (!operatingIncome || !totalLiabilities) {
             return "-"
@@ -303,8 +303,8 @@ const ratios: IRatio[] = [
         return result ? `${result.toFixed(2)}x` : "-"
     }},
     {name: 'Tax rate', function: (year: number, companyData: ICompanyData) => {
-        const incomeTax = Number(companyData.financialStatements[year].incomeStatement[18]?.value)
-        const earningsBeforeTaxes = Number(companyData.financialStatements[year].incomeStatement[17]?.value)
+        const incomeTax = Number(companyData.FinancialStatements[year].IncomeStatement[18]?.Value)
+        const earningsBeforeTaxes = Number(companyData.FinancialStatements[year].IncomeStatement[17]?.Value)
 
         if (!incomeTax ||!earningsBeforeTaxes) {
             return "-"

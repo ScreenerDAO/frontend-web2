@@ -16,7 +16,7 @@ import { Logout } from 'mdi-material-ui'
 
 const backendEndpoint = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT
 
-const Modifications = ({ companies }: IGetStaticPropsResult) => {
+const Modifications = ({ Companies: companies }: IGetStaticPropsResult) => {
     const bearerToken = useAppSelector((state: { general: IGeneral }) => state.general.googleOauthToken)
 
     const retrieveModifications = async () => {

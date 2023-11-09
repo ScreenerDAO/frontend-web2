@@ -30,8 +30,8 @@ import ICompanyData from 'src/types/ICompanyData'
 // }
 
 const Navigation = (): VerticalNavItemsType => {
-    const companyTicker = useAppSelector((state: { companyData: ICompanyData }) => state.companyData.ticker)
-    const companyId = useAppSelector((state: { companyData: ICompanyData }) => state.companyData.id)
+    const companyTicker = useAppSelector((state: { companyData: ICompanyData }) => state.companyData.Ticker)
+    const companyId = useAppSelector((state: { companyData: ICompanyData }) => state.companyData.Id)
 
     return [
         {

@@ -6,17 +6,17 @@ import { StatementType } from 'src/types/IStatement'
 
 // Define the initial state using that type
 const initialState: ICompanyData = {
-    id: null,
-    companyName: "",
-    ticker: "",
-    country: "",
-    wikipediaPage: undefined,
-    isin: undefined,
-    cik: undefined,
-    currency: undefined,
-    isDelisted: false,
-    financialStatements: {},
-    annualReports: {}
+    Id: null,
+    Name: "",
+    Ticker: "",
+    Country: "",
+    WikipediaPage: undefined,
+    Isin: undefined,
+    Cik: undefined,
+    Currency: undefined,
+    IsDelisted: false,
+    FinancialStatements: {},
+    AnnualReports: {}
 }
 
 export const newCompanyDataSlice = createSlice({
@@ -24,75 +24,75 @@ export const newCompanyDataSlice = createSlice({
     initialState,
     reducers: {
         setCompanyData: (state, action: PayloadAction<ICompanyData>) => {
-            state.id = action.payload.id
-            state.companyName = action.payload.companyName
-            state.ticker = action.payload.ticker
-            state.country = action.payload.country
-            state.wikipediaPage = action.payload.wikipediaPage
-            state.isin = action.payload.isin
-            state.cik = action.payload.cik
-            state.currency = action.payload.currency
-            state.isDelisted = action.payload.isDelisted
-            state.financialStatements = action.payload.financialStatements ?? {}
-            state.annualReports = action.payload.annualReports ?? {}
+            state.Id = action.payload.Id
+            state.Name = action.payload.Name
+            state.Ticker = action.payload.Ticker
+            state.Country = action.payload.Country
+            state.WikipediaPage = action.payload.WikipediaPage
+            state.Isin = action.payload.Isin
+            state.Cik = action.payload.Cik
+            state.Currency = action.payload.Currency
+            state.IsDelisted = action.payload.IsDelisted
+            state.FinancialStatements = action.payload.FinancialStatements ?? {}
+            state.AnnualReports = action.payload.AnnualReports ?? {}
         },
         setCompanyName: (state, action: PayloadAction<string>) => {
-            state.companyName = action.payload
+            state.Name = action.payload
         },
         setCompanyTicker: (state, action: PayloadAction<string>) => {
-            state.ticker = action.payload
+            state.Ticker = action.payload
         },
         setCompanyCountry: (state, action: PayloadAction<string>) => {
-            state.country = action.payload
+            state.Country = action.payload
         },
         setCompanyWikipediaPage: (state, action: PayloadAction<string>) => {
-            state.wikipediaPage = action.payload
+            state.WikipediaPage = action.payload
         },
         setCompanyIsin: (state, action: PayloadAction<string>) => {
-            state.isin = action.payload
+            state.Isin = action.payload
         },  
         setcompanyCik: (state, action: PayloadAction<number>) => {
-            state.cik = action.payload
+            state.Cik = action.payload
         },      
         setCompanyCurrency: (state, action: PayloadAction<number>) => {
-            state.currency = action.payload
+            state.Currency = action.payload
         },
         setCompanyIsDelisted: (state, action: PayloadAction<boolean>) => {
-            state.isDelisted = action.payload
+            state.IsDelisted = action.payload
         },
         addNewYear: (state, action: PayloadAction<number | string>) => {
-            state.financialStatements[action.payload] = {
-                balanceSheet: {} ,
-                incomeStatement: {},
-                cashFlow: {}
+            state.FinancialStatements[action.payload] = {
+                BalanceSheet: {} ,
+                IncomeStatement: {},
+                CashFlow: {}
             }
         },
         setAnnualReportHash: (state, action: PayloadAction<{year: number | string, hash: string}>) => {
             if (action.payload.hash == "") {
-                const annualReports = state.annualReports
+                const annualReports = state.AnnualReports
 
                 delete annualReports[action.payload.year]
 
-                state.annualReports = annualReports
+                state.AnnualReports = annualReports
             }
             else {
-                state.annualReports[action.payload.year] = action.payload.hash
+                state.AnnualReports[action.payload.year] = action.payload.hash
             }            
         },
         setStatementElement: (state, action: PayloadAction<{year: number | string, statement: StatementType, element: number, value: IStatementElement}>) => {
             
             // state.financialStatements[action.payload.year]["fds" as keyof IFinancialStatement][action.payload.element] = action.payload.value
-            state.financialStatements[action.payload.year][action.payload.statement as keyof IFinancialStatement][action.payload.element] = action.payload.value
+            state.FinancialStatements[action.payload.year][action.payload.statement as keyof IFinancialStatement][action.payload.element] = action.payload.value
         },
         deleteYear: (state, action: PayloadAction<number | string>) => {
-            const financialStatements = state.financialStatements
-            const annualReports = state.annualReports
+            const financialStatements = state.FinancialStatements
+            const annualReports = state.AnnualReports
 
             delete financialStatements[action.payload]
             delete annualReports[action.payload]
 
-            state.financialStatements = financialStatements
-            state.annualReports = annualReports
+            state.FinancialStatements = financialStatements
+            state.AnnualReports = annualReports
         }
     },
 })

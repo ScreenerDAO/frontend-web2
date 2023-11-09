@@ -44,7 +44,7 @@ const getAutofillValue = (elements: IElement[], statementValues: IStatement) => 
     let total = 0
 
     for (const element of (elements ?? [])) {
-        const number = Number(statementValues[element.label]?.value)
+        const number = Number(statementValues[element.label]?.Value)
 
         if (!isNaN(number)) {
             if (element.operation === AutofillOperation.Add) {
@@ -91,7 +91,7 @@ const EditInputElement = ({
 }: EditInputElementProps) => {
     const store = useStore<RootState>()
     const dispatch = useAppDispatch()
-    const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.financialStatements[year]?.[statementType as keyof IFinancialStatement][label])
+    const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.FinancialStatements[year]?.[statementType as keyof IFinancialStatement][label])
     const [multipleValuesModalOpen, setMultipleValuesModalOpen] = React.useState(false)
 
     const setElement = (statementElement: IStatementElement) => {
@@ -104,9 +104,9 @@ const EditInputElement = ({
     }
 
     const openMultipleValuesModal = () => {
-        if (element && !element?.multipleValues) {
+        if (element && !element?.MultipleValues) {
             const newElement = {...element}
-            newElement.multipleValues = [element.value]
+            newElement.MultipleValues = [element.Value]
 
             setElement(newElement)
         }
@@ -123,11 +123,11 @@ const EditInputElement = ({
                     label={getLabelName(label, statementType)}
                     endAdornment={
                         <InputAdornment position="end">
-                            {(element?.value ?? "") !== "" ?
+                            {(element?.Value ?? "") !== "" ?
                                 <InputAdornment position="end">
                                     <Tooltip title="Clear">
                                         <ClearIcon
-                                            onClick={() => setElement({ value: "", multipleValues: null })}
+                                            onClick={() => setElement({ Value: "", MultipleValues: null })}
                                             sx={{ cursor: 'pointer' }}
                                         />
                                     </Tooltip>
@@ -150,8 +150,8 @@ const EditInputElement = ({
                                     <Tooltip title="Autofill">
                                         <AutoAwesomeIcon sx={{ cursor: 'pointer' }} onClick={() => {
                                             setElement({
-                                                value: getAutofillValue(autofillElements, store.getState().newCompanyData.financialStatements[year][statementType as keyof IFinancialStatement]),
-                                                multipleValues: null
+                                                Value: getAutofillValue(autofillElements, store.getState().newCompanyData.FinancialStatements[year][statementType as keyof IFinancialStatement]),
+                                                MultipleValues: null
                                             })
                                         }} />
                                     </Tooltip>
@@ -161,10 +161,10 @@ const EditInputElement = ({
                             }
                         </InputAdornment>
                     }
-                    value={getValue(element?.value, valuesAsThousands)}
+                    value={getValue(element?.Value, valuesAsThousands)}
                     onChange={(e) => setElement({
-                        value: setValueFormatter(e.target.value, valuesAsThousands),
-                        multipleValues: null
+                        Value: setValueFormatter(e.target.value, valuesAsThousands),
+                        MultipleValues: null
                     })}
                     
                     // startAdornment={
@@ -181,8 +181,8 @@ const EditInputElement = ({
                 label={label}
                 setValue={(element: IStatementElement) => {
                     setElement({
-                        value: setValueFormatter(element.value, valuesAsThousands),
-                        multipleValues: element.multipleValues
+                        Value: setValueFormatter(element.Value, valuesAsThousands),
+                        MultipleValues: element.MultipleValues
                     })
                 }}
             />

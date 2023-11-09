@@ -33,19 +33,19 @@ const SaveDataModal = (props: ISaveDataModalProps) => {
         const callback = async () => {
             const localErrors: React.ReactElement[] = []
 
-            if (!newCompanyData.companyName || newCompanyData.companyName == "") {
+            if (!newCompanyData.Name || newCompanyData.Name == "") {
                 localErrors.push(<Alert key="1" severity='error' style={{ marginBottom: '10px' }}>Company name must be set</Alert>)
             }
 
-            if (!newCompanyData.isDelisted && (!newCompanyData.ticker || newCompanyData.ticker == "")) {
+            if (!newCompanyData.IsDelisted && (!newCompanyData.Ticker || newCompanyData.Ticker == "")) {
                 localErrors.push(<Alert key="2" severity='error' style={{ marginBottom: '10px' }}>Company ticker must be set</Alert>)
             }
 
-            if (!newCompanyData.country || newCompanyData.country == "") {
+            if (!newCompanyData.Country || newCompanyData.Country == "") {
                 localErrors.push(<Alert key="3" severity='error' style={{ marginBottom: '10px' }}>Company country must be set</Alert>)
             }
 
-            if (!newCompanyData.currency || newCompanyData.country == "") {
+            if (!newCompanyData.Currency || newCompanyData.Country == "") {
                 localErrors.push(<Alert key="4" severity='error' style={{marginBottom: '10px'}}>Company currency must be set</Alert>)
             }
 
@@ -197,9 +197,9 @@ const SaveDataToEthereumStep = (props: {
         cid: string;
     }>>
 }) => {
-    const companyId = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.id)
-    const companyName = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.companyName)
-    const companyTicker = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.ticker)
+    const companyId = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Id)
+    const companyName = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Name)
+    const companyTicker = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Ticker)
     const newCompanyData = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData)
 
     const dispatch = useAppDispatch()
@@ -275,7 +275,7 @@ const SaveDataBackend = (props: {
         cid: string;
     }>>
 }) => {
-    const companyId = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.id)
+    const companyId = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Id)
     const newCompanyData = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData)
     const bearerToken = useAppSelector((state: { general: IGeneral }) => state.general.googleOauthToken)
 

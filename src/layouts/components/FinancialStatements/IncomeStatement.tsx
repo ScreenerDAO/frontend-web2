@@ -118,7 +118,7 @@ const IncomeStatement = (props: IStatementDisplayProps): React.ReactElement => {
                     props.yearsSelected.map((year, index) => {
                         return (
                             <TableCell align="right" key={index} sx={{ fontWeight: bold ? 900 : 'initial' }}>
-                                <CellValue value={props.data.financialStatements[year].incomeStatement[label]?.value} />
+                                <CellValue value={props.data.FinancialStatements[year].IncomeStatement[label]?.Value} />
                             </TableCell>
                         )
                     })

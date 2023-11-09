@@ -2,17 +2,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import ICompanyData from 'src/types/ICompanyData'
 
 const initialState: ICompanyData = {
-    id: null,
-    companyName: "",
-    ticker: "",
-    country: "",
-    wikipediaPage: undefined,
-    isin: undefined,
-    cik: undefined,
-    currency: undefined,
-    isDelisted: false,
-    financialStatements: {},
-    annualReports: {}
+    Id: null,
+    Name: "",
+    Ticker: "",
+    Country: "",
+    WikipediaPage: undefined,
+    Isin: undefined,
+    Cik: undefined,
+    Currency: undefined,
+    IsDelisted: false,
+    FinancialStatements: {},
+    AnnualReports: {}
 }
 
 export const companyDataSlice = createSlice({
@@ -20,17 +20,17 @@ export const companyDataSlice = createSlice({
     initialState,
     reducers: {
         setCompanyData: (state, action: PayloadAction<ICompanyData>) => {
-            state.id = action.payload.id
-            state.companyName = action.payload.companyName
-            state.ticker = action.payload.ticker
-            state.country = action.payload.country
-            state.wikipediaPage = action.payload.wikipediaPage
-            state.isin = action.payload.isin
-            state.cik = action.payload.cik
-            state.currency = action.payload.currency
-            state.isDelisted = action.payload.isDelisted
-            state.financialStatements = action.payload.financialStatements
-            state.annualReports = action.payload.annualReports 
+            state.Id = action.payload.Id
+            state.Name = action.payload.Name
+            state.Ticker = action.payload.Ticker
+            state.Country = action.payload.Country
+            state.WikipediaPage = action.payload.WikipediaPage
+            state.Isin = action.payload.Isin
+            state.Cik = action.payload.Cik
+            state.Currency = action.payload.Currency
+            state.IsDelisted = action.payload.IsDelisted
+            state.FinancialStatements = action.payload.FinancialStatements
+            state.AnnualReports = action.payload.AnnualReports 
         },
     },
 })

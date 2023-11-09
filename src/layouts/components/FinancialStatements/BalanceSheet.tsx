@@ -100,7 +100,7 @@ const BalanceSheet = (props: IStatementDisplayProps): React.ReactElement => {
                     props.yearsSelected.map((year, index) => {
                         return (
                             <TableCell align="right" key={index} sx={{ fontWeight: bold ? 900 : 'initial' }}>
-                                <CellValue value={props.data.financialStatements[year].balanceSheet[label]?.value} />
+                                <CellValue value={props.data.FinancialStatements[year].BalanceSheet[label]?.Value} />
                             </TableCell>
                         )
                     })

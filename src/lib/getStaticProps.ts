@@ -25,8 +25,8 @@ import type IEvent from 'src/types/IEvent'
 // })
 
 interface IGetStaticPropsResult {
-    companies: ICompanyEthData[]
-    events: IEvent[]
+    Companies: ICompanyEthData[]
+    Events: IEvent[]
 }
 
 const backendEndpoint = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT
@@ -37,12 +37,13 @@ export async function getStaticProps(): Promise<{
 }> {
     // const companies: IGetStaticPropsResult = (await client.query({ query: query })).data
     let data: IGetStaticPropsResult | null = null
-    const response = await fetch(`${backendEndpoint}/CompaniesAndEvents`)
+    const response = await fetch(`${backendEndpoint}CompaniesAndEvents`)
 
     if (response.ok) {
         data = (await response.json()) as any
     }
     else {
+        console.log('Error fetching in getStaticProps')
         console.log(response.text())
     }
 

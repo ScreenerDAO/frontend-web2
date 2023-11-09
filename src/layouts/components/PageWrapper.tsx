@@ -25,7 +25,7 @@ const PageWrapper = ({companies, children}: {
                     selectCompany(companies[0], store.dispatch)
                 }
                 else {
-                    const company = companies.find(company => company.id == companyId)
+                    const company = companies.find(company => company.Id == companyId)
 
                     selectCompany(company!, store.dispatch)
                 }
@@ -39,7 +39,7 @@ const PageWrapper = ({companies, children}: {
             const idToCompany: { [key: string]: ICompanyEthData } = {}
 
             for (const company of companies) {
-                idToCompany[company.id] = company
+                idToCompany[company.Id] = company
             }
 
             store.dispatch(setIdToCompany(idToCompany))

@@ -48,7 +48,7 @@ const SearchBar = () => {
                 // }}
                 onChange={(event, newValue) => {
                     if (newValue && typeof newValue !== 'string') {
-                        router.push(`/company-overview?id=${newValue.id}`)
+                        router.push(`/company-overview?id=${newValue.Id}`)
 
                         // setValue(newValue.ticker)
                         selectCompany(newValue, dispatch)
@@ -60,15 +60,15 @@ const SearchBar = () => {
                         return option
                     }
 
-                    return option.name
+                    return option.Name
                 }}
                 selectOnFocus
                 clearOnBlur
                 handleHomeEndKeys
                 renderOption={(props, option) => (
                     <li {...props} style={{ display: 'grid', gridTemplateColumns: '1fr 9fr' }}>
-                        <div style={{ marginRight: '10px' }}><b>{option.ticker == "" ? '-' : option.ticker}</b></div>
-                        <div>{option.name}</div>
+                        <div style={{ marginRight: '10px' }}><b>{option.Ticker == "" ? '-' : option.Ticker}</b></div>
+                        <div>{option.Name}</div>
                     </li>
                 )}
                 freeSolo

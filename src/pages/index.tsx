@@ -54,22 +54,20 @@ function timePassed(timestamp: number): string {
 
 const formatter = (value: number) => <CountUp end={value} separator="," />;
 
-const Dashboard = (props: IGetStaticPropsResult) => {
-    const { companies, events } = props
-
+const Dashboard = (props: IGetStaticPropsResult) => {   
     return (
-        <PageWrapper {...props}>
+        <PageWrapper companies={props.Companies}>
             <ApexChartWrapper>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <Card sx={{ paddingTop: "10px", paddingBottom: "10px", display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                            {companies?.length ?
-                                <Statistic title="Companies registered" value={companies.length} formatter={formatter as any} />
+                            {props.Companies?.length ?
+                                <Statistic title="Companies registered" value={props.Companies.length} formatter={formatter as any} />
                                 :
                                 <Skeleton variant="rounded" width={120} height={50} />
                             }
 
-                            {companies?.length ?
+                            {props.Companies?.length ?
                                 <Statistic title="Financials added" value={100} formatter={formatter as any} />
                                 :
                                 <Skeleton variant="rounded" width={120} height={50} />
@@ -95,7 +93,7 @@ const Dashboard = (props: IGetStaticPropsResult) => {
 
                     <Grid item xs={12} lg={4}>
                         <Card>
-                            <RecentActivityTable events={events} />
+                            <RecentActivityTable events={props.Events} />
                         </Card>
                     </Grid>
 
@@ -139,19 +137,19 @@ const RecentActivityTable = ({ events }: {
                 <TableBody>
                     {events.map((row) => (
                         <TableRow
-                            key={row.id}
+                            key={row.Id}
                         >
                             <TableCell component="th" scope="row">
                                 <Link
-                                    href={`/company-overview?id=${row.companyId}`}
-                                    onClick={() => selectCompany(idToCompany?.[row.companyId] as ICompanyEthData, dispatch)}
+                                    href={`/company-overview?id=${row.CompanyId}`}
+                                    onClick={() => selectCompany(idToCompany?.[row.CompanyId] as ICompanyEthData, dispatch)}
                                     style={{ color: theme.palette.primary.main }}
                                 >
-                                    {idToCompany?.[row.companyId]?.ticker}
+                                    {idToCompany?.[row.CompanyId]?.Ticker}
                                 </Link>
                             </TableCell>
-                            <TableCell align="center">{getEventCell(row.eventType)}</TableCell>
-                            <TableCell align="right">{timePassed(row.blockTimestamp)}</TableCell>
+                            <TableCell align="center">{getEventCell(row.EventType)}</TableCell>
+                            <TableCell align="right">{timePassed(row.BlockTimestamp)}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
