@@ -19,6 +19,7 @@ const ListCompanies = ({ Companies: companies }: IGetStaticPropsResult) => {
                             rows={companies}
                             columns={columns}
                             isRowSelectable={() => false}
+                            getRowId={row => row.Id}
                             sx={{ minHeight: {
                                 xs: 'calc(100vh - 64px - 56px - 3rem)',
                                 md: 'calc(100vh - 76px - 56px - 3rem)'
