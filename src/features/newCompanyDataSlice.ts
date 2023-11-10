@@ -76,7 +76,7 @@ export const newCompanyDataSlice = createSlice({
                 state.AnnualReports = annualReports
             }
             else {
-                state.AnnualReports[action.payload.year] = action.payload.hash
+                state.AnnualReports[action.payload.year].Filing = action.payload.hash
             }            
         },
         setStatementElement: (state, action: PayloadAction<{year: number | string, statement: StatementType, element: number, value: IStatementElement}>) => {

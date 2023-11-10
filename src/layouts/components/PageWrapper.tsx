@@ -44,18 +44,18 @@ const PageWrapper = ({companies, children}: {
 
             store.dispatch(setIdToCompany(idToCompany))
         }
-
+    
         callback()
     }, [])
 
-    const companyData = useAppSelector((state: { companyData: ICompanyData }) => state.companyData)
-    const newCompanyData = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData)
+    // const companyData = useAppSelector((state: { companyData: ICompanyData }) => state.companyData)
+    // const newCompanyData = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData)
 
-    useBeforeunload(ev => {
-        if (JSON.stringify(companyData) !== JSON.stringify(newCompanyData)){
-            ev.preventDefault()
-        }
-    })
+    // useBeforeunload(ev => {
+    //     if (JSON.stringify(companyData) !== JSON.stringify(newCompanyData)){
+    //         ev.preventDefault()
+    //     }
+    // })
 
     return <>{children}</>
 }
