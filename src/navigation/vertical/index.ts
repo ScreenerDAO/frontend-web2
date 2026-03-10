@@ -47,11 +47,13 @@ const Navigation = (): VerticalNavItemsType => {
             icon: Domain,
             path: `/company-overview?id=${companyId ?? 0}`
         },
+        
+        // {
+        //     title: 'Edit records',
+        //     icon: ArchiveEditOutline,
+        //     path: `/edit-records?id=${companyId ?? 0}`
+        // },
         {
-            title: 'Edit records',
-            icon: ArchiveEditOutline,
-            path: `/edit-records?id=${companyId ?? 0}`
-        },{
             title: 'Edit history',
             icon: PlaylistEdit,
             path: `/modifications`

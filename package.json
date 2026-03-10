@@ -11,9 +11,6 @@
     "url": "https://github.com/themeselection/materio-mui-react-nextjs-admin-template-free/issues"
   },
   "private": false,
-  "engines": {
-    "node": "24.x"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/themeselection/materio-mui-react-nextjs-admin-template-free.git"
