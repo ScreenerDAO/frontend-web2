@@ -1,0 +1,14 @@
+[
+    {
+        "Id": 1,
+        "Name": "Korea Electric Power Corporation",
+        "Ticker": "KO",
+        "DataHash": "1_KO.json"
+    },
+    {
+        "Id": 2,
+        "Name": "Bank of England",
+        "Ticker": null,
+        "DataHash": "2_BOE.json"
+    }
+]

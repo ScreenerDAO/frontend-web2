@@ -21,6 +21,8 @@ import { CompanyProfile, FundamentalData } from 'react-ts-tradingview-widgets';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import BusinessIcon from '@mui/icons-material/Business';
 import DescriptionIcon from '@mui/icons-material/Description';
+import BalanceSheetV2 from './BalanceSheetV2';
+import BalanceSheetV3 from './BalanceSheetV3';
 
 const getSelectedYearsArray = (yearsArray: number[], minAndMax: number[]) => {
     const newArray = []
@@ -71,10 +73,7 @@ interface IChartLabel {
     type: string
 }
 
-const FinancialStatements = (props: { companyData: ICompanyData, wikipediaSumary: string }): React.ReactElement => {
-    const [tabIndex, setTabIndex] = React.useState(0);
-    const [yearsSelected, setYearsSelected] = React.useState<number[]>([]);
-    const [selectedLabels, setSelectedLabels] = React.useState<IChartLabel[]>([
+const defaultLabels: IChartLabel[] = [
         {
             label: 1,
             statement: StatementType.IncomeStatement,
@@ -85,7 +84,12 @@ const FinancialStatements = (props: { companyData: ICompanyData, wikipediaSumary
             statement: StatementType.IncomeStatement,
             type: "bar"
         }
-    ])
+]
+
+const FinancialStatements = (props: { companyData: ICompanyData, wikipediaSumary: string }): React.ReactElement => {
+    const [tabIndex, setTabIndex] = React.useState(0);
+    const [yearsSelected, setYearsSelected] = React.useState<number[]>([]);
+    const [selectedLabels, setSelectedLabels] = React.useState<IChartLabel[]>([])
 
     // const [excludedLabels, setExcludedLabels] = React.useState<{[key: string]: number[]}>({
     //     "balanceSheet": [],
@@ -97,6 +101,13 @@ const FinancialStatements = (props: { companyData: ICompanyData, wikipediaSumary
 
     React.useEffect(() => {
         setYearsSelected([years[0], years[years.length - 1]])
+
+        if (props.companyData.CustomLabels){
+            setSelectedLabels(props.companyData.DefaultSelectedLabels ?? [])
+        }
+        else {
+            setSelectedLabels(defaultLabels)
+        }
 
         // let bsExcludedLabels = []
         // let isExcludedLabels = []
@@ -296,6 +307,7 @@ const FinancialsTab = ({ companyData, selectedLabels, yearsSelected, years, setS
                             years={years}
                             yearsSelected={yearsSelected}
                             selectedLabels={selectedLabels}
+                            companyData={companyData}
                         />
                     </div>
 
@@ -306,7 +318,7 @@ const FinancialsTab = ({ companyData, selectedLabels, yearsSelected, years, setS
                                     <Paper sx={{ padding: '10px', height: '60px' }}>
                                         <Grid container>
                                             <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                <Typography fontSize={16}>{getLabel(label)}</Typography>
+                                                <Typography fontSize={16}>{getLabel(label, companyData)}</Typography>
                                             </Grid>
 
                                             <Grid item xs={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -371,6 +383,8 @@ const Financials = ({ companyData, selectedLabels, yearsSelected, years, setSele
 }) => {
     const [tabIndex, setTabIndex] = React.useState(0);
 
+    console.log(companyData)
+
     return (
         <>
             <Box sx={{ borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'center' }}>
@@ -391,16 +405,26 @@ const Financials = ({ companyData, selectedLabels, yearsSelected, years, setSele
 
             <Card>
                 <TabPanel value={tabIndex} index={0}>
-                    <BalanceSheet
-                        data={companyData}
-                        yearsSelected={getSelectedYearsArray(years, yearsSelected)}
-                        selectedLabels={selectedLabels}
-                        setSelectedLabels={labels => {
-                            setSelectedLabels(labels)
-                        }}
-
-                    // excludedLabels={excludedLabels["balanceSheet"]}
-                    />
+                    {companyData.CustomFinancialsStructure ?
+                        <BalanceSheetV3
+                            data={companyData}
+                            yearsSelected={getSelectedYearsArray(years, yearsSelected)}
+                            selectedLabels={selectedLabels}
+                            setSelectedLabels={labels => {
+                                setSelectedLabels(labels)
+                            }}
+                        />
+                        :
+                        <BalanceSheet
+                            data={companyData}
+                            yearsSelected={getSelectedYearsArray(years, yearsSelected)}
+                            selectedLabels={selectedLabels}
+                            setSelectedLabels={labels => {
+                                setSelectedLabels(labels)
+                            }}
+                        // excludedLabels={excludedLabels["balanceSheet"]}
+                        />
+                    }
                 </TabPanel>
 
                 <TabPanel value={tabIndex} index={1}>

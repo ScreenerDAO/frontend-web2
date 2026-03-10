@@ -4,8 +4,8 @@ import ICompanyEthData from "src/types/ICompanyEthData"
 import { IGeneral, setCompanyLoading } from "src/features/general"
 import { setCompanyData } from "src/features/companyDataSlice"
 import { setCompanyData as setNewCompanyData } from 'src/features/newCompanyDataSlice'
-import { NFTStorage, Blob } from "nft.storage"
-import { Web3Storage } from "web3.storage"
+// import { NFTStorage, Blob } from "nft.storage"
+// import { Web3Storage } from "web3.storage"
 import FormData from "form-data"
 
 const saveCompanyData = async (data: string) => {
@@ -13,17 +13,17 @@ const saveCompanyData = async (data: string) => {
     let hashWeb3Storage = null
 
     try {
-        const nftStoragePromise = saveCompanyDataNftStorage(data)
-        const web3StoragePromise = saveCompanyDataWeb3Storage(data)
+        // const nftStoragePromise = saveCompanyDataNftStorage(data)
+        // const web3StoragePromise = saveCompanyDataWeb3Storage(data)
 
-        hashNftStorage = await nftStoragePromise
-        hashWeb3Storage = await web3StoragePromise
+        // hashNftStorage = await nftStoragePromise
+        // hashWeb3Storage = await web3StoragePromise
 
-        if (hashNftStorage) {
-            return hashNftStorage
-        }
+        // if (hashNftStorage) {
+        //     return hashNftStorage
+        // }
 
-        return hashWeb3Storage
+        // return hashWeb3Storage
     }
     catch (error) {
         if (hashNftStorage) {
@@ -38,45 +38,45 @@ const saveCompanyData = async (data: string) => {
     }
 }
 
-const saveCompanyDataNftStorage = async (data: string): Promise<string> => {
-    const client = new NFTStorage({ token: process.env.NFT_STORAGE_API_KEY as string })
+// const saveCompanyDataNftStorage = async (data: string): Promise<string> => {
+//     const client = new NFTStorage({ token: process.env.NFT_STORAGE_API_KEY as string })
 
-    const blob = new Blob([data])
+//     const blob = new Blob([data])
 
-    return await client.storeBlob(blob)
-}
+//     return await client.storeBlob(blob)
+// }
 
-const saveCompanyDataWeb3Storage = async (data: string): Promise<string> => {
-    const blob = new Blob([data])
+// const saveCompanyDataWeb3Storage = async (data: string): Promise<string> => {
+//     const blob = new Blob([data])
 
-    const response = await fetch("https://api.web3.storage/upload", {
-        method: 'POST',
-        headers: {
-            Authorization: `Bearer ${process.env.WEB3_STORAGE_API_KEY}`,
-            "Content-Type": "application/octet-stream",
-        },
-        body: blob,
-    })
+//     const response = await fetch("https://api.web3.storage/upload", {
+//         method: 'POST',
+//         headers: {
+//             Authorization: `Bearer ${process.env.WEB3_STORAGE_API_KEY}`,
+//             "Content-Type": "application/octet-stream",
+//         },
+//         body: blob,
+//     })
 
-    return (await response.json()).cid
-}
+//     return (await response.json()).cid
+// }
 
 const saveFile = async (file: File) => {
     let hashNftStorage = null
     let hashWeb3Storage = null
 
     try {
-        const nftStoragePromise = saveFileToNftStorage(file)
-        const web3StoragePromise = saveFileToWeb3Storage(file)
+        // const nftStoragePromise = saveFileToNftStorage(file)
+        // const web3StoragePromise = saveFileToWeb3Storage(file)
 
-        hashNftStorage = await nftStoragePromise
-        hashWeb3Storage = await web3StoragePromise
+        // hashNftStorage = await nftStoragePromise
+        // hashWeb3Storage = await web3StoragePromise
 
-        if (hashNftStorage) {
-            return hashNftStorage
-        }
+        // if (hashNftStorage) {
+        //     return hashNftStorage
+        // }
 
-        return hashWeb3Storage
+        // return hashWeb3Storage
     }
     catch (error) {
         if (hashNftStorage) {
@@ -91,56 +91,52 @@ const saveFile = async (file: File) => {
     }
 }
 
-const saveFileToNftStorage = async (file: File): Promise<string> => {
-    const client = new NFTStorage({ token: process.env.NFT_STORAGE_API_KEY as string })
+// const saveFileToNftStorage = async (file: File): Promise<string> => {
+//     const client = new NFTStorage({ token: process.env.NFT_STORAGE_API_KEY as string })
 
-    return await client.storeBlob(file)
-}
+//     return await client.storeBlob(file)
+// }
 
-const saveFileToWeb3Storage = async (file: File): Promise<string> => {
-    const client = new Web3Storage({ token: process.env.WEB3_STORAGE_API_KEY as string })
+// const saveFileToWeb3Storage = async (file: File): Promise<string> => {
+//     const client = new Web3Storage({ token: process.env.WEB3_STORAGE_API_KEY as string })
 
-    return await client.put([file])
-}
+//     return await client.put([file])
+// }
 
-const saveFileToEstuary = async (file: File): Promise<void> => {
-    const formData = new FormData();
-    formData.append('data', file);
+// const saveFileToEstuary = async (file: File): Promise<void> => {
+//     const formData = new FormData();
+//     formData.append('data', file);
 
-    const headers = {
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${process.env.ESTUARY_API_KEY}`,
-        'Content-Type': 'multipart/form-data'
-    };
+//     const headers = {
+//         'Accept': 'application/json',
+//         'Authorization': `Bearer ${process.env.ESTUARY_API_KEY}`,
+//         'Content-Type': 'multipart/form-data'
+//     };
 
-    fetch('https://api.estuary.tech/content/add', {
-        method: 'POST',
-        headers,
-        body: formData as any
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(JSON.stringify(data));
-        })
-        .catch(error => {
-            console.error(error);
-        });
-}
+//     fetch('https://api.estuary.tech/content/add', {
+//         method: 'POST',
+//         headers,
+//         body: formData as any
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(JSON.stringify(data));
+//         })
+//         .catch(error => {
+//             console.error(error);
+//         });
+// }
 
-const getCompanyData = async (dataHash: string): Promise<ICompanyData | null> => {
-    const companyDataNFTStorage = await getCompanyDataNFTStorage(dataHash)
+const getCompanyData = async (dataHashOrId: string): Promise<ICompanyData | null> => {
 
-    if (companyDataNFTStorage) {
-        return companyDataNFTStorage
-    }
+        try {
+            const response = await fetch(`/data/companies/${dataHashOrId}`)
+            if (!response.ok) return null
 
-    const companyDataWeb3Storage = await getCompanyDataWeb3Storage(dataHash)
-
-    if (companyDataWeb3Storage) {
-        return companyDataWeb3Storage
-    }
-
-    throw new Error('Error fetching company data')
+            return await response.json()
+        } catch (e) {
+            return null
+        }
 }
 
 const getCompanyDataWeb3Storage = async (dataHash: string): Promise<ICompanyData | null> => {
@@ -179,7 +175,9 @@ const selectCompany = async (
     try {
         dispatch(setCompanyLoading(true))
 
-        companyData = (await getCompanyData(item.DataHash)) ?? {} as ICompanyData
+        var response = await getCompanyData(item.DataHash)
+
+        companyData = response ?? {} as ICompanyData
         companyData.Id = item.Id
     }
     catch (error) {
@@ -219,12 +217,12 @@ const getISOCurrencies = (): Promise<string[]> => fetch('https://openexchangerat
 
 export {
     saveCompanyData,
-    saveCompanyDataWeb3Storage,
+    // saveCompanyDataWeb3Storage,
     getCompanyData,
     isObjectEmpty,
     selectCompany,
     saveFile,
-    saveFileToEstuary,
+    // saveFileToEstuary,
     getWikipediaSummary,
     getISOCountries,
     getISOCurrencies

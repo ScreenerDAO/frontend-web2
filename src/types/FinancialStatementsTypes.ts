@@ -349,6 +349,60 @@ const cashFlowStatementTypesNames: { [key: number]: string } = {
     30: "Cash, end of the period",
 }
 
+interface ICustomLabel {
+    name: string
+    title: boolean
+    parentId: number | null,
+    order: number
+}
+
+const getFinancialStatementStructureFromCustomLabels = (labels: { [key: number]: ICustomLabel }): IElementsGroup[] => {
+    const elementsGroups: IElementsGroup[] = []
+
+    const labelsList = Object.keys(labels)
+
+    for (let label of labelsList) {
+        if (labels[Number(label)].title){
+            elementsGroups.push({
+                title: Number(label),
+                elements: [],
+                total: {
+                    label: Number(label),
+                    operation: AutofillOperation.Add
+                }
+            })
+        }
+    }
+
+    for (let label of labelsList) {
+        const labelElement = labels[Number(label)]
+
+        if (!labels[Number(label)].title){
+            const parentGroup = elementsGroups.find(group => group.title === labelElement.parentId)
+
+            if (parentGroup) {
+                parentGroup.elements.push({
+                    label: Number(label),
+                    operation: AutofillOperation.Add
+                })
+            }
+        }
+    }
+
+    return elementsGroups
+}
+
+const getFinancialStatementStructureFromCustomLabelsV2 = (labels: { [key: number]: ICustomLabel }): string[] => {
+    const elementsGroups: IElementsGroup[] = []
+
+    // const labelsList = Object.values(labels)
+    // labelsList.sort((a, b) => a.order - b.order)
+
+    const labelsSorted = Object.keys(labels).sort((a, b) => labels[Number(a)].order - labels[Number(b)].order)
+
+    return labelsSorted
+}
+
 const currencies: { [key: number]: {
     code: string
     name: string
@@ -371,11 +425,14 @@ export {
     currencies,
     countries,
     ratios,
-    AutofillOperation
+    AutofillOperation,
+    getFinancialStatementStructureFromCustomLabels,
+    getFinancialStatementStructureFromCustomLabelsV2
 }
 
 export type {
     IElement,
     IElementsGroup,
     IRatio,
+    ICustomLabel
 }

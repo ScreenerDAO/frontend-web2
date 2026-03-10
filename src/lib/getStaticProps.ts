@@ -1,28 +1,7 @@
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
 import ICompanyEthData from 'src/types/ICompanyEthData'
 import type IEvent from 'src/types/IEvent'
-
-// const query = gql`
-//     query Data {
-//         companies(orderBy: iId) {
-//             id
-//             name
-//             ticker
-//             dataHash
-//         },
-//         events(orderBy: blockTimestamp, orderDirection: desc, first: 10) {
-//             id
-//             companyId
-//             blockTimestamp
-//             eventType
-//         }
-//     }
-// `
-
-// const client = new ApolloClient({
-//     uri: process.env.THEGRAPH_API_URL,
-//     cache: new InMemoryCache()
-// })
+import fs from 'fs'
+import path from 'path'
 
 interface IGetStaticPropsResult {
     Companies: ICompanyEthData[]
@@ -31,22 +10,27 @@ interface IGetStaticPropsResult {
 
 const backendEndpoint = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT
 
+const companiesPath = path.join(process.cwd(), 'public', 'data', 'companies.json')
+const companiesDir = '/data/companies/'
+
 export async function getStaticProps(): Promise<{
     props: IGetStaticPropsResult | null,
     revalidate: number
 }> {
-    // const companies: IGetStaticPropsResult = (await client.query({ query: query })).data
     let data: IGetStaticPropsResult | null = null
-    const response = await fetch(`${backendEndpoint}CompaniesAndEvents`)
+    let companies: ICompanyEthData[] = []
+    const events: IEvent[] = []
 
-    if (response.ok) {
-        data = (await response.json()) as any
-    }
-    else {
-        console.log('Error fetching in getStaticProps')
-        console.log(response.text())
-    }
+    try {
+        const companiesRaw = fs.readFileSync(companiesPath, 'utf-8')
+        companies = JSON.parse(companiesRaw)
 
+        // Optionally, load events from another local file if needed
+    } catch (e) {
+        console.log('Error reading companies.json', e)
+    }
+    data = { Companies: companies, Events: events }
+    
     return {
         props: data,
         revalidate: 60

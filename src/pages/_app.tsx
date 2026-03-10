@@ -14,7 +14,6 @@ import { Provider } from 'react-redux'
 import store from '../store'
 import 'react-perfect-scrollbar/dist/css/styles.css'
 import '../../styles/globals.css'
-import '@rainbow-me/rainbowkit/styles.css';
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { QueryClient, QueryClientProvider } from 'react-query'
 

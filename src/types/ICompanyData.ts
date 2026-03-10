@@ -1,3 +1,5 @@
+import { IChartLabel } from "src/layouts/components/FinancialStatements/FinancialStatements"
+import { ICustomLabel } from "./FinancialStatementsTypes"
 import IFinancialStatement from "./IFinancialStatement"
 
 export default interface ICompanyData {
@@ -9,7 +11,12 @@ export default interface ICompanyData {
     Isin?: string
     Cik?: number
     Currency?: number
-    IsDelisted: boolean
+    IsDelisted: boolean,
+    CustomFinancialsStructure: boolean,
+    CustomLabels?: {
+        [key: number | string]: ICustomLabel
+    },
+    DefaultSelectedLabels?: IChartLabel[],
     FinancialStatements: {
         [key: number | string]: IFinancialStatement
     },

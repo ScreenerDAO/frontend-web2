@@ -1,0 +1,94 @@
+{
+  "Id": "1",
+  "Name": "Korea Electric Power Corporation",
+  "Ticker": "KO",
+  "Country": "South Korea",
+  "WikipediaPage": "Korea_Electric_Power_Corporation",
+  "Isin": "US5006311063",
+  "Cik": 927971,
+  "Currency": 410,
+  "IsDelisted": false,
+  "CustomFinancialsStructure": false,
+  "FinancialStatements": {
+    "2024": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 1000000 
+        },
+        "2": {
+          "Value": 2000000 
+        },
+        "3": {
+          "Value": 3000000 
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 1000000 
+        },
+        "2": {
+          "Value": 2000000 
+        },
+        "3": {
+          "Value": 3000000 
+        }
+      },
+      "CashFlow": {
+        "1": {
+          "Value": 1000000 
+        },
+        "2": {
+          "Value": 2000000 
+        },
+        "3": {
+          "Value": 3000000 
+        }
+      }
+    },
+    "2023": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 1000000 
+        },
+        "2": {
+          "Value": 2000000 
+        },
+        "3": {
+          "Value": 3000000 
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 1000000 
+        },
+        "2": {
+          "Value": 2000000 
+        },
+        "3": {
+          "Value": 3000000 
+        }
+      },
+      "CashFlow": {
+        "1": {
+          "Value": 1000000 
+        },
+        "2": {
+          "Value": 2000000 
+        },
+        "3": {
+          "Value": 3000000 
+        }
+      }
+    }
+  },
+  "AnnualReports": {
+    "2024": {
+      "Filing": "https://example.com/ko/2024-filing.pdf",
+      "Report": "https://example.com/ko/2024-report.pdf"
+    },
+    "2023": {
+      "Filing": "https://example.com/ko/2023-filing.pdf",
+      "Report": "https://example.com/ko/2023-report.pdf"
+    }
+  }
+}

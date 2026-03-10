@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next/types";
 import { saveFile } from 'src/lib/generalMethods'
 import { Buffer } from 'buffer';
-import { File } from 'nft.storage';
+// import { File } from 'nft.storage';
 
 export const config = {
     api: {

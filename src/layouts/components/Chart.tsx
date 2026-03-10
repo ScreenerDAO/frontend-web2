@@ -48,7 +48,15 @@ const getSelectedYearsArray = (yearsArray: number[], minAndMax: number[]) => {
     return newArray
 }
 
-const getLabel = (label: IChartLabel ) => {
+const getLabel = (label: IChartLabel, companyData: ICompanyData) => {
+    if (companyData?.CustomFinancialsStructure) {
+        return getLabelCustom(label, companyData)
+    }
+
+    return getLabelDefault(label)
+}
+
+const getLabelDefault = (label: IChartLabel) => {
     if (label.statement === StatementType.BalanceSheet) {
         return balanceSheetTypesNames[label.label]
     }
@@ -58,6 +66,10 @@ const getLabel = (label: IChartLabel ) => {
     if (label.statement === StatementType.CashFlowStatement) {
         return cashFlowStatementTypesNames[label.label]
     }
+}
+
+const getLabelCustom = (label: IChartLabel, companyData: ICompanyData) => {
+    return companyData.CustomLabels?.[label.label]?.name
 }
 
 const getValue = (
@@ -90,6 +102,7 @@ interface IProps {
     years: number[];
     yearsSelected: number[];
     selectedLabels: IChartLabel[]
+    companyData: ICompanyData
 }
 
 const CustomChart = (props: IProps) => {
@@ -102,7 +115,7 @@ const CustomChart = (props: IProps) => {
         datasets: props.selectedLabels.map((label, index) => {
             return {
                 type: label.type as any,
-                label: getLabel(label),
+                label: getLabel(label, props.companyData),
                 borderColor: () => {
                     switch (index % 5){
                         case 0:
