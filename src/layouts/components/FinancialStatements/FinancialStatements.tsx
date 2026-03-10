@@ -422,7 +422,8 @@ const Financials = ({ companyData, selectedLabels, yearsSelected, years, setSele
                             setSelectedLabels={labels => {
                                 setSelectedLabels(labels)
                             }}
-                        // excludedLabels={excludedLabels["balanceSheet"]}
+                        
+                            // excludedLabels={excludedLabels["balanceSheet"]}
                         />
                     }
                 </TabPanel>

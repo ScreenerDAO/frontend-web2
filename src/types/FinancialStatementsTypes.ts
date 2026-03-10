@@ -361,7 +361,7 @@ const getFinancialStatementStructureFromCustomLabels = (labels: { [key: number]:
 
     const labelsList = Object.keys(labels)
 
-    for (let label of labelsList) {
+    for (const label of labelsList) {
         if (labels[Number(label)].title){
             elementsGroups.push({
                 title: Number(label),
@@ -374,7 +374,7 @@ const getFinancialStatementStructureFromCustomLabels = (labels: { [key: number]:
         }
     }
 
-    for (let label of labelsList) {
+    for (const label of labelsList) {
         const labelElement = labels[Number(label)]
 
         if (!labels[Number(label)].title){

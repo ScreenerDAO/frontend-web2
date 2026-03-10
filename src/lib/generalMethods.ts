@@ -4,39 +4,40 @@ import ICompanyEthData from "src/types/ICompanyEthData"
 import { IGeneral, setCompanyLoading } from "src/features/general"
 import { setCompanyData } from "src/features/companyDataSlice"
 import { setCompanyData as setNewCompanyData } from 'src/features/newCompanyDataSlice'
+
 // import { NFTStorage, Blob } from "nft.storage"
 // import { Web3Storage } from "web3.storage"
 import FormData from "form-data"
 
-const saveCompanyData = async (data: string) => {
-    let hashNftStorage = null
-    let hashWeb3Storage = null
+// const saveCompanyData = async (data: string) => {
+//     let hashNftStorage = null
+//     let hashWeb3Storage = null
 
-    try {
-        // const nftStoragePromise = saveCompanyDataNftStorage(data)
-        // const web3StoragePromise = saveCompanyDataWeb3Storage(data)
+//     try {
+//         const nftStoragePromise = saveCompanyDataNftStorage(data)
+//         const web3StoragePromise = saveCompanyDataWeb3Storage(data)
 
-        // hashNftStorage = await nftStoragePromise
-        // hashWeb3Storage = await web3StoragePromise
+//         hashNftStorage = await nftStoragePromise
+//         hashWeb3Storage = await web3StoragePromise
 
-        // if (hashNftStorage) {
-        //     return hashNftStorage
-        // }
+//         if (hashNftStorage) {
+//             return hashNftStorage
+//         }
 
-        // return hashWeb3Storage
-    }
-    catch (error) {
-        if (hashNftStorage) {
-            return hashNftStorage
-        }
+//         return hashWeb3Storage
+//     }
+//     catch (error) {
+//         if (hashNftStorage) {
+//             return hashNftStorage
+//         }
 
-        if (hashWeb3Storage) {
-            return hashWeb3Storage
-        }
+//         if (hashWeb3Storage) {
+//             return hashWeb3Storage
+//         }
 
-        throw error
-    }
-}
+//         throw error
+//     }
+// }
 
 // const saveCompanyDataNftStorage = async (data: string): Promise<string> => {
 //     const client = new NFTStorage({ token: process.env.NFT_STORAGE_API_KEY as string })
@@ -61,35 +62,35 @@ const saveCompanyData = async (data: string) => {
 //     return (await response.json()).cid
 // }
 
-const saveFile = async (file: File) => {
-    let hashNftStorage = null
-    let hashWeb3Storage = null
+// const saveFile = async (file: File) => {
+//     let hashNftStorage = null
+//     let hashWeb3Storage = null
 
-    try {
-        // const nftStoragePromise = saveFileToNftStorage(file)
-        // const web3StoragePromise = saveFileToWeb3Storage(file)
+//     try {
+//         const nftStoragePromise = saveFileToNftStorage(file)
+//         const web3StoragePromise = saveFileToWeb3Storage(file)
 
-        // hashNftStorage = await nftStoragePromise
-        // hashWeb3Storage = await web3StoragePromise
+//         hashNftStorage = await nftStoragePromise
+//         hashWeb3Storage = await web3StoragePromise
 
-        // if (hashNftStorage) {
-        //     return hashNftStorage
-        // }
+//         if (hashNftStorage) {
+//             return hashNftStorage
+//         }
 
-        // return hashWeb3Storage
-    }
-    catch (error) {
-        if (hashNftStorage) {
-            return hashNftStorage
-        }
+//         return hashWeb3Storage
+//     }
+//     catch (error) {
+//         if (hashNftStorage) {
+//             return hashNftStorage
+//         }
 
-        if (hashWeb3Storage) {
-            return hashWeb3Storage
-        }
+//         if (hashWeb3Storage) {
+//             return hashWeb3Storage
+//         }
 
-        throw error
-    }
-}
+//         throw error
+//     }
+// }
 
 // const saveFileToNftStorage = async (file: File): Promise<string> => {
 //     const client = new NFTStorage({ token: process.env.NFT_STORAGE_API_KEY as string })
@@ -175,7 +176,7 @@ const selectCompany = async (
     try {
         dispatch(setCompanyLoading(true))
 
-        var response = await getCompanyData(item.DataHash)
+        const response = await getCompanyData(item.DataHash)
 
         companyData = response ?? {} as ICompanyData
         companyData.Id = item.Id
@@ -216,12 +217,16 @@ const getISOCurrencies = (): Promise<string[]> => fetch('https://openexchangerat
     .then(data => Object.values(data))
 
 export {
-    saveCompanyData,
+    
+    // saveCompanyData,
+
     // saveCompanyDataWeb3Storage,
     getCompanyData,
     isObjectEmpty,
     selectCompany,
-    saveFile,
+
+    // saveFile,
+
     // saveFileToEstuary,
     getWikipediaSummary,
     getISOCountries,

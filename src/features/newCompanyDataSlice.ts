@@ -16,6 +16,7 @@ const initialState: ICompanyData = {
     Currency: undefined,
     IsDelisted: false,
     FinancialStatements: {},
+    CustomFinancialsStructure: false,
     AnnualReports: {}
 }
 

@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import ICompanyData from 'src/types/ICompanyData';
 import { Alert, Step, StepContent, StepLabel, Stepper } from '@mui/material';
+
 // import { useContractWrite, usePrepareContractWrite, useWaitForTransaction, useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
 import { setCompanyData } from 'src/features/companyDataSlice';
 import { IGeneral } from 'src/features/general';

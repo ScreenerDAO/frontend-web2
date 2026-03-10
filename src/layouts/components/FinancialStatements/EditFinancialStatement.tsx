@@ -10,7 +10,8 @@ import EditableCashFlow from './EditableCashFlowStatement';
 import { useAppDispatch } from 'src/hooks';
 import { setAnnualReportHash } from 'src/features/newCompanyDataSlice';
 import { Alert, CircularProgress } from '@mui/material';
-import { saveFile } from 'src/lib/generalMethods';
+
+// import { saveFile } from 'src/lib/generalMethods';
 
 const backendEndpoint = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT
 const azureFunctionsEndpoint = process.env.NEXT_PUBLIC_AZURE_FUNCTIONS_ENDPOINT 
