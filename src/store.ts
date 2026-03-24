@@ -2,13 +2,15 @@
 
 import { configureStore } from "@reduxjs/toolkit"
 import companyDataReducer from "src/features/companyDataSlice"
-import newCompanyDataReducer from "src/features/newCompanyDataSlice"
+
+// import newCompanyDataReducer from "src/features/newCompanyDataSlice"
 import generalReducer from "src/features/general"
 
 const store = configureStore({
     reducer: {
         companyData: companyDataReducer,
-        newCompanyData: newCompanyDataReducer,
+        
+        // newCompanyData: newCompanyDataReducer,
         general: generalReducer
     }
 })

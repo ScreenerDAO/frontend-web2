@@ -1,7 +1,7 @@
 [
     {
         "Id": 1,
-        "Name": "Korea Electric Power Corporation",
+        "Name": "The Coca-Cola Company",
         "Ticker": "KO",
         "DataHash": "1_KO.json"
     },
@@ -10,5 +10,71 @@
         "Name": "Bank of England",
         "Ticker": null,
         "DataHash": "2_BOE.json"
+    },
+    {
+        "Id": 3,
+        "Name": "Aberdeen Banking Company",
+        "Ticker": null,
+        "DataHash": "3_ABC.json"
+    },
+    {
+        "Id": 4,
+        "Name": "Dundee Banking Company",
+        "Ticker": null,
+        "DataHash": "4_DBC.json"
+    },
+    {
+        "Id": 5,
+        "Name": "Dundee Commercial Banking Company No. 1",
+        "Ticker": null,
+        "DataHash": "5_DCBC.json"
+    },
+    {
+        "Id": 6,
+        "Name": "Dundee New Bank",
+        "Ticker": null,
+        "DataHash": "6_DNB.json"
+    },
+    {
+        "Id": 7,
+        "Name": "Dundee Commercial Banking Company No. 2",
+        "Ticker": null,
+        "DataHash": "7_DCBC2.json"
+    },
+    {
+        "Id": 8,
+        "Name": "Ship Bank, Glasgow",
+        "Ticker": null,
+        "DataHash": "8_SBG.json"
+    },
+    {
+        "Id": 9,
+        "Name": "Thistle Bank, Glasgow",
+        "Ticker": null,
+        "DataHash": "9_TBG.json"
+    },
+    {
+        "Id": 10,
+        "Name": "Glasgow Banking Company",
+        "Ticker": null,
+        "DataHash": "10_GBC.json"
+    },
+    {
+        "Id": 11,
+        "Name": "Paisley Union Banking Company",
+        "Ticker": null,
+        "DataHash": "11_PUBC.json"
+    },
+    {
+        "Id": 12,
+        "Name": "Perth United Banking Company",
+        "Ticker": null,
+        "DataHash": "12_PUBC2.json"
+    },
+    {
+        "Id": 13,
+        "Name": "Perth Banking Company",
+        "Ticker": null,
+        "DataHash": "13_PBC.json"
     }
 ]

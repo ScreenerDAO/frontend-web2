@@ -3,7 +3,8 @@ import ICompanyData from "src/types/ICompanyData"
 import ICompanyEthData from "src/types/ICompanyEthData"
 import { IGeneral, setCompanyLoading } from "src/features/general"
 import { setCompanyData } from "src/features/companyDataSlice"
-import { setCompanyData as setNewCompanyData } from 'src/features/newCompanyDataSlice'
+
+// import { setCompanyData as setNewCompanyData } from 'src/features/newCompanyDataSlice'
 
 // import { NFTStorage, Blob } from "nft.storage"
 // import { Web3Storage } from "web3.storage"
@@ -192,7 +193,7 @@ const selectCompany = async (
     finally {
         console.log(companyData)
 
-        dispatch(setNewCompanyData(companyData as ICompanyData))
+        // dispatch(setNewCompanyData(companyData as ICompanyData))
         dispatch(setCompanyData(companyData as ICompanyData))
         dispatch(setCompanyLoading(false))
     }

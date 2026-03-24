@@ -1,94 +1,3250 @@
 {
   "Id": "1",
-  "Name": "Korea Electric Power Corporation",
+  "Name": "The Coca-Cola Company",
   "Ticker": "KO",
-  "Country": "South Korea",
-  "WikipediaPage": "Korea_Electric_Power_Corporation",
-  "Isin": "US5006311063",
-  "Cik": 927971,
-  "Currency": 410,
+  "Country": null,
+  "WikipediaPage": null,
+  "Isin": null,
+  "Cik": null,
+  "Currency": "840",
   "IsDelisted": false,
   "CustomFinancialsStructure": false,
   "FinancialStatements": {
-    "2024": {
+    "1920": {
       "BalanceSheet": {
         "1": {
-          "Value": 1000000 
+          "Value": null,
+          "Source": null
         },
         "2": {
-          "Value": 2000000 
+          "Value": null,
+          "Source": null
         },
         "3": {
-          "Value": 3000000 
+          "Value": 6610557.64,
+          "Source": "Inventories at cost or market whichever was lower"
+        },
+        "4": {
+          "Value": 83977.9,
+          "Source": "PREPAID VALUES"
+        },
+        "5": {
+          "Value": null,
+          "Source": null
+        },
+        "6": {
+          "Value": 4250680.97,
+          "Source": "Land, Buildings and Machinery"
+        },
+        "7": {
+          "Value": null,
+          "Source": null
+        },
+        "8": {
+          "Value": 24965222.58,
+          "Source": "Formulae, Trade Mark and Good will"
+        },
+        "9": {
+          "Value": 4295900.33,
+          "Source": "OTHER BOOK AND MISCELLANEOUS ASSETS"
+        },
+        "10": {
+          "Value": null,
+          "Source": null
+        },
+        "11": {
+          "Value": 40206339.42,
+          "Source": "Total Assets"
+        },
+        "12": {
+          "Value": 8890241.63,
+          "Source": "Notes and accounts payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 650000.0,
+          "Source": "Preferred dividend payable (350,000) + Estimated Federal Income and Excess Profits Tax (300,000)"
+        },
+        "15": {
+          "Value": null,
+          "Source": null
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": null,
+          "Source": null
+        },
+        "18": {
+          "Value": null,
+          "Source": null
+        },
+        "19": {
+          "Value": null,
+          "Source": null
+        },
+        "20": {
+          "Value": 19600000.0,
+          "Source": "Common Stock Outstanding (15,010,000) + Capital Surplus (4,590,000)"
+        },
+        "21": {
+          "Value": 1066097.79,
+          "Source": "SURPLUS"
+        },
+        "22": {
+          "Value": 10000000.0,
+          "Source": "Preferred Stock Outstanding"
+        },
+        "23": {
+          "Value": 30666097.79,
+          "Source": "Capital Accounts Subtotal"
+        },
+        "24": {
+          "Value": 40206339.42,
+          "Source": "Total Liabilities and Capital Accounts"
         }
       },
       "IncomeStatement": {
         "1": {
-          "Value": 1000000 
+          "Value": 32341428.61,
+          "Source": "NET SALES"
         },
         "2": {
-          "Value": 2000000 
+          "Value": 29567159.16,
+          "Source": "LESS: Cost of operations"
         },
         "3": {
-          "Value": 3000000 
+          "Value": null,
+          "Source": null
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 2774269.45,
+          "Source": "Profit from operations"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 335103.47,
+          "Source": "LESS: Other deductions from income"
+        },
+        "8": {
+          "Value": 2439165.98,
+          "Source": "Net Income (reported figure is pre-tax and pre-dividend)"
+        },
+        "9": {
+          "Value": null,
+          "Source": null
+        },
+        "10": {
+          "Value": null,
+          "Source": null
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": null,
+          "Source": null
         }
       },
-      "CashFlow": {
-        "1": {
-          "Value": 1000000 
-        },
-        "2": {
-          "Value": 2000000 
-        },
-        "3": {
-          "Value": 3000000 
-        }
-      }
+      "CashFlow": {}
     },
-    "2023": {
+    "1921": {
       "BalanceSheet": {
         "1": {
-          "Value": 1000000 
+          "Value": 914477.26,
+          "Source": "Cash + Government Securities"
         },
         "2": {
-          "Value": 2000000 
+          "Value": 1715185.78,
+          "Source": "Bills Receivable + Accounts Receivable"
         },
         "3": {
-          "Value": 3000000 
+          "Value": 1816992.96,
+          "Source": "Inventory"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 4446656.0,
+          "Source": "CURRENT (Assets) subtotal"
+        },
+        "6": {
+          "Value": 5767091.08,
+          "Source": "Land + Buildings + Machinery and Equipment + Bottles and Cases - Allowance for Depreciation"
+        },
+        "7": {
+          "Value": 282592.48,
+          "Source": "OTHER ASSETS subtotal (Notes Receivable—Real Estate Sold + Notes Receivable—Stock Subscriptions + Sundry Notes and Accounts Receivable)"
+        },
+        "8": {
+          "Value": 24966230.09,
+          "Source": "FORMULAE, TRADE-MARKS AND GOOD WILL"
+        },
+        "9": {
+          "Value": 47375.24,
+          "Source": "DEFERRED CHARGES (Prepaid Interest and Unexpired Insurance)"
+        },
+        "10": {
+          "Value": 31063288.89,
+          "Source": "Total Assets - CURRENT (Assets)"
+        },
+        "11": {
+          "Value": 35509944.89,
+          "Source": "Total Assets"
+        },
+        "12": {
+          "Value": 1024897.77,
+          "Source": "Accounts Payable"
+        },
+        "13": {
+          "Value": 2165750.0,
+          "Source": "Notes Payable"
+        },
+        "14": {
+          "Value": 2752.22,
+          "Source": "Accrued Accounts"
+        },
+        "15": {
+          "Value": 3193399.99,
+          "Source": "CURRENT (Liabilities) subtotal"
+        },
+        "16": {
+          "Value": 81500.0,
+          "Source": "DEFERRED (Real Estate Notes Due 1923-1925)"
+        },
+        "17": {
+          "Value": 427000.0,
+          "Source": "RESERVE (For Federal Taxes)"
+        },
+        "18": {
+          "Value": 508500.0,
+          "Source": "DEFERRED + RESERVE (For Federal Taxes)"
+        },
+        "19": {
+          "Value": 3701899.99,
+          "Source": "CURRENT (Liabilities) + DEFERRED + RESERVE"
+        },
+        "20": {
+          "Value": 29600000.0,
+          "Source": "NOMINAL (CAPITAL STOCK) + Paid in surplus"
+        },
+        "21": {
+          "Value": 2208044.9,
+          "Source": "Earned surplus"
+        },
+        "22": {
+          "Value": null,
+          "Source": null
+        },
+        "23": {
+          "Value": 31808044.9,
+          "Source": "NOMINAL (CAPITAL STOCK) + PROFIT AND LOSS SURPLUS"
+        },
+        "24": {
+          "Value": 35509944.89,
+          "Source": "Total Liabilities (Total of Liabilities and Surplus section)"
         }
       },
       "IncomeStatement": {
         "1": {
-          "Value": 1000000 
+          "Value": 28464598.96,
+          "Source": "SALES"
         },
         "2": {
-          "Value": 2000000 
+          "Value": 21189706.23,
+          "Source": "Cost of goods sold, including freight on sales, discounts and allowances"
         },
         "3": {
-          "Value": 3000000 
+          "Value": 7274892.73,
+          "Source": "Gross operating profit"
+        },
+        "4": {
+          "Value": 3928884.29,
+          "Source": "Expenses, selling, branch, administrative, and general"
+        },
+        "5": {
+          "Value": 3346008.44,
+          "Source": "Net operating profit"
+        },
+        "6": {
+          "Value": 575018.31,
+          "Source": "Other net deductions, interest, etc."
+        },
+        "7": {
+          "Value": null,
+          "Source": null
+        },
+        "8": {
+          "Value": 2770990.13,
+          "Source": "Net profit before Federal taxes"
+        },
+        "9": {
+          "Value": 425000.0,
+          "Source": "Less: Reserve for Federal income and profits taxes"
+        },
+        "10": {
+          "Value": 2345990.13,
+          "Source": "Net profit"
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": null,
+          "Source": null
         }
       },
-      "CashFlow": {
+      "CashFlow": {}
+    },
+    "1922": {
+      "BalanceSheet": {
         "1": {
-          "Value": 1000000 
+          "Value": 2823514.62,
+          "Source": "Sum of Cash (2,804,307.39) and Government Securities (19,207.23)"
         },
         "2": {
-          "Value": 2000000 
+          "Value": 983572.44,
+          "Source": "Sum of Bills Receivable (25,347.56), Accounts Receivable (944,525.23), and Sundry Notes and Accounts Receivable (13,699.65)"
         },
         "3": {
-          "Value": 3000000 
+          "Value": 1548477.81,
+          "Source": "Inventory"
+        },
+        "4": {
+          "Value": 24969.92,
+          "Source": "Prepaid Interest and Unexpired Insurance Premiums"
+        },
+        "5": {
+          "Value": 5380534.79,
+          "Source": "Sum of Cash and Equivalents, Receivables, Inventory, and Other Current Assets"
+        },
+        "6": {
+          "Value": 6154202.77,
+          "Source": "Sum of Land (1,168,958.16), Buildings (2,865,728.86), Machinery and Equipment (2,010,154.65), and Bottles and Cases (829,460.05) less Allowance for Depreciation (720,098.95)"
+        },
+        "7": {
+          "Value": 127083.36,
+          "Source": "Notes Receivable—Real Estate Sold"
+        },
+        "8": {
+          "Value": 20400230.87,
+          "Source": "FORMULAE, TRADE-MARKS AND GOOD WILL"
+        },
+        "9": {
+          "Value": null,
+          "Source": null
+        },
+        "10": {
+          "Value": 26681517.0,
+          "Source": "Sum of Net Property Plant Equipment, Investments, and Intangible Assets"
+        },
+        "11": {
+          "Value": 32062051.79,
+          "Source": "Sum of Total Current Assets and Total Non-Current Assets"
+        },
+        "12": {
+          "Value": 514554.31,
+          "Source": "Accounts Payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": "Notes Payable (reported as liquidated/blank)"
+        },
+        "14": {
+          "Value": 898950.0,
+          "Source": "Sum of Accrued Accounts (1,950.0) and Reserve For Federal Taxes (897,000.0)"
+        },
+        "15": {
+          "Value": 1413504.31,
+          "Source": "Sum of Accounts Payable and Other Current Liabilities"
+        },
+        "16": {
+          "Value": 78000.0,
+          "Source": "Real Estate Notes—Due 1923-25"
+        },
+        "17": {
+          "Value": null,
+          "Source": null
+        },
+        "18": {
+          "Value": 78000.0,
+          "Source": "Total of reported long-term real estate notes"
+        },
+        "19": {
+          "Value": 1491504.31,
+          "Source": "Sum of Total Current Liabilities and Total Non-Current Liabilities"
+        },
+        "20": {
+          "Value": 25010000.0,
+          "Source": "CAPITAL STOCK"
+        },
+        "21": {
+          "Value": 5560547.48,
+          "Source": "Profit and Loss Surplus (Earned)"
+        },
+        "22": {
+          "Value": null,
+          "Source": "Capital Surplus (reported as eliminated/blank)"
+        },
+        "23": {
+          "Value": 30570547.48,
+          "Source": "Sum of Paid-In Capital and Retained Earnings"
+        },
+        "24": {
+          "Value": 32062051.79,
+          "Source": "Sum of Total Liabilities and Total Equity"
         }
-      }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 21053834.39,
+          "Source": "SALES"
+        },
+        "2": {
+          "Value": 9706516.61,
+          "Source": "Cost of goods sold, including freight on sales, discounts and allowances"
+        },
+        "3": {
+          "Value": 11347317.78,
+          "Source": "Gross operating profit"
+        },
+        "4": {
+          "Value": 4120155.89,
+          "Source": "Expenses, selling, branch, administrative, and general"
+        },
+        "5": {
+          "Value": 7227161.89,
+          "Source": "Net operating profit"
+        },
+        "6": {
+          "Value": null,
+          "Source": "Interest bundled in Other net deductions"
+        },
+        "7": {
+          "Value": 61719.34,
+          "Source": "Other net deductions, interest, etc."
+        },
+        "8": {
+          "Value": 7165442.55,
+          "Source": "Net profit before Federal taxes"
+        },
+        "9": {
+          "Value": 897000.0,
+          "Source": "Less: Reserve for Federal taxes"
+        },
+        "10": {
+          "Value": 6268442.55,
+          "Source": "Net profit"
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1923": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 2371003.73,
+          "Source": "Cash, Government Securities"
+        },
+        "2": {
+          "Value": 1660197.37,
+          "Source": "Notes Receivable, Accounts Receivable, Notes Receivable—Real Estate Sold, Sundry Notes and Accounts Receivable"
+        },
+        "3": {
+          "Value": 1779263.97,
+          "Source": "Inventory—Merchandise on Hand, Priced at Lower of Cost or Market"
+        },
+        "4": {
+          "Value": 67367.16,
+          "Source": "Unexpired Insurance and Prepaid Expenses"
+        },
+        "5": {
+          "Value": null,
+          "Source": null
+        },
+        "6": {
+          "Value": 6933412.38,
+          "Source": "Land, Buildings*, Machinery and Equipment, Bottles and Cases, Less: Allowance for Depreciation"
+        },
+        "7": {
+          "Value": null,
+          "Source": null
+        },
+        "8": {
+          "Value": 20656386.43,
+          "Source": "Formulae, Trade-Marks and Good-Will†"
+        },
+        "9": {
+          "Value": null,
+          "Source": null
+        },
+        "10": {
+          "Value": null,
+          "Source": null
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": 694659.18,
+          "Source": "Accounts Payable"
+        },
+        "13": {
+          "Value": 31000.0,
+          "Source": "Notes Payable—for Real Estate Due 1924"
+        },
+        "14": {
+          "Value": 1908669.92,
+          "Source": "Unpaid Dividends §, Accrued Accounts, For Federal Taxes"
+        },
+        "15": {
+          "Value": null,
+          "Source": null
+        },
+        "16": {
+          "Value": 90000.0,
+          "Source": "Real Estate Notes Due 1925-1927"
+        },
+        "17": {
+          "Value": 2587.5,
+          "Source": "Unearned Interest on Notes Receivable"
+        },
+        "18": {
+          "Value": null,
+          "Source": null
+        },
+        "19": {
+          "Value": null,
+          "Source": null
+        },
+        "20": {
+          "Value": 25010000.0,
+          "Source": "Preferred (Under Capital Stock), Common (Under Capital Stock)"
+        },
+        "21": {
+          "Value": 5730714.44,
+          "Source": "Profit and Loss—Surplus"
+        },
+        "22": {
+          "Value": null,
+          "Source": null
+        },
+        "23": {
+          "Value": null,
+          "Source": null
+        },
+        "24": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 24320063.98,
+          "Source": "SALES"
+        },
+        "2": {
+          "Value": 13445496.78,
+          "Source": "Less: Cost of goods sold, including freight on sales, discounts and allowances*"
+        },
+        "3": {
+          "Value": 10874567.2,
+          "Source": "Gross Operating Profit"
+        },
+        "4": {
+          "Value": 5651882.69,
+          "Source": "Expenses—selling, branch, administrative, and general†"
+        },
+        "5": {
+          "Value": 5222684.51,
+          "Source": "Net Operating Profit"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": -45575.58,
+          "Source": "Other deductions—net"
+        },
+        "8": {
+          "Value": 5177108.93,
+          "Source": "Net profit before Federal Taxes"
+        },
+        "9": {
+          "Value": 648000.0,
+          "Source": "Reserve for Federal Income taxes"
+        },
+        "10": {
+          "Value": 4529108.93,
+          "Source": "Net Profit"
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1924": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 1815715.01,
+          "Source": "CURRENT: Cash + Government Securities"
+        },
+        "2": {
+          "Value": 2490648.54,
+          "Source": "Notes Receivable + Accounts Receivable"
+        },
+        "3": {
+          "Value": 1295625.35,
+          "Source": "Inventory—Merchandise on Hand, Priced at Lower of Cost or Market"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 5601988.9,
+          "Source": "Total Current Assets"
+        },
+        "6": {
+          "Value": 6701618.21,
+          "Source": "Net Permanent Assets"
+        },
+        "7": {
+          "Value": 340000.0,
+          "Source": "OTHER ASSETS: Securities Owned"
+        },
+        "8": {
+          "Value": 20656576.3,
+          "Source": "FORMULAE, TRADE-MARK AND GOODWILL"
+        },
+        "9": {
+          "Value": 191872.29,
+          "Source": "Sundry Notes and Accounts Receivable + DEFERRED CHARGES: Unexpired Insurance and Prepaid Expenses"
+        },
+        "10": {
+          "Value": 27890066.8,
+          "Source": "Net Property Plant Equipment + Investments + Intangible Assets + Other Non-Current Assets"
+        },
+        "11": {
+          "Value": 33492055.7,
+          "Source": "Total Assets"
+        },
+        "12": {
+          "Value": 454962.45,
+          "Source": "Accounts Payable"
+        },
+        "13": {
+          "Value": 1000.0,
+          "Source": "LIABILITIES: CURRENT: Notes Payable—For Real Estate, Due 1925"
+        },
+        "14": {
+          "Value": 372.37,
+          "Source": "Accrued Accounts"
+        },
+        "15": {
+          "Value": 456334.82,
+          "Source": "Total Current Liabilities"
+        },
+        "16": {
+          "Value": 11000.0,
+          "Source": "DEFERRED: Real Estate Notes Due 1926-1927"
+        },
+        "17": {
+          "Value": 839877.03,
+          "Source": "RESERVE: For Federal Taxes"
+        },
+        "18": {
+          "Value": 850877.03,
+          "Source": "Long-Term Debt + Other Non-Current Liabilities"
+        },
+        "19": {
+          "Value": 1307211.85,
+          "Source": "Total Current Liabilities + Total Non-Current Liabilities"
+        },
+        "20": {
+          "Value": 25010000.0,
+          "Source": "NOMINAL CAPITAL STOCK: Preferred + Common"
+        },
+        "21": {
+          "Value": 7174843.85,
+          "Source": "PROFIT AND LOSS—SURPLUS"
+        },
+        "22": {
+          "Value": null,
+          "Source": null
+        },
+        "23": {
+          "Value": 32184843.85,
+          "Source": "Paid-In Capital + Retained Earnings"
+        },
+        "24": {
+          "Value": 33492055.7,
+          "Source": "Total Liabilities and Equity"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 25444197.52,
+          "Source": "SALES"
+        },
+        "2": {
+          "Value": 13464515.86,
+          "Source": "Less: Cost of goods sold, including freight on sales, discounts and allowances"
+        },
+        "3": {
+          "Value": 11979681.66,
+          "Source": "Gross Operating Profit"
+        },
+        "4": {
+          "Value": 5517623.29,
+          "Source": "Expenses—Selling, Branch, Administrative and General"
+        },
+        "5": {
+          "Value": 6462058.37,
+          "Source": "Net Operating Profit"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 44935.19,
+          "Source": "Other Income—Net"
+        },
+        "8": {
+          "Value": 6506993.56,
+          "Source": "Net Profit Before Federal Taxes"
+        },
+        "9": {
+          "Value": 806000.0,
+          "Source": "Reserve for Federal Income Tax"
+        },
+        "10": {
+          "Value": 5700993.56,
+          "Source": "Net Profit"
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1925": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 2507491.43,
+          "Source": "Cash ($2,504,077.68) + Government Securities ($3,413.75)"
+        },
+        "2": {
+          "Value": 1664145.12,
+          "Source": "Notes Receivable ($307,248.46) + Accounts Receivable ($1,356,896.66)"
+        },
+        "3": {
+          "Value": 1494529.01,
+          "Source": "Inventory-Merchandise on Hand"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 5666165.56,
+          "Source": "Total Current Assets (implied subtotal of Cash, Securities, Receivables, and Inventory)"
+        },
+        "6": {
+          "Value": 6385436.83,
+          "Source": "Net Permanent Assets (Land, Buildings, Machinery, Bottles and Cases less Allowance for Depreciation)"
+        },
+        "7": {
+          "Value": 309869.94,
+          "Source": "Sundry Notes and Accounts Receivable (listed as non-current)"
+        },
+        "8": {
+          "Value": 20740676.91,
+          "Source": "FORMULAE, TRADE-MARK AND GOODWILL"
+        },
+        "9": {
+          "Value": 30346.36,
+          "Source": "Unexpired Insurance and Prepaid Expenses"
+        },
+        "10": {
+          "Value": 27466330.04,
+          "Source": "Total Non-Current Assets (Calculated: Net Permanent Assets + Sundry Notes + Intangibles + Prepaid Expenses)"
+        },
+        "11": {
+          "Value": 33132495.6,
+          "Source": "TOTAL ASSETS"
+        },
+        "12": {
+          "Value": 468066.76,
+          "Source": "Accounts Payable"
+        },
+        "13": {
+          "Value": 1000.0,
+          "Source": "Notes Payable-For Real Estate, Due 1926"
+        },
+        "14": {
+          "Value": 416.35,
+          "Source": "Accrued Accounts"
+        },
+        "15": {
+          "Value": 469483.11,
+          "Source": "Total Current Liabilities (implied subtotal of Notes Payable due 1926, Accounts Payable, and Accrued Accounts)"
+        },
+        "16": {
+          "Value": 10000.0,
+          "Source": "Real Estate Notes-Due 1927"
+        },
+        "17": {
+          "Value": 2056451.64,
+          "Source": "Federal Income Taxes, Contingent, and Miscellaneous Operating Reserves"
+        },
+        "18": {
+          "Value": 2066451.64,
+          "Source": "Total Non-Current Liabilities (Calculated: Real Estate Notes Due 1927 + Operating Reserves)"
+        },
+        "19": {
+          "Value": 2535934.75,
+          "Source": "Total Liabilities (Calculated: Total Current Liabilities + Total Non-Current Liabilities)"
+        },
+        "20": {
+          "Value": 15010000.0,
+          "Source": "Capital Stock: Common"
+        },
+        "21": {
+          "Value": 10916860.85,
+          "Source": "PROFIT AND LOSS-SURPLUS"
+        },
+        "22": {
+          "Value": 4669700.0,
+          "Source": "Capital Stock: Preferred ($6,000,000.00) less Treasury ($1,330,300.00)"
+        },
+        "23": {
+          "Value": 30596560.85,
+          "Source": "Total Capital and Surplus"
+        },
+        "24": {
+          "Value": 33132495.6,
+          "Source": "TOTAL LIABILITIES AND EQUITY"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 28553425.48,
+          "Source": "SALES"
+        },
+        "2": {
+          "Value": 13056622.67,
+          "Source": "Cost of goods sold, including freight on sales, discounts and allowances"
+        },
+        "3": {
+          "Value": 15496802.81,
+          "Source": "GROSS OPERATING PROFIT"
+        },
+        "4": {
+          "Value": 5576637.12,
+          "Source": "Expenses-Selling, Branch, Administrative and General"
+        },
+        "5": {
+          "Value": 9920165.69,
+          "Source": "NET OPERATING PROFIT"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 660585.16,
+          "Source": "Other Deductions-Net"
+        },
+        "8": {
+          "Value": 9259580.53,
+          "Source": "NET PROFIT BEFORE FEDERAL TAXES"
+        },
+        "9": {
+          "Value": 1360000.0,
+          "Source": "Reserve for Federal Income Tax"
+        },
+        "10": {
+          "Value": 7899580.53,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1926": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 4604807.57,
+          "Source": "*Cash on Deposit and Placed on Call, Government Securities"
+        },
+        "2": {
+          "Value": 1408517.59,
+          "Source": "Notes Receivable, Accounts Receivable"
+        },
+        "3": {
+          "Value": 1727494.14,
+          "Source": "Inventory—Merchandise on Hand, Priced at Lower of Cost or Market"
+        },
+        "4": {
+          "Value": null,
+          "Source": "No specific item identified as Other Current Assets from reported current asset subtotal components"
+        },
+        "5": {
+          "Value": 7740819.3,
+          "Source": "CURRENT ASSETS SUBTOTAL"
+        },
+        "6": {
+          "Value": 6089699.21,
+          "Source": "PERMANENT ASSETS NET SUBTOTAL"
+        },
+        "7": {
+          "Value": 441760.93,
+          "Source": "OTHER ASSETS: Sundry Notes and Accounts Receivable"
+        },
+        "8": {
+          "Value": 20745676.91,
+          "Source": "FORMULAE, TRADE-MARK AND GOODWILL"
+        },
+        "9": {
+          "Value": 31902.62,
+          "Source": "DEFERRED CHARGES: Unexpired Insurance and Prepaid Expenses"
+        },
+        "10": {
+          "Value": 27309039.67,
+          "Source": "Calculated from Net Property Plant Equipment, Investments, Intangible Assets, and Other Non-Current Assets"
+        },
+        "11": {
+          "Value": 35049858.97,
+          "Source": "TOTAL ASSETS"
+        },
+        "12": {
+          "Value": 687918.09,
+          "Source": "Accounts Payable"
+        },
+        "13": {
+          "Value": 10000.0,
+          "Source": "Notes Payable—For Real Estate, Due 1927"
+        },
+        "14": {
+          "Value": 1437.42,
+          "Source": "Accrued Accounts"
+        },
+        "15": {
+          "Value": 699355.51,
+          "Source": "CURRENT LIABILITIES SUBTOTAL"
+        },
+        "16": {
+          "Value": null,
+          "Source": "No specific item identified as Long-Term Debt"
+        },
+        "17": {
+          "Value": 3557583.1,
+          "Source": "RESERVES: Income Taxes, Contingent and Miscellaneous Operating Reserves"
+        },
+        "18": {
+          "Value": 3557583.1,
+          "Source": "Calculated from Other Non-Current Liabilities"
+        },
+        "19": {
+          "Value": 4256938.61,
+          "Source": "Calculated from Total Current Liabilities and Total Non-Current Liabilities"
+        },
+        "20": {
+          "Value": 15010000.0,
+          "Source": "NOMINAL CAPITAL STOCK: Common"
+        },
+        "21": {
+          "Value": 15782920.36,
+          "Source": "PROFIT AND LOSS—SURPLUS"
+        },
+        "22": {
+          "Value": null,
+          "Source": "No specific item identified as Other Equity"
+        },
+        "23": {
+          "Value": 30792920.36,
+          "Source": "TOTAL NOMINAL"
+        },
+        "24": {
+          "Value": 35049858.97,
+          "Source": "TOTAL LIABILITIES AND NOMINAL"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 30107272.29,
+          "Source": "SALES"
+        },
+        "2": {
+          "Value": 12352117.1,
+          "Source": "Less: Cost of goods sold, including freight on sales and allowances"
+        },
+        "3": {
+          "Value": 17755155.19,
+          "Source": "GROSS OPERATING PROFIT"
+        },
+        "4": {
+          "Value": 6076686.68,
+          "Source": "Expenses—Selling, Branch, Administrative and General"
+        },
+        "5": {
+          "Value": 11678468.51,
+          "Source": "NET OPERATING PROFIT"
+        },
+        "6": {
+          "Value": null,
+          "Source": "No specific item identified as Interest Expense"
+        },
+        "7": {
+          "Value": null,
+          "Source": "Other non-operating items not explicitly separable from income tax within combined deduction"
+        },
+        "8": {
+          "Value": 11678468.51,
+          "Source": "Operating Income (Net Operating Profit); Other non-operating items not explicitly separated from income tax"
+        },
+        "9": {
+          "Value": 3274814.88,
+          "Source": "Other Deductions, including Income Taxes, and Contingent and Miscellaneous Operating Reserves (treated as income tax due to inability to separate from other deductions, and its role in deriving Net Profit)"
+        },
+        "10": {
+          "Value": 8403653.63,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": null,
+          "Source": "Shares Outstanding not explicitly provided"
+        },
+        "12": {
+          "Value": null,
+          "Source": "EPS not calculable without Shares Outstanding"
+        }
+      },
+      "CashFlow": {}
+    },
+    "1927": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 9770188.2,
+          "Source": "Cash on Deposit and Placed on Call, Government Securities"
+        },
+        "2": {
+          "Value": 1699252.59,
+          "Source": "Notes Receivable, Accounts Receivable"
+        },
+        "3": {
+          "Value": 2116131.07,
+          "Source": "Inventory—Merchandise on Hand, (Priced at Lower of Cost or Market)"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 13585571.86,
+          "Source": "Current Assets Total"
+        },
+        "6": {
+          "Value": 6127579.97,
+          "Source": "Permanent Assets Total (Including Land)"
+        },
+        "7": {
+          "Value": null,
+          "Source": null
+        },
+        "8": {
+          "Value": 20745676.91,
+          "Source": "FORMULAE, TRADE-MARK AND GOODWILL"
+        },
+        "9": {
+          "Value": 285717.08,
+          "Source": "Sundry Notes and Accounts Receivable, Unexpired Insurance and Prepaid Expenses"
+        },
+        "10": {
+          "Value": 27158973.96,
+          "Source": "Sum of Permanent Assets Total (Including Land), FORMULAE, TRADE-MARK AND GOODWILL, Sundry Notes and Accounts Receivable, Unexpired Insurance and Prepaid Expenses"
+        },
+        "11": {
+          "Value": 40744545.82,
+          "Source": "TOTAL ASSETS"
+        },
+        "12": {
+          "Value": 544975.77,
+          "Source": "Accounts Payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 2496.91,
+          "Source": "Accrued Accounts"
+        },
+        "15": {
+          "Value": 547472.68,
+          "Source": "Current Liabilities Total"
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": 5240997.42,
+          "Source": "Taxes, Contingent and Miscellaneous Operating Reserves"
+        },
+        "18": {
+          "Value": 5240997.42,
+          "Source": "Taxes, Contingent and Miscellaneous Operating Reserves"
+        },
+        "19": {
+          "Value": 5788470.1,
+          "Source": "Sum of Current Liabilities Total, Taxes, Contingent and Miscellaneous Operating Reserves"
+        },
+        "20": {
+          "Value": 25000000.0,
+          "Source": "Common—1,000,000 Shares—No Par Value"
+        },
+        "21": {
+          "Value": 9956075.72,
+          "Source": "PROFIT AND LOSS—SURPLUS"
+        },
+        "22": {
+          "Value": null,
+          "Source": null
+        },
+        "23": {
+          "Value": 34956075.72,
+          "Source": "Total Nominal and Surplus"
+        },
+        "24": {
+          "Value": 40744545.82,
+          "Source": "TOTAL LIABILITIES AND CAPITAL"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 32515501.66,
+          "Source": "SALES"
+        },
+        "2": {
+          "Value": 13514602.25,
+          "Source": "Less: Cost of goods sold, including freight on sales and allowances"
+        },
+        "3": {
+          "Value": 19000899.41,
+          "Source": "GROSS OPERATING PROFIT"
+        },
+        "4": {
+          "Value": 9837744.05,
+          "Source": "Expenses—Selling, Branch, Administrative and General, Other Deductions, including Taxes, and Contingent and Miscellaneous Operating Reserves (Total Expenses and Deductions)"
+        },
+        "5": {
+          "Value": 9163155.36,
+          "Source": "NET PROFIT (derived as Gross Operating Profit less Total Expenses and Deductions)"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": null,
+          "Source": null
+        },
+        "8": {
+          "Value": 9163155.36,
+          "Source": "NET PROFIT (derived as Operating Income due to lack of separate interest/tax items)"
+        },
+        "9": {
+          "Value": null,
+          "Source": null
+        },
+        "10": {
+          "Value": 9163155.36,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": 1000000.0,
+          "Source": "Common—1,000,000 Shares—No Par Value"
+        },
+        "12": {
+          "Value": 9.16315536,
+          "Source": "Calculated from NET PROFIT and Common—1,000,000 Shares—No Par Value"
+        }
+      },
+      "CashFlow": {}
+    },
+    "1928": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 15045048.33,
+          "Source": "CURRENT: Cash on Deposit and Placed on Call + CURRENT: Government Securities—At Cost"
+        },
+        "2": {
+          "Value": 1500326.19,
+          "Source": "CURRENT: Notes Receivable + CURRENT: Accounts Receivable"
+        },
+        "3": {
+          "Value": 3606517.9,
+          "Source": "CURRENT: Inventory—Merchandise on Hand, (Priced at Lower of Cost or Market)"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 20151392.42,
+          "Source": "Total Current Assets"
+        },
+        "6": {
+          "Value": 5883802.36,
+          "Source": "Total Permanent Assets"
+        },
+        "7": {
+          "Value": null,
+          "Source": null
+        },
+        "8": {
+          "Value": 20823385.62,
+          "Source": "FORMULAE, TRADE-MARK AND GOODWILL"
+        },
+        "9": {
+          "Value": 326343.38,
+          "Source": "OTHER ASSETS: Sundry Notes and Accounts Receivable + DEFERRED CHARGES: Unexpired Insurance and Prepaid Expenses"
+        },
+        "10": {
+          "Value": 27033531.36,
+          "Source": "Total Permanent Assets + FORMULAE, TRADE-MARK AND GOODWILL + OTHER ASSETS: Sundry Notes and Accounts Receivable + DEFERRED CHARGES: Unexpired Insurance and Prepaid Expenses"
+        },
+        "11": {
+          "Value": 47184923.78,
+          "Source": "Total Assets"
+        },
+        "12": {
+          "Value": 849811.38,
+          "Source": "LIABILITIES: CURRENT: Accounts Payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 5146.85,
+          "Source": "LIABILITIES: CURRENT: Accrued Accounts"
+        },
+        "15": {
+          "Value": 854958.23,
+          "Source": "Total Current Liabilities"
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": 6934769.12,
+          "Source": "Total Reserves"
+        },
+        "18": {
+          "Value": 6934769.12,
+          "Source": "Total Reserves"
+        },
+        "19": {
+          "Value": 7789727.35,
+          "Source": "Total Current Liabilities + Total Reserves"
+        },
+        "20": {
+          "Value": 25000000.0,
+          "Source": "NOMINAL: CAPITAL STOCK: Common—1,000,000 Shares—No Par Value"
+        },
+        "21": {
+          "Value": 14395196.43,
+          "Source": "NOMINAL: PROFIT AND LOSS—SURPLUS"
+        },
+        "22": {
+          "Value": null,
+          "Source": null
+        },
+        "23": {
+          "Value": 39395196.43,
+          "Source": "Total Nominal"
+        },
+        "24": {
+          "Value": 47184923.78,
+          "Source": "Total Liabilities (matching Total Assets)"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 34745758.44,
+          "Source": "SALES"
+        },
+        "2": {
+          "Value": 13948981.54,
+          "Source": "Less: Cost of goods sold, including freight on sales and allowances"
+        },
+        "3": {
+          "Value": 20796776.9,
+          "Source": "GROSS OPERATING PROFIT"
+        },
+        "4": {
+          "Value": 6925218.11,
+          "Source": "Expenses—Selling, Branch, Administrative and General"
+        },
+        "5": {
+          "Value": 13871558.79,
+          "Source": "NET OPERATING PROFIT"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 2082438.08,
+          "Source": "Other Deductions—Net—Including Contingent and Miscellaneous Operating Reserves"
+        },
+        "8": {
+          "Value": 11789120.71,
+          "Source": "NET PROFIT BEFORE INCOME TAXES"
+        },
+        "9": {
+          "Value": 1600000.0,
+          "Source": "Reserve for Income Taxes"
+        },
+        "10": {
+          "Value": 10189120.71,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": 1000000.0,
+          "Source": "NOMINAL: CAPITAL STOCK: Common—1,000,000 Shares—No Par Value (extracted shares)"
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1929": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 6575404.92,
+          "Source": "Cash on Deposit + Government Securities—At Cost"
+        },
+        "2": {
+          "Value": 1524791.99,
+          "Source": "Notes Receivable + Accounts Receivable + Sundry Notes and Accounts Receivable"
+        },
+        "3": {
+          "Value": 9136213.84,
+          "Source": "Inventory—Merchandise on Hand, (Priced at Lower of Cost or Market)"
+        },
+        "4": {
+          "Value": 45332.27,
+          "Source": "Unexpired Insurance and Prepaid Expenses"
+        },
+        "5": {
+          "Value": 17281743.02,
+          "Source": "Sum of Cash and Equivalents, Receivables, Inventory, and Other Current Assets"
+        },
+        "6": {
+          "Value": 6305636.88,
+          "Source": "Land + Buildings + Machinery and Equipment + Bottles and Cases - Less: Allowance for Depreciation"
+        },
+        "7": {
+          "Value": 109860.0,
+          "Source": "Investment in Securities of Other Companies"
+        },
+        "8": {
+          "Value": 21931320.52,
+          "Source": "FORMULAE, TRADE-MARK AND GOODWILL"
+        },
+        "9": {
+          "Value": null,
+          "Source": null
+        },
+        "10": {
+          "Value": 28346817.4,
+          "Source": "Sum of Net Property Plant Equipment, Investments, and Intangible Assets"
+        },
+        "11": {
+          "Value": 45628560.42,
+          "Source": "Sum of Total Current Assets and Total Non-Current Assets"
+        },
+        "12": {
+          "Value": 909663.51,
+          "Source": "Accounts Payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 8506420.81,
+          "Source": "Accrued Accounts + For Current Income Taxes + For Contingencies and Miscellaneous Operations"
+        },
+        "15": {
+          "Value": 9416084.32,
+          "Source": "Sum of Accounts Payable and Other Current Liabilities"
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": null,
+          "Source": null
+        },
+        "18": {
+          "Value": null,
+          "Source": null
+        },
+        "19": {
+          "Value": 9416084.32,
+          "Source": "Total Current Liabilities"
+        },
+        "20": {
+          "Value": 30000000.0,
+          "Source": "Class \"A\"—1,000,000 Shares—No Par Value + Common—1,000,000 Shares—No Par Value"
+        },
+        "21": {
+          "Value": 15646208.8,
+          "Source": "PROFIT AND LOSS SURPLUS"
+        },
+        "22": {
+          "Value": -9433732.7,
+          "Source": "INVESTMENT IN COMPANY'S OWN CLASS \"A\" STOCK—AT COST (treated as treasury stock, a contra-equity item)"
+        },
+        "23": {
+          "Value": 36212476.1,
+          "Source": "Sum of Paid-In Capital, Retained Earnings, and Other Equity"
+        },
+        "24": {
+          "Value": 45628560.42,
+          "Source": "Sum of Total Liabilities and Total Equity"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 39260813.03,
+          "Source": "SALES"
+        },
+        "2": {
+          "Value": 14894083.45,
+          "Source": "Less: Cost of Goods Sold, Including Freight on Sales and Allowances"
+        },
+        "3": {
+          "Value": 24366729.58,
+          "Source": "GROSS OPERATING PROFIT"
+        },
+        "4": {
+          "Value": 7670248.55,
+          "Source": "Expenses—Selling, Branch, Administrative and General"
+        },
+        "5": {
+          "Value": 16696481.03,
+          "Source": "NET OPERATING PROFIT"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 2203204.71,
+          "Source": "Other Deductions—Net—Including Contingent and Miscellaneous Operating Reserves"
+        },
+        "8": {
+          "Value": 14493276.32,
+          "Source": "NET PROFIT BEFORE INCOME TAXES"
+        },
+        "9": {
+          "Value": 1735000.0,
+          "Source": "Reserve for Income Taxes"
+        },
+        "10": {
+          "Value": 12758276.32,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1930": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 9622372.06,
+          "Source": "Cash on Deposit and Placed on Call + Government Securities-At Cost"
+        },
+        "2": {
+          "Value": 1875651.45,
+          "Source": "Notes Receivable + Accounts Receivable"
+        },
+        "3": {
+          "Value": 7248849.08,
+          "Source": "Inventory-Merchandise on Hand, (Priced at Lower of Cost or Market)"
+        },
+        "4": {
+          "Value": null,
+          "Source": "Prepaid expenses (Unexpired Insurance and Prepaid Expenses) are mapped to 'Other Non-Current Assets' (9) due to their explicit exclusion from the raw data's 'Total Current Assets' calculation."
+        },
+        "5": {
+          "Value": 18746872.59,
+          "Source": "Total Current Assets"
+        },
+        "6": {
+          "Value": 6747870.1,
+          "Source": "Total Permanent"
+        },
+        "7": {
+          "Value": 12898110.05,
+          "Source": "INVESTMENT IN COMPANY'S OWN CLASS \"A\" STOCK-AT COST + Miscellaneous Investments + Sundry Notes and Accounts Receivable"
+        },
+        "8": {
+          "Value": 23116807.57,
+          "Source": "FORMULAE, TRADE-MARK AND GOODWILL (Increased due to acquisition of additional subsidiaries)"
+        },
+        "9": {
+          "Value": 50493.16,
+          "Source": "Unexpired Insurance and Prepaid Expenses"
+        },
+        "10": {
+          "Value": 42813280.88,
+          "Source": "Sum of Net Property Plant Equipment (6), Investments (7), Intangible Assets (8), and Other Non-Current Assets (9)"
+        },
+        "11": {
+          "Value": 61560153.47,
+          "Source": "Total Assets"
+        },
+        "12": {
+          "Value": 910428.36,
+          "Source": "Accounts Payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 1972976.59,
+          "Source": "Accrued Accounts + For Current Income Taxes"
+        },
+        "15": {
+          "Value": 2883404.95,
+          "Source": "Sum of Accounts Payable (12), Short-Term Debt (13), and Other Current Liabilities (14). Calculated due to raw data's incomplete 'Total Current Liabilities' figure which excluded 'For Current Income Taxes'."
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": 7879106.54,
+          "Source": "For Contingencies and Miscellaneous Operations"
+        },
+        "18": {
+          "Value": 7879106.54,
+          "Source": "Sum of Long-Term Debt (16) and Other Non-Current Liabilities (17)"
+        },
+        "19": {
+          "Value": 10762511.49,
+          "Source": "Sum of Total Current Liabilities (15) and Total Non-Current Liabilities (18)"
+        },
+        "20": {
+          "Value": 30000000.0,
+          "Source": "Total Capital Stock"
+        },
+        "21": {
+          "Value": 20797641.98,
+          "Source": "PROFIT AND LOSS-SURPLUS"
+        },
+        "22": {
+          "Value": null,
+          "Source": null
+        },
+        "23": {
+          "Value": 50797641.98,
+          "Source": "Total Nominal and Surplus"
+        },
+        "24": {
+          "Value": 61560153.47,
+          "Source": "Total Liabilities, Capital Stock and Surplus"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 41284510.91,
+          "Source": "SALES"
+        },
+        "2": {
+          "Value": 15453208.67,
+          "Source": "Less: Cost of Goods Sold, Including freight on sales and allowances"
+        },
+        "3": {
+          "Value": 25831302.24,
+          "Source": "GROSS OPERATING PROFIT"
+        },
+        "4": {
+          "Value": 8874087.63,
+          "Source": "Expenses-Selling, Branch, Administrative and General"
+        },
+        "5": {
+          "Value": 16957214.61,
+          "Source": "NET OPERATING PROFIT"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 1665679.43,
+          "Source": "Other Deductions-Net-Including Contingent and Miscellaneous Operating Reserves"
+        },
+        "8": {
+          "Value": 15291535.18,
+          "Source": "NET PROFIT BEFORE INCOME TAXES"
+        },
+        "9": {
+          "Value": 1776000.0,
+          "Source": "Reserve for Income Taxes"
+        },
+        "10": {
+          "Value": 13515535.18,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1931": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 7646027.98,
+          "Source": "Cash on deposit and placed on call + U. S. Government securities—At cost + Canadian Government securities—At cost"
+        },
+        "2": {
+          "Value": 1516153.66,
+          "Source": "Accounts receivable"
+        },
+        "3": {
+          "Value": 8033943.1,
+          "Source": "Inventory — Merchandise including sugar stored in bonded warehouses— (Priced at lower of cost or market)"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 17196124.74,
+          "Source": "Total Current Assets"
+        },
+        "6": {
+          "Value": 6873489.08,
+          "Source": "Total Permanent Assets"
+        },
+        "7": {
+          "Value": 16586629.02,
+          "Source": "INVESTMENT IN COMPANY'S OWN CLASS \"A\" STOCK: 308,520 shares—At cost + Self insurance fund—Invested in U. S. Government securities—At cost + Miscellaneous investments and deferred charges"
+        },
+        "8": {
+          "Value": 24604213.19,
+          "Source": "FORMULAE, TRADE-MARK AND GOODWILL (Increased due to acquisition of additional subsidiaries)"
+        },
+        "9": {
+          "Value": 869983.75,
+          "Source": "Sundry notes and accounts receivable"
+        },
+        "10": {
+          "Value": 48934315.04,
+          "Source": "Sum of Net Property Plant Equipment, Investments, Intangible Assets, and Other Non-Current Assets"
+        },
+        "11": {
+          "Value": 66130439.78,
+          "Source": "TOTAL ASSETS"
+        },
+        "12": {
+          "Value": 1094973.73,
+          "Source": "Accounts payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 50634.41,
+          "Source": "Accrued accounts"
+        },
+        "15": {
+          "Value": 1145608.14,
+          "Source": "Total Current Liabilities"
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": 10362732.43,
+          "Source": "For current income taxes + For contingencies and miscellaneous operations + For contingent loss due to fluctuation of Foreign Exchange + For self insurance"
+        },
+        "18": {
+          "Value": 10362732.43,
+          "Source": "TOTAL RESERVES"
+        },
+        "19": {
+          "Value": 11508340.57,
+          "Source": "Total Current Liabilities + TOTAL RESERVES"
+        },
+        "20": {
+          "Value": 30000000.0,
+          "Source": "Class \"A\"—1,000,000 shares—No par value + Common —1,000,000 shares—No par value"
+        },
+        "21": {
+          "Value": 24622099.21,
+          "Source": "PROFIT AND LOSS—SURPLUS"
+        },
+        "22": {
+          "Value": null,
+          "Source": null
+        },
+        "23": {
+          "Value": 54622099.21,
+          "Source": "Total Nominal Capital Stock + PROFIT AND LOSS—SURPLUS"
+        },
+        "24": {
+          "Value": 66130439.78,
+          "Source": "TOTAL LIABILITIES AND CAPITAL"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 40255512.87,
+          "Source": "SALES"
+        },
+        "2": {
+          "Value": 14122628.4,
+          "Source": "Less: Cost of goods sold, including freight on sales and allowances"
+        },
+        "3": {
+          "Value": 26132884.47,
+          "Source": "GROSS OPERATING PROFIT"
+        },
+        "4": {
+          "Value": 8995960.11,
+          "Source": "Expenses—Selling, branch, administrative and general"
+        },
+        "5": {
+          "Value": 17136924.36,
+          "Source": "NET OPERATING PROFIT"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 1074208.81,
+          "Source": "Other deductions—Net—Including contingent and miscellaneous operating reserves"
+        },
+        "8": {
+          "Value": 16062715.55,
+          "Source": "NET PROFIT BEFORE INCOME TAXES"
+        },
+        "9": {
+          "Value": 2039093.32,
+          "Source": "Reserve for income taxes"
+        },
+        "10": {
+          "Value": 14023622.23,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1932": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 159875.46,
+          "Source": "Cash and Accounts and Notes Receivable.. (Note: This raw line item combines cash and receivables)"
+        },
+        "2": {
+          "Value": null,
+          "Source": null
+        },
+        "3": {
+          "Value": 63064.96,
+          "Source": "Inventories—Materials and Supplies..........."
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 222940.42,
+          "Source": "Total Current Assets................................"
+        },
+        "6": {
+          "Value": 371702.29,
+          "Source": "Total Property and Plant Investment (Net) ...................................."
+        },
+        "7": {
+          "Value": 26700.0,
+          "Source": "Investment in Securities.................................."
+        },
+        "8": {
+          "Value": 818391.16,
+          "Source": "Franchises ................................................................"
+        },
+        "9": {
+          "Value": 20037.48,
+          "Source": "Ice Boxes and Coolers, Prepaid Insurance, Etc. .............................................................."
+        },
+        "10": {
+          "Value": 1236830.93,
+          "Source": "Calculated sum of Net Property Plant Equipment (371702.29) + Investments (26700.0) + Intangible Assets (818391.16) + Other Non-Current Assets (20037.48)"
+        },
+        "11": {
+          "Value": 1459771.35,
+          "Source": "Total Assets ................................................................"
+        },
+        "12": {
+          "Value": 46427.62,
+          "Source": "Accounts Payable ....................................................."
+        },
+        "13": {
+          "Value": 58895.96,
+          "Source": "Notes Payable ........................................................."
+        },
+        "14": {
+          "Value": 28317.68,
+          "Source": "Cash Deposits on Bottles and Cases, Ice Boxes and Coolers ................................................."
+        },
+        "15": {
+          "Value": 133641.26,
+          "Source": "Total Current Liabilities......... ......"
+        },
+        "16": {
+          "Value": 14724.66,
+          "Source": "Mortgages Payable (Land and Buildings)......"
+        },
+        "17": {
+          "Value": null,
+          "Source": null
+        },
+        "18": {
+          "Value": 14724.66,
+          "Source": "Calculated sum of Long-Term Debt (14724.66)"
+        },
+        "19": {
+          "Value": 148365.92,
+          "Source": "Calculated sum of Total Current Liabilities (133641.26) + Total Non-Current Liabilities (14724.66)"
+        },
+        "20": {
+          "Value": null,
+          "Source": null
+        },
+        "21": {
+          "Value": null,
+          "Source": null
+        },
+        "22": {
+          "Value": null,
+          "Source": null
+        },
+        "23": {
+          "Value": 1311405.43,
+          "Source": "Represented by: Class “A” Stock 20,000 Shares, No. Par).... Class “B” Stock 20,000 Shares, No. Par)...."
+        },
+        "24": {
+          "Value": 1459771.35,
+          "Source": "Total Liabilities and Capital........."
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": 829589.27,
+          "Source": "Sales—Net ................................................................"
+        },
+        "2": {
+          "Value": 431550.85,
+          "Source": "Calculated sum of Materials Used (332583.4) + Labor (41565.25) + Manufacturing Expenses (57402.2)"
+        },
+        "3": {
+          "Value": 398038.42,
+          "Source": "Gross Profit ................................................................"
+        },
+        "4": {
+          "Value": 354834.41,
+          "Source": "Calculated sum of Delivery Expense (166824.06) + Selling Expense (107399.21) + General and Administrative Expense (80611.14)"
+        },
+        "5": {
+          "Value": 43204.01,
+          "Source": "Gross Profit Less Expense................"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 2920.28,
+          "Source": "Other Income less Other Deductions.............."
+        },
+        "8": {
+          "Value": 46124.29,
+          "Source": "Calculated sum of Operating Income (43204.01) + Other Non-Operating (2920.28)"
+        },
+        "9": {
+          "Value": 0.0,
+          "Source": "Implied as Net Profit (46124.29) equals Earnings Before Tax (46124.29); no explicit income tax line on the income statement."
+        },
+        "10": {
+          "Value": 46124.29,
+          "Source": "Net Profit ................................................................"
+        },
+        "11": {
+          "Value": 40000.0,
+          "Source": "Calculated sum of Class “A” Stock 20,000 Shares + Class “B” Stock 20,000 Shares"
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1933": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 4219239.0,
+          "Source": "Sum of 'Cash on deposit and placed on call' and 'Governmental securities—Including United States, Canada and Municipal— (At cost)'"
+        },
+        "2": {
+          "Value": 1332586.45,
+          "Source": "Sum of 'Notes receivable' and 'Accounts receivable'"
+        },
+        "3": {
+          "Value": 8982632.94,
+          "Source": "Inventory — Merchandise including sugar stored in bonded warehouses— (Priced at lower of cost or market)"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 14534458.29,
+          "Source": "CURRENT ASSETS TOTAL"
+        },
+        "6": {
+          "Value": 6710728.32,
+          "Source": "TOTAL PERMANENT ASSETS"
+        },
+        "7": {
+          "Value": 18109501.15,
+          "Source": "Sum of 'INVESTMENT IN COMPANY'S OWN STOCK TOTAL', 'Sundry notes and accounts receivable', and 'Miscellaneous investments and deferred charges'"
+        },
+        "8": {
+          "Value": 29539375.67,
+          "Source": "FORMULAE, TRADE-MARK AND GOOD WILL: (Increased due to acquisition of additional subsidiaries)"
+        },
+        "9": {
+          "Value": null,
+          "Source": null
+        },
+        "10": {
+          "Value": 54359605.14,
+          "Source": "Calculated as sum of Net Property Plant Equipment, Investments, and Intangible Assets"
+        },
+        "11": {
+          "Value": 68894063.43,
+          "Source": "TOTAL ASSETS"
+        },
+        "12": {
+          "Value": 1194402.79,
+          "Source": "Accounts payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 205455.24,
+          "Source": "Accrued accounts"
+        },
+        "15": {
+          "Value": 1399858.03,
+          "Source": "CURRENT LIABILITIES TOTAL"
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": 9375870.22,
+          "Source": "RESERVES TOTAL"
+        },
+        "18": {
+          "Value": 9375870.22,
+          "Source": "RESERVES TOTAL"
+        },
+        "19": {
+          "Value": 10775728.25,
+          "Source": "Calculated as sum of Total Current Liabilities and Total Non-Current Liabilities"
+        },
+        "20": {
+          "Value": 30000000.0,
+          "Source": "NOMINAL CAPITAL STOCK TOTAL"
+        },
+        "21": {
+          "Value": 28118335.18,
+          "Source": "PROFIT AND LOSS—SURPLUS"
+        },
+        "22": {
+          "Value": null,
+          "Source": null
+        },
+        "23": {
+          "Value": 58118335.18,
+          "Source": "TOTAL CAPITAL AND SURPLUS"
+        },
+        "24": {
+          "Value": 68894063.43,
+          "Source": "TOTAL LIABILITIES, RESERVES AND NOMINAL"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": null,
+          "Source": null
+        },
+        "2": {
+          "Value": null,
+          "Source": null
+        },
+        "3": {
+          "Value": 21778564.54,
+          "Source": "GROSS OPERATING PROFIT"
+        },
+        "4": {
+          "Value": 8651198.31,
+          "Source": "Expenses—Selling, branch, administrative and general"
+        },
+        "5": {
+          "Value": 13127366.23,
+          "Source": "NET OPERATING PROFIT"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 308222.25,
+          "Source": "Other deductions (net)"
+        },
+        "8": {
+          "Value": 12819143.98,
+          "Source": "NET PROFIT BEFORE INCOME TAXES"
+        },
+        "9": {
+          "Value": 1980150.62,
+          "Source": "Reserve for income taxes"
+        },
+        "10": {
+          "Value": 10838993.36,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1934": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 6878440.23,
+          "Source": "Cash on deposit and placed on call; Governmental securities"
+        },
+        "2": {
+          "Value": 1533677.72,
+          "Source": "Accounts receivable"
+        },
+        "3": {
+          "Value": 11658790.98,
+          "Source": "Inventory"
+        },
+        "4": {
+          "Value": null,
+          "Source": ""
+        },
+        "5": {
+          "Value": 20070908.93,
+          "Source": "Total Current Assets"
+        },
+        "6": {
+          "Value": 6559754.2,
+          "Source": "Permanent Assets (Net)"
+        },
+        "7": {
+          "Value": 936583.13,
+          "Source": "Miscellaneous investments; Sundry notes and accounts receivable"
+        },
+        "8": {
+          "Value": 29526515.3,
+          "Source": "Formulae, Trade-Mark and Goodwill (At cost)"
+        },
+        "9": {
+          "Value": 314480.05,
+          "Source": "Deferred Charges"
+        },
+        "10": {
+          "Value": 37337332.68,
+          "Source": "Sum of Net Property Plant Equipment, Investments, Intangible Assets, and Other Non-Current Assets"
+        },
+        "11": {
+          "Value": 57408241.61,
+          "Source": "Total Assets"
+        },
+        "12": {
+          "Value": 894827.45,
+          "Source": "Accounts payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": ""
+        },
+        "14": {
+          "Value": 3064297.38,
+          "Source": "Accrued expenses; Accrued taxes—Including income and capital stock taxes"
+        },
+        "15": {
+          "Value": 3959124.83,
+          "Source": "Total Current Liabilities"
+        },
+        "16": {
+          "Value": null,
+          "Source": ""
+        },
+        "17": {
+          "Value": 7493658.35,
+          "Source": "Reserve For contingencies and miscellaneous operations"
+        },
+        "18": {
+          "Value": 7493658.35,
+          "Source": "Reserve For contingencies and miscellaneous operations"
+        },
+        "19": {
+          "Value": 11452783.18,
+          "Source": "Sum of Total Current Liabilities and Total Non-Current Liabilities"
+        },
+        "20": {
+          "Value": 29000000,
+          "Source": "Total Capital Stock"
+        },
+        "21": {
+          "Value": 24762053.37,
+          "Source": "Profit and Loss—Surplus"
+        },
+        "22": {
+          "Value": -7806594.94,
+          "Source": "Total Stock Owned by Company (Less: Stock owned by Company—At cost)"
+        },
+        "23": {
+          "Value": 45955458.43,
+          "Source": "Net Nominal"
+        },
+        "24": {
+          "Value": 57408241.61,
+          "Source": "Total Liabilities"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": null,
+          "Source": ""
+        },
+        "2": {
+          "Value": null,
+          "Source": ""
+        },
+        "3": {
+          "Value": 27135104.55,
+          "Source": "Gross Operating Profit"
+        },
+        "4": {
+          "Value": 9769158.59,
+          "Source": "Selling, branch, administrative and general expenses"
+        },
+        "5": {
+          "Value": 17365945.96,
+          "Source": "Operating Profit"
+        },
+        "6": {
+          "Value": null,
+          "Source": ""
+        },
+        "7": {
+          "Value": -426278.27,
+          "Source": "Other deductions; Less: Other income"
+        },
+        "8": {
+          "Value": 16939667.69,
+          "Source": "Profit Before Income Taxes"
+        },
+        "9": {
+          "Value": 2611000,
+          "Source": "Reserve for income taxes"
+        },
+        "10": {
+          "Value": 14328667.69,
+          "Source": "Net Profit"
+        },
+        "11": {
+          "Value": 1658080,
+          "Source": "Class \"A\" shares (issued less owned by Company); Common shares (issued less owned by Company)"
+        },
+        "12": {
+          "Value": null,
+          "Source": ""
+        }
+      },
+      "CashFlow": {}
+    },
+    "1935": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 10589809.1,
+          "Source": "Cash on deposit and placed on call + Governmental securities — At cost, United States and Foreign"
+        },
+        "2": {
+          "Value": 1888283.57,
+          "Source": "Accounts receivable — Trade"
+        },
+        "3": {
+          "Value": 10944450.89,
+          "Source": "Inventory — Merchandise including sugar stored in bonded warehouses"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 23422543.56,
+          "Source": "Total Current Assets"
+        },
+        "6": {
+          "Value": 6876867.26,
+          "Source": "Net Permanent Assets"
+        },
+        "7": {
+          "Value": 971530.24,
+          "Source": "Total Other Assets (Securities of affiliated Companies not consolidated + Accounts due from affiliated Companies not consolidated + Other investments at cost, etc. + Miscellaneous other notes and accounts receivable)"
+        },
+        "8": {
+          "Value": 30576423.46,
+          "Source": "Formulae, Trade-Mark and Goodwill"
+        },
+        "9": {
+          "Value": 269374.65,
+          "Source": "Deferred Charges"
+        },
+        "10": {
+          "Value": 38694195.61,
+          "Source": "Calculated: Net Property Plant Equipment + Investments + Intangible Assets + Other Non-Current Assets"
+        },
+        "11": {
+          "Value": 62116739.17,
+          "Source": "Total Assets"
+        },
+        "12": {
+          "Value": 1258886.58,
+          "Source": "Accounts payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 3758090.38,
+          "Source": "Accrued expenses + Accrued taxes — Including income and capital stock taxes"
+        },
+        "15": {
+          "Value": 5016986.96,
+          "Source": "Total Current Liabilities"
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": 8910185.36,
+          "Source": "Reserve For contingencies and miscellaneous operations"
+        },
+        "18": {
+          "Value": 8910185.36,
+          "Source": "Reserve For contingencies and miscellaneous operations"
+        },
+        "19": {
+          "Value": 13927172.32,
+          "Source": "Calculated: Total Current Liabilities + Other Non-Current Liabilities"
+        },
+        "20": {
+          "Value": 28000000.0,
+          "Source": "Total Capital Stock (Capital Stock Class \"A\" + Capital Stock Common)"
+        },
+        "21": {
+          "Value": 20379099.91,
+          "Source": "Surplus — Earned"
+        },
+        "22": {
+          "Value": -189533.06,
+          "Source": "Less: Common stock owned by Company"
+        },
+        "23": {
+          "Value": 48189566.85,
+          "Source": "Calculated: Paid-In Capital + Retained Earnings + Other Equity"
+        },
+        "24": {
+          "Value": 62116739.17,
+          "Source": "Total Liabilities and Capital"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": null,
+          "Source": null
+        },
+        "2": {
+          "Value": null,
+          "Source": null
+        },
+        "3": {
+          "Value": 31301697.06,
+          "Source": "Gross Profit"
+        },
+        "4": {
+          "Value": 10791743.47,
+          "Source": "Selling, branch, administrative and general expenses"
+        },
+        "5": {
+          "Value": 20509953.59,
+          "Source": "Operating Profit"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 1525697.33,
+          "Source": "Other deductions less Other income"
+        },
+        "8": {
+          "Value": 18984256.26,
+          "Source": "Profit Before Income Taxes"
+        },
+        "9": {
+          "Value": 3180000.0,
+          "Source": "Provision for income taxes"
+        },
+        "10": {
+          "Value": 15804256.26,
+          "Source": "Net Profit"
+        },
+        "11": {
+          "Value": 3991900,
+          "Source": "Calculated: Capital Stock Common shares issued (4,000,000) less Common stock owned by Company (8,100 shares)"
+        },
+        "12": {
+          "Value": 3.959247,
+          "Source": "Calculated: Net Income / Shares Outstanding"
+        }
+      },
+      "CashFlow": {}
+    },
+    "1936": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 14163503.78,
+          "Source": "Cash on deposit and placed on call + Government securities - At cost United States and Foreign-"
+        },
+        "2": {
+          "Value": 2395252.14,
+          "Source": "Accounts receivable-Trade-"
+        },
+        "3": {
+          "Value": 12638902.12,
+          "Source": "Inventory-Merchandise including sugar stored in bonded warehouses-"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 29197658.04,
+          "Source": "Total Current Assets"
+        },
+        "6": {
+          "Value": 7449772.03,
+          "Source": "Net Permanent Assets"
+        },
+        "7": {
+          "Value": 823871.71,
+          "Source": "Securities of affiliated Companies not consolidated-At cost + Accounts due from affiliated Companies not consolidated + Other investments-At cost + Miscellaneous other notes and accounts receivable"
+        },
+        "8": {
+          "Value": 30576423.46,
+          "Source": "FORMULAE, TRADE-MARK AND GOODWILL- At cost"
+        },
+        "9": {
+          "Value": 368709.8,
+          "Source": "DEFERRED CHARGES"
+        },
+        "10": {
+          "Value": 39218777.0,
+          "Source": "Net Permanent Assets + Securities of affiliated Companies not consolidated-At cost + Accounts due from affiliated Companies not consolidated + Other investments-At cost + Miscellaneous other notes and accounts receivable + FORMULAE, TRADE-MARK AND GOODWILL- At cost + DEFERRED CHARGES"
+        },
+        "11": {
+          "Value": 68416435.04,
+          "Source": "TOTAL ASSETS"
+        },
+        "12": {
+          "Value": 1648555.08,
+          "Source": "Accounts payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 5804227.57,
+          "Source": "Accrued expenses + Accrued taxes-Including income and capital stock taxes"
+        },
+        "15": {
+          "Value": 7452782.65,
+          "Source": "Total Current Liabilities"
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": 10143607.0,
+          "Source": "For contingencies and miscellaneous operations (Reserve)"
+        },
+        "18": {
+          "Value": 10143607.0,
+          "Source": "For contingencies and miscellaneous operations (Reserve)"
+        },
+        "19": {
+          "Value": 17596389.65,
+          "Source": "Total Current Liabilities + For contingencies and miscellaneous operations (Reserve)"
+        },
+        "20": {
+          "Value": 28000000.0,
+          "Source": "Class \"A\"-No par value: Issued and outstanding 600,000 shares + Common-No par value: Authorized and issued 4,000,000 shares"
+        },
+        "21": {
+          "Value": 23009578.45,
+          "Source": "SURPLUS-Earned"
+        },
+        "22": {
+          "Value": -189533.06,
+          "Source": "Less: Common stock owned by Company-At cost-8,100 shares"
+        },
+        "23": {
+          "Value": 50820045.39,
+          "Source": "Total Net Worth/Equity after treasury stock deduction"
+        },
+        "24": {
+          "Value": 68416435.04,
+          "Source": "TOTAL LIABILITIES AND CAPITAL"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": null,
+          "Source": null
+        },
+        "2": {
+          "Value": null,
+          "Source": null
+        },
+        "3": {
+          "Value": 39609205.69,
+          "Source": "GROSS PROFIT"
+        },
+        "4": {
+          "Value": 12747151.54,
+          "Source": "Selling, branch, administrative and general expenses"
+        },
+        "5": {
+          "Value": 26862054.15,
+          "Source": "OPERATING PROFIT"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 1448975.61,
+          "Source": "Other deductions - Less: Other income"
+        },
+        "8": {
+          "Value": 25413078.54,
+          "Source": "PROFIT BEFORE INCOME TAXES"
+        },
+        "9": {
+          "Value": 5015000.0,
+          "Source": "Provision for income taxes (including $207,000.00 surtax on undistributed profits)"
+        },
+        "10": {
+          "Value": 20398078.54,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": 4591900.0,
+          "Source": "Class \"A\"-No par value: Issued and outstanding 600,000 shares (number of shares) + Common-No par value: Authorized and issued 4,000,000 shares (number of shares) - Common stock owned by Company-At cost-8,100 shares (number of shares)"
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1937": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 12131334.8,
+          "Source": "Cash on deposit and placed on call; Government securities - At cost"
+        },
+        "2": {
+          "Value": 2316362.93,
+          "Source": "Accounts receivable - trade"
+        },
+        "3": {
+          "Value": 17918859.18,
+          "Source": "Inventory-Merchandise including sugar stored in bonded warehouses"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 32366556.91,
+          "Source": "Total Current Assets"
+        },
+        "6": {
+          "Value": 11009099.17,
+          "Source": "Net Property, Plant and Equipment"
+        },
+        "7": {
+          "Value": 1720192.85,
+          "Source": "Securities of affiliated Companies not consolidated-at cost; Accounts due from affiliated Companies not consolidated; Other investments-at cost; Miscellaneous other notes and accounts receivable (Total Investments and Other Assets)"
+        },
+        "8": {
+          "Value": 30559250.23,
+          "Source": "Formulae, Trade-Mark and Goodwill--At cost"
+        },
+        "9": {
+          "Value": 639992.36,
+          "Source": "Deferred Charges"
+        },
+        "10": {
+          "Value": 43928534.61,
+          "Source": "Sum of Net Property Plant Equipment, Investments, Intangible Assets, and Other Non-Current Assets"
+        },
+        "11": {
+          "Value": 76295091.52,
+          "Source": "Total Assets"
+        },
+        "12": {
+          "Value": 2756836.15,
+          "Source": "Accounts payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 6402153.75,
+          "Source": "Accrued expenses; Accrued taxes--including income and capital stock taxes"
+        },
+        "15": {
+          "Value": 9158989.9,
+          "Source": "Total Current Liabilities"
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": 11397989.92,
+          "Source": "For contingencies and miscellaneous operations (Reserve)"
+        },
+        "18": {
+          "Value": 11397989.92,
+          "Source": "For contingencies and miscellaneous operations (Reserve)"
+        },
+        "19": {
+          "Value": 20556979.82,
+          "Source": "Sum of Total Current Liabilities and Total Non-Current Liabilities"
+        },
+        "20": {
+          "Value": 28000000.0,
+          "Source": "Class \"A\"--No par value; Common-No par value (Total Capital Stock)"
+        },
+        "21": {
+          "Value": 27927644.76,
+          "Source": "Surplus-Earned"
+        },
+        "22": {
+          "Value": -189533.06,
+          "Source": "Less common stock owned by Company-at cost"
+        },
+        "23": {
+          "Value": 55738111.7,
+          "Source": "Sum of Paid-In Capital, Retained Earnings, and Other Equity"
+        },
+        "24": {
+          "Value": 76295091.52,
+          "Source": "Total Liabilities (Total Liabilities and Net Worth)"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": null,
+          "Source": null
+        },
+        "2": {
+          "Value": null,
+          "Source": null
+        },
+        "3": {
+          "Value": 47141414.32,
+          "Source": "Gross Profit"
+        },
+        "4": {
+          "Value": 15814200.08,
+          "Source": "Selling, branch, administrative and general (Expenses)"
+        },
+        "5": {
+          "Value": 31327214.24,
+          "Source": "Operating Profit"
+        },
+        "6": {
+          "Value": 18783.05,
+          "Source": "Note within Other deductions: Includes interest paid"
+        },
+        "7": {
+          "Value": -1216814.88,
+          "Source": "Derived from Other deductions (less Interest paid), less Other income (net deduction)"
+        },
+        "8": {
+          "Value": 30091616.31,
+          "Source": "Profit Before Taxes on Income"
+        },
+        "9": {
+          "Value": 5410000.0,
+          "Source": "Provision for taxes on income"
+        },
+        "10": {
+          "Value": 24681616.31,
+          "Source": "Net Profit"
+        },
+        "11": {
+          "Value": null,
+          "Source": null
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1938": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 11924510.52,
+          "Source": "Cash on deposit and placed on call (8854691.83) + Government securities - at cost (3069818.69)"
+        },
+        "2": {
+          "Value": 3669936.92,
+          "Source": "Accounts receivable - trade"
+        },
+        "3": {
+          "Value": 19380351.31,
+          "Source": "Inventory - Merchandise including sugar"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 34974798.75,
+          "Source": "CURRENT Assets (Subtotal)"
+        },
+        "6": {
+          "Value": 15213575.07,
+          "Source": "Property, Plant and Equipment (Net)"
+        },
+        "7": {
+          "Value": 2026491.41,
+          "Source": "INVESTMENTS AND OTHER ASSETS (Subtotal)"
+        },
+        "8": {
+          "Value": 30560250.23,
+          "Source": "FORMULAE, TRADE-MARK AND GOODWILL-at cost"
+        },
+        "9": {
+          "Value": 1151573.06,
+          "Source": "DEFERRED CHARGES"
+        },
+        "10": {
+          "Value": 48951889.77,
+          "Source": "Sum of Property, Plant and Equipment (Net), Investments and Other Assets Subtotal, Goodwill, and Deferred Charges"
+        },
+        "11": {
+          "Value": 83926688.52,
+          "Source": "ASSETS (Total)"
+        },
+        "12": {
+          "Value": 2734785.0,
+          "Source": "Accounts payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 7146338.02,
+          "Source": "Accrued expenses (36117.40) + Accrued taxes (7110220.62)"
+        },
+        "15": {
+          "Value": 9881123.02,
+          "Source": "CURRENT Liabilities (Subtotal)"
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": 12500126.61,
+          "Source": "For contingencies and miscellaneous operations (Reserve section)"
+        },
+        "18": {
+          "Value": 12500126.61,
+          "Source": "For contingencies and miscellaneous operations (Reserve section)"
+        },
+        "19": {
+          "Value": 22381249.63,
+          "Source": "Sum of CURRENT Liabilities (Subtotal) and Reserve for contingencies"
+        },
+        "20": {
+          "Value": 28000000.0,
+          "Source": "Capital Stock (Total)"
+        },
+        "21": {
+          "Value": 33734971.95,
+          "Source": "SURPLUS-Earned"
+        },
+        "22": {
+          "Value": -189533.06,
+          "Source": "Less common stock owned by Company-at cost-8,100 shares"
+        },
+        "23": {
+          "Value": 61545438.89,
+          "Source": "Net Capital Stock and Surplus"
+        },
+        "24": {
+          "Value": 83926688.52,
+          "Source": "LIABILITIES AND CAPITAL (Total)"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": null,
+          "Source": null
+        },
+        "2": {
+          "Value": null,
+          "Source": null
+        },
+        "3": {
+          "Value": 50694758.72,
+          "Source": "GROSS PROFIT"
+        },
+        "4": {
+          "Value": 17651645.69,
+          "Source": "Selling, branch, administrative and general"
+        },
+        "5": {
+          "Value": 33043113.03,
+          "Source": "OPERATING PROFIT"
+        },
+        "6": {
+          "Value": 66980.56,
+          "Source": "Interest paid (from footnote)"
+        },
+        "7": {
+          "Value": -1290255.28,
+          "Source": "Net other deductions and income ($1,357,235.84) excluding interest expense ($66,980.56)"
+        },
+        "8": {
+          "Value": 31685877.19,
+          "Source": "PROFIT BEFORE TAXES ON INCOME"
+        },
+        "9": {
+          "Value": 6115000.0,
+          "Source": "Provision for taxes on income-estimated"
+        },
+        "10": {
+          "Value": 25570877.19,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": 4591900,
+          "Source": "600,000 Class A shares + (4,000,000 common shares - 8,100 treasury shares)"
+        },
+        "12": {
+          "Value": null,
+          "Source": null
+        }
+      },
+      "CashFlow": {}
+    },
+    "1939": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 18885309.56,
+          "Source": "Cash on deposit and placed on call + Government securities—at cost, United States and Canadian"
+        },
+        "2": {
+          "Value": 3950108.89,
+          "Source": "Accounts receivable—trade (less reserve of $34,727.51)"
+        },
+        "3": {
+          "Value": 19361963.7,
+          "Source": "Inventory — merchandise including sugar stored in bonded warehouses"
+        },
+        "4": {
+          "Value": null,
+          "Source": null
+        },
+        "5": {
+          "Value": 42197382.15,
+          "Source": "Total Current Assets"
+        },
+        "6": {
+          "Value": 17309070.75,
+          "Source": "Net Property, Plant and Equipment"
+        },
+        "7": {
+          "Value": 2304836.51,
+          "Source": "Total Investments and Other Assets"
+        },
+        "8": {
+          "Value": 30560250.23,
+          "Source": "FORMULAE, TRADE MARK AND GOODWILL—at cost"
+        },
+        "9": {
+          "Value": 1042216.5,
+          "Source": "DEFERRED CHARGES"
+        },
+        "10": {
+          "Value": 51216373.99,
+          "Source": "Calculated from Net Property Plant Equipment + Investments + Intangible Assets + Other Non-Current Assets"
+        },
+        "11": {
+          "Value": 93413756.14,
+          "Source": "Total Assets"
+        },
+        "12": {
+          "Value": 3225850.42,
+          "Source": "Accounts payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": null
+        },
+        "14": {
+          "Value": 8360112.28,
+          "Source": "Accrued expenses + Accrued taxes—including income and capital stock taxes"
+        },
+        "15": {
+          "Value": 11585962.7,
+          "Source": "Total Current Liabilities"
+        },
+        "16": {
+          "Value": null,
+          "Source": null
+        },
+        "17": {
+          "Value": 13011479.82,
+          "Source": "Reserve: For contingencies and miscellaneous operations"
+        },
+        "18": {
+          "Value": 13011479.82,
+          "Source": "Calculated from Other Non-Current Liabilities"
+        },
+        "19": {
+          "Value": 24597442.52,
+          "Source": "Calculated from Total Current Liabilities + Total Non-Current Liabilities"
+        },
+        "20": {
+          "Value": 28000000.0,
+          "Source": "Capital Stock: Class \"A\"—No par value + Capital Stock: Common—no par value"
+        },
+        "21": {
+          "Value": 41005846.68,
+          "Source": "Surplus—Earned"
+        },
+        "22": {
+          "Value": -189533.06,
+          "Source": "Less common stock owned by Company—at cost—8,100 shares"
+        },
+        "23": {
+          "Value": 68816313.62,
+          "Source": "Total Stockholders Equity"
+        },
+        "24": {
+          "Value": 93413756.14,
+          "Source": "Total Liabilities (in raw data, implicitly Total Liabilities and Equity as it matches Total Assets)"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": null,
+          "Source": null
+        },
+        "2": {
+          "Value": null,
+          "Source": null
+        },
+        "3": {
+          "Value": 58129262.78,
+          "Source": "GROSS PROFIT"
+        },
+        "4": {
+          "Value": 19880083.13,
+          "Source": "Selling, branch, administrative and general expenses"
+        },
+        "5": {
+          "Value": 38249179.65,
+          "Source": "OPERATING PROFIT"
+        },
+        "6": {
+          "Value": null,
+          "Source": null
+        },
+        "7": {
+          "Value": 1875804.92,
+          "Source": "Net other deductions"
+        },
+        "8": {
+          "Value": 36373374.73,
+          "Source": "PROFIT BEFORE TAXES ON INCOME"
+        },
+        "9": {
+          "Value": 7343000.0,
+          "Source": "Provision for taxes on income—estimated"
+        },
+        "10": {
+          "Value": 29030374.73,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": 3991900,
+          "Source": "Calculated from Common Stock issued (4,000,000 shares) less Common Stock owned by Company (8,100 shares)"
+        },
+        "12": {
+          "Value": 7.27210257776,
+          "Source": "Calculated from Net Profit / Shares Outstanding"
+        }
+      },
+      "CashFlow": {}
+    },
+    "1940": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 14578869.61,
+          "Source": "Cash on deposit and on call (9,483,097.39) + Government securities—at cost (5,095,772.22)"
+        },
+        "2": {
+          "Value": 4936932.87,
+          "Source": "Accounts receivable—trade (less reserve)"
+        },
+        "3": {
+          "Value": 27995179.15,
+          "Source": "Inventory — merchandise including sugar"
+        },
+        "4": {
+          "Value": null,
+          "Source": "Current asset components account for the entire reported Total Current Assets."
+        },
+        "5": {
+          "Value": 47510981.63,
+          "Source": "Total Current Assets"
+        },
+        "6": {
+          "Value": 20108531.54,
+          "Source": "Property, Plant and Equipment - Net"
+        },
+        "7": {
+          "Value": 4305473.72,
+          "Source": "INVESTMENTS IN AND ADVANCES TO FOREIGN SUBSIDIARIES (2,199,292.88) + Total Other Investments and Other Assets (2,106,180.84)"
+        },
+        "8": {
+          "Value": 34917302.49,
+          "Source": "FORMULAE, TRADE MARK AND GOODWILL—At Cost"
+        },
+        "9": {
+          "Value": 921553.21,
+          "Source": "DEFERRED CHARGES"
+        },
+        "10": {
+          "Value": 60252860.96,
+          "Source": "Calculated as sum of Net PPE, Investments, Intangibles, and Deferred Charges (20,108,531.54 + 4,305,473.72 + 34,917,302.49 + 921,553.21)"
+        },
+        "11": {
+          "Value": 107763842.59,
+          "Source": "Total Assets"
+        },
+        "12": {
+          "Value": 3731635.39,
+          "Source": "Accounts payable"
+        },
+        "13": {
+          "Value": null,
+          "Source": "None reported"
+        },
+        "14": {
+          "Value": 13496789.93,
+          "Source": "Accrued expenses (45,632.18) + Accrued taxes (13,451,157.75)"
+        },
+        "15": {
+          "Value": 17228425.32,
+          "Source": "Total Current Liabilities"
+        },
+        "16": {
+          "Value": null,
+          "Source": "None reported"
+        },
+        "17": {
+          "Value": 14404318.39,
+          "Source": "Reserve For contingencies and miscellaneous operations"
+        },
+        "18": {
+          "Value": 14404318.39,
+          "Source": "Reserve For contingencies and miscellaneous operations"
+        },
+        "19": {
+          "Value": 31632743.71,
+          "Source": "Sum of Total Current Liabilities (17,228,425.32) and Reserve for contingencies (14,404,318.39)"
+        },
+        "20": {
+          "Value": 25000000.0,
+          "Source": "Common stock capital"
+        },
+        "21": {
+          "Value": 48131098.88,
+          "Source": "SURPLUS—Earned"
+        },
+        "22": {
+          "Value": 3000000.0,
+          "Source": "Class 'A' Preference stock"
+        },
+        "23": {
+          "Value": 76131098.88,
+          "Source": "Total Capital Stock (28,000,000) + Surplus (48,131,098.88)"
+        },
+        "24": {
+          "Value": 107763842.59,
+          "Source": "Total Liabilities and Stockholders Equity"
+        }
+      },
+      "IncomeStatement": {
+        "1": {
+          "Value": null,
+          "Source": "Net Sales/Revenue not explicitly reported; statement begins at Gross Profit"
+        },
+        "2": {
+          "Value": null,
+          "Source": "Cost of goods sold not explicitly reported"
+        },
+        "3": {
+          "Value": 64871774.58,
+          "Source": "GROSS PROFIT"
+        },
+        "4": {
+          "Value": 21645920.15,
+          "Source": "Selling, branch, administrative and general expenses"
+        },
+        "5": {
+          "Value": 43225854.43,
+          "Source": "OPERATING PROFIT"
+        },
+        "6": {
+          "Value": null,
+          "Source": "Interest not separately identified"
+        },
+        "7": {
+          "Value": -1821102.23,
+          "Source": "Other income (649,749.78) minus Other deductions (2,470,852.01)"
+        },
+        "8": {
+          "Value": 41404752.2,
+          "Source": "PROFIT BEFORE TAXES ON INCOME"
+        },
+        "9": {
+          "Value": 12520000.0,
+          "Source": "Provision for income and excess profits taxes—estimated"
+        },
+        "10": {
+          "Value": 28884752.2,
+          "Source": "NET PROFIT"
+        },
+        "11": {
+          "Value": 4000000.0,
+          "Source": "Common shares issued"
+        },
+        "12": {
+          "Value": null,
+          "Source": "Not reported"
+        }
+      },
+      "CashFlow": {}
     }
   },
   "AnnualReports": {
-    "2024": {
-      "Filing": "https://example.com/ko/2024-filing.pdf",
-      "Report": "https://example.com/ko/2024-report.pdf"
-    },
-    "2023": {
-      "Filing": "https://example.com/ko/2023-filing.pdf",
-      "Report": "https://example.com/ko/2023-report.pdf"
-    }
+    "1920": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1920.pdf"
+    ],
+    "1921": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1921.pdf"
+    ],
+    "1922": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1922.pdf"
+    ],
+    "1923": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1923.pdf"
+    ],
+    "1924": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1924.pdf"
+    ],
+    "1925": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1925.pdf"
+    ],
+    "1926": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1926.pdf"
+    ],
+    "1927": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1927.pdf"
+    ],
+    "1928": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1928.pdf"
+    ],
+    "1929": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1929.pdf"
+    ],
+    "1930": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1930.pdf"
+    ],
+    "1931": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1931.pdf"
+    ],
+    "1932": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1932.pdf"
+    ],
+    "1933": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1933.pdf"
+    ],
+    "1934": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1934.pdf"
+    ],
+    "1935": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1935.pdf"
+    ],
+    "1936": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1936.pdf"
+    ],
+    "1937": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1937.pdf"
+    ],
+    "1938": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1938.pdf"
+    ],
+    "1939": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1939.pdf"
+    ],
+    "1940": [
+      "https://dn790008.ca.archive.org/0/items/cocacolacoannualreports/cocacola1940.pdf"
+    ]
   }
 }

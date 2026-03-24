@@ -1,196 +1,275 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import ICompanyData from 'src/types/ICompanyData';
-import { Alert, Step, StepContent, StepLabel, Stepper } from '@mui/material';
 
-// import { useContractWrite, usePrepareContractWrite, useWaitForTransaction, useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
-import { setCompanyData } from 'src/features/companyDataSlice';
-import { IGeneral } from 'src/features/general';
-import { useMutation } from 'react-query';
+// import Button from '@mui/material/Button';
+// import Dialog from '@mui/material/Dialog';
+// import DialogActions from '@mui/material/DialogActions';
+// import DialogContent from '@mui/material/DialogContent';
+// import DialogTitle from '@mui/material/DialogTitle';
+// import CircularProgress from '@mui/material/CircularProgress';
+// import Box from '@mui/material/Box';
+// import { useAppDispatch, useAppSelector } from '../../hooks';
+// import ICompanyData from 'src/types/ICompanyData';
+// import { Alert, Step, StepContent, StepLabel, Stepper } from '@mui/material';
 
-const chainId = process.env.NEXT_PUBLIC_CHAIN_ID
-const registriesContractAddress = process.env.NEXT_PUBLIC_REGISTRIES_CONTRACT_ADDRESS
-const registriesContractABI = process.env.NEXT_PUBLIC_REGISTRIES_CONTRACT_ABI
-const backendEndpoint = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT
-const azureFunctionsEndpoint = process.env.NEXT_PUBLIC_AZURE_FUNCTIONS_ENDPOINT
+// // import { useContractWrite, usePrepareContractWrite, useWaitForTransaction, useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
+// import { setCompanyData } from 'src/features/companyDataSlice';
+// import { IGeneral } from 'src/features/general';
+// import { useMutation } from 'react-query';
 
-interface ISaveDataModalProps {
-    handleClose: () => void
-}
+// const chainId = process.env.NEXT_PUBLIC_CHAIN_ID
+// const registriesContractAddress = process.env.NEXT_PUBLIC_REGISTRIES_CONTRACT_ADDRESS
+// const registriesContractABI = process.env.NEXT_PUBLIC_REGISTRIES_CONTRACT_ABI
+// const backendEndpoint = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT
+// const azureFunctionsEndpoint = process.env.NEXT_PUBLIC_AZURE_FUNCTIONS_ENDPOINT
 
-const SaveDataModal = (props: ISaveDataModalProps) => {
-    const [errors, setErrors] = React.useState<React.ReactElement[] | null>(null)
-    const newCompanyData = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData)
+// interface ISaveDataModalProps {
+//     handleClose: () => void
+// }
 
-    React.useEffect(() => {
-        const callback = async () => {
-            const localErrors: React.ReactElement[] = []
+// const SaveDataModal = (props: ISaveDataModalProps) => {
+//     const [errors, setErrors] = React.useState<React.ReactElement[] | null>(null)
+//     const newCompanyData = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData)
 
-            if (!newCompanyData.Name || newCompanyData.Name == "") {
-                localErrors.push(<Alert key="1" severity='error' style={{ marginBottom: '10px' }}>Company name must be set</Alert>)
-            }
+//     React.useEffect(() => {
+//         const callback = async () => {
+//             const localErrors: React.ReactElement[] = []
 
-            if (!newCompanyData.IsDelisted && (!newCompanyData.Ticker || newCompanyData.Ticker == "")) {
-                localErrors.push(<Alert key="2" severity='error' style={{ marginBottom: '10px' }}>Company ticker must be set</Alert>)
-            }
+//             if (!newCompanyData.Name || newCompanyData.Name == "") {
+//                 localErrors.push(<Alert key="1" severity='error' style={{ marginBottom: '10px' }}>Company name must be set</Alert>)
+//             }
 
-            if (!newCompanyData.Country || newCompanyData.Country == "") {
-                localErrors.push(<Alert key="3" severity='error' style={{ marginBottom: '10px' }}>Company country must be set</Alert>)
-            }
+//             if (!newCompanyData.IsDelisted && (!newCompanyData.Ticker || newCompanyData.Ticker == "")) {
+//                 localErrors.push(<Alert key="2" severity='error' style={{ marginBottom: '10px' }}>Company ticker must be set</Alert>)
+//             }
 
-            if (!newCompanyData.Currency || newCompanyData.Country == "") {
-                localErrors.push(<Alert key="4" severity='error' style={{marginBottom: '10px'}}>Company currency must be set</Alert>)
-            }
+//             if (!newCompanyData.Country || newCompanyData.Country == "") {
+//                 localErrors.push(<Alert key="3" severity='error' style={{ marginBottom: '10px' }}>Company country must be set</Alert>)
+//             }
 
-            // if (newCompanyData.financialStatements == undefined || getYearsArray(newCompanyData.financialStatements).length == 0) {
-            //     localErrors.push(<Alert key="4" severity='warning' style={{ marginBottom: '10px' }}>Company doesn't have any financials</Alert>)
-            // }
+//             if (!newCompanyData.Currency || newCompanyData.Country == "") {
+//                 localErrors.push(<Alert key="4" severity='error' style={{marginBottom: '10px'}}>Company currency must be set</Alert>)
+//             }
 
-            setErrors(localErrors)
-        }
+//             // if (newCompanyData.financialStatements == undefined || getYearsArray(newCompanyData.financialStatements).length == 0) {
+//             //     localErrors.push(<Alert key="4" severity='warning' style={{ marginBottom: '10px' }}>Company doesn't have any financials</Alert>)
+//             // }
 
-        callback()
-    }, [newCompanyData])
+//             setErrors(localErrors)
+//         }
 
-    return (
-        <Dialog
-            open={true}
-            onClose={props.handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-        >
-            <DialogTitle id="alert-dialog-title">Saving data...</DialogTitle>
+//         callback()
+//     }, [newCompanyData])
 
-            <DialogContent>
-                {(errors == null || errors!.length > 0) ?
-                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                        {<>{errors}</>}
-                    </Box>
-                    :
-                    <SaveDataStepper newCompanyData={newCompanyData} />
-                }
-            </DialogContent>
+//     return (
+//         <Dialog
+//             open={true}
+//             onClose={props.handleClose}
+//             aria-labelledby="alert-dialog-title"
+//             aria-describedby="alert-dialog-description"
+//         >
+//             <DialogTitle id="alert-dialog-title">Saving data...</DialogTitle>
 
-            <DialogActions>
-                <Button onClick={props.handleClose} autoFocus>Close</Button>
-            </DialogActions>
-        </Dialog>
-    );
-}
+//             <DialogContent>
+//                 {(errors == null || errors!.length > 0) ?
+//                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+//                         {<>{errors}</>}
+//                     </Box>
+//                     :
+//                     <SaveDataStepper newCompanyData={newCompanyData} />
+//                 }
+//             </DialogContent>
 
-interface ISaveDataStepperState {
-    activeStep: number
-    cid: string
-}
+//             <DialogActions>
+//                 <Button onClick={props.handleClose} autoFocus>Close</Button>
+//             </DialogActions>
+//         </Dialog>
+//     );
+// }
 
-const SaveDataStepper = ({newCompanyData}: { newCompanyData: ICompanyData }) => {
-    const [state, setState] = React.useState<ISaveDataStepperState>({
-        activeStep: 0,
-        cid: ""
-    })
+// interface ISaveDataStepperState {
+//     activeStep: number
+//     cid: string
+// }
 
-    return (
-        <>
-            <Stepper activeStep={state.activeStep} orientation="vertical">
-                <Step key='Saving data on Filecoin network'>
-                    <StepLabel>Saving data on Filecoin network</StepLabel>
+// const SaveDataStepper = ({newCompanyData}: { newCompanyData: ICompanyData }) => {
+//     const [state, setState] = React.useState<ISaveDataStepperState>({
+//         activeStep: 0,
+//         cid: ""
+//     })
 
-                    <StepContent>
-                        <SaveDataToFilecoinStep
-                            newCompanyData={newCompanyData}
-                            state={state}
-                            setState={(newState: ISaveDataStepperState) => setState(newState)}
-                        />
-                    </StepContent>
-                </Step>
+//     return (
+//         <>
+//             <Stepper activeStep={state.activeStep} orientation="vertical">
+//                 <Step key='Saving data on Filecoin network'>
+//                     <StepLabel>Saving data on Filecoin network</StepLabel>
 
-                <Step key='Updating company status on Ethereum network'>
-                    <StepLabel>Updating company status on Ethereum network</StepLabel>
+//                     <StepContent>
+//                         <SaveDataToFilecoinStep
+//                             newCompanyData={newCompanyData}
+//                             state={state}
+//                             setState={(newState: ISaveDataStepperState) => setState(newState)}
+//                         />
+//                     </StepContent>
+//                 </Step>
 
-                    <StepContent>
-                        <SaveDataBackend cid={state.cid} setState={setState} />
-                        {/* <SaveDataToEthereumStep cid={state.cid} setState={setState} /> */}
-                    </StepContent>
-                </Step>
-            </Stepper>
+//                 <Step key='Updating company status on Ethereum network'>
+//                     <StepLabel>Updating company status on Ethereum network</StepLabel>
 
-            {state.activeStep == 2 &&
-                <Alert severity="success" sx={{ marginTop: '20px' }}>Company successfully saved!</Alert>
-            }
-        </>
-    )
-}
+//                     <StepContent>
+//                         <SaveDataBackend cid={state.cid} setState={setState} />
+//                         {/* <SaveDataToEthereumStep cid={state.cid} setState={setState} /> */}
+//                     </StepContent>
+//                 </Step>
+//             </Stepper>
 
-const SaveDataToFilecoinStep = ({newCompanyData, state, setState}: {
-    newCompanyData: ICompanyData
-    state: ISaveDataStepperState
-    setState: (newState: ISaveDataStepperState) => void
-}) => {
-    const [error, setError] = React.useState(false)
+//             {state.activeStep == 2 &&
+//                 <Alert severity="success" sx={{ marginTop: '20px' }}>Company successfully saved!</Alert>
+//             }
+//         </>
+//     )
+// }
 
-    React.useEffect(() => {
-        const callback = async() => {
-            // const response = await fetch(`${azureFunctionsEndpoint}/SaveCompanyData`, {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(newCompanyData) 
-            // })
+// const SaveDataToFilecoinStep = ({newCompanyData, state, setState}: {
+//     newCompanyData: ICompanyData
+//     state: ISaveDataStepperState
+//     setState: (newState: ISaveDataStepperState) => void
+// }) => {
+//     const [error, setError] = React.useState(false)
 
-            const formData = new FormData()
-            formData.append('file', new Blob([JSON.stringify(newCompanyData)]))
+//     React.useEffect(() => {
+//         const callback = async() => {
+//             // const response = await fetch(`${azureFunctionsEndpoint}/SaveCompanyData`, {
+//             //     method: 'POST',
+//             //     headers: {
+//             //         'Content-Type': 'application/json',
+//             //     },
+//             //     body: JSON.stringify(newCompanyData) 
+//             // })
 
-            const response = await fetch(`${backendEndpoint}/Files`, {
-                method: 'POST',
-                body: formData
-            })
+//             const formData = new FormData()
+//             formData.append('file', new Blob([JSON.stringify(newCompanyData)]))
 
-            if (response.ok) {
-                setState({
-                    activeStep: 1,
-                    cid: await response.text()
-                })
-            }
-            else {
-                setError(true)
-            }
-        }
+//             const response = await fetch(`${backendEndpoint}/Files`, {
+//                 method: 'POST',
+//                 body: formData
+//             })
 
-        if (state.activeStep === 0) {
-            callback()
-        }
-    }, [state.activeStep])
+//             if (response.ok) {
+//                 setState({
+//                     activeStep: 1,
+//                     cid: await response.text()
+//                 })
+//             }
+//             else {
+//                 setError(true)
+//             }
+//         }
 
-    if (error) {
-        return <ErrorSavingFilecoin retry={() => {
-            setState({...state, })
-            setError(false)
-        }} />
-    }
+//         if (state.activeStep === 0) {
+//             callback()
+//         }
+//     }, [state.activeStep])
 
-    return <StepSpinner />
-}
+//     if (error) {
+//         return <ErrorSavingFilecoin retry={() => {
+//             setState({...state, })
+//             setError(false)
+//         }} />
+//     }
 
-const ErrorSavingFilecoin = ({retry}: {retry: () => void}) => {
-    return (
-        <>
-            <Alert severity='error' style={{ marginBottom: '10px' }}>Error saving company data!</Alert>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Button variant='contained' onClick={retry}>Try again</Button>
-            </div>
-        </>
-    )
-}
+//     return <StepSpinner />
+// }
 
-// const SaveDataToEthereumStep = (props: {
+// const ErrorSavingFilecoin = ({retry}: {retry: () => void}) => {
+//     return (
+//         <>
+//             <Alert severity='error' style={{ marginBottom: '10px' }}>Error saving company data!</Alert>
+//             <div style={{ display: 'flex', justifyContent: 'center' }}>
+//                 <Button variant='contained' onClick={retry}>Try again</Button>
+//             </div>
+//         </>
+//     )
+// }
+
+// // const SaveDataToEthereumStep = (props: {
+// //     cid: string,
+// //     setState: React.Dispatch<React.SetStateAction<{
+// //         activeStep: number;
+// //         cid: string;
+// //     }>>
+// // }) => {
+// //     const companyId = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Id)
+// //     const companyName = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Name)
+// //     const companyTicker = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Ticker)
+// //     const newCompanyData = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData)
+
+// //     const dispatch = useAppDispatch()
+// //     const { isConnected } = useAccount()
+// //     const { chain } = useNetwork()
+// //     const {
+// //         config,
+// //         error: prepareError,
+// //         isError: isPrepareError
+// //     } = usePrepareContractWrite({
+// //         address: registriesContractAddress as any,
+// //         abi: JSON.parse(registriesContractABI ?? ""),
+// //         functionName: companyId ? 'editCompanyData' : 'addNewCompany',
+// //         args: companyId ? [companyId, props.cid] : [companyName, companyTicker, props.cid],
+// //         overrides: {
+// //             gasLimit: 100000
+// //         }
+// //     })
+// //     const { data, error, isError, write } = useContractWrite(config)
+// //     const { isLoading, isSuccess } = useWaitForTransaction({ hash: data?.hash })
+
+// //     const calledOnce = React.useRef(false)
+
+// //     React.useEffect(() => {
+// //         if (!(!write || isLoading)) {
+// //             if (calledOnce.current) return
+
+// //             if (!isConnected || chain?.id != chainId || (isPrepareError || isError)) return
+
+// //             calledOnce.current = true
+
+// //             write?.()
+// //         }
+// //     }, [isConnected, chain, isPrepareError, isError, write, isLoading])
+
+// //     React.useEffect(() => {
+// //         if (isSuccess) {
+// //             props.setState(prevState => ({
+// //                 ...prevState,
+// //                 activeStep: 2
+// //             }))
+
+// //             dispatch(setCompanyData(newCompanyData))
+// //         }
+// //     }, [isSuccess])
+
+// //     // if (!isConnected) {
+// //     //     return <WalletNotConnected />
+// //     // }
+
+// //     if (chain?.id != chainId) {
+// //         return <WrongChain />
+// //     }
+
+// //     if (isPrepareError || isError) {
+// //         return (
+// //             <>
+// //                 <Alert severity='error' style={{ marginBottom: '10px' }}>{(prepareError || error)?.message}</Alert>
+// //                 <div style={{ display: 'flex', justifyContent: 'center' }}>
+// //                     <Button variant='contained' onClick={() => write?.()}>Try again</Button>
+// //                 </div>
+// //             </>
+// //         )
+// //     }
+
+// //     return <StepSpinner />
+// // }
+
+// const SaveDataBackend = (props: {
 //     cid: string,
 //     setState: React.Dispatch<React.SetStateAction<{
 //         activeStep: number;
@@ -198,45 +277,69 @@ const ErrorSavingFilecoin = ({retry}: {retry: () => void}) => {
 //     }>>
 // }) => {
 //     const companyId = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Id)
-//     const companyName = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Name)
-//     const companyTicker = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Ticker)
 //     const newCompanyData = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData)
+//     const bearerToken = useAppSelector((state: { general: IGeneral }) => state.general.googleOauthToken)
 
 //     const dispatch = useAppDispatch()
-//     const { isConnected } = useAccount()
-//     const { chain } = useNetwork()
-//     const {
-//         config,
-//         error: prepareError,
-//         isError: isPrepareError
-//     } = usePrepareContractWrite({
-//         address: registriesContractAddress as any,
-//         abi: JSON.parse(registriesContractABI ?? ""),
-//         functionName: companyId ? 'editCompanyData' : 'addNewCompany',
-//         args: companyId ? [companyId, props.cid] : [companyName, companyTicker, props.cid],
-//         overrides: {
-//             gasLimit: 100000
-//         }
-//     })
-//     const { data, error, isError, write } = useContractWrite(config)
-//     const { isLoading, isSuccess } = useWaitForTransaction({ hash: data?.hash })
 
 //     const calledOnce = React.useRef(false)
 
-//     React.useEffect(() => {
-//         if (!(!write || isLoading)) {
-//             if (calledOnce.current) return
-
-//             if (!isConnected || chain?.id != chainId || (isPrepareError || isError)) return
-
+//     const mutationAddCompany = useMutation({
+//         mutationFn: () => {
 //             calledOnce.current = true
 
-//             write?.()
+//             return fetch(`${backendEndpoint}Modifications`, {
+//                 method: 'POST',
+//                 headers: {
+//                     'Authorization': `Bearer ${bearerToken}`,
+//                     'Content-Type': 'application/json'
+//                 },
+//                 body: JSON.stringify({
+//                     DataHash: props.cid
+//                 })
+//             })
+//         },
+//     })
+
+//     const mutationUpdateCompany = useMutation({
+//         mutationFn: () => {
+//             calledOnce.current = true
+
+//             const body = JSON.stringify({
+//                 DataHash: props.cid,
+//                 CompanyId: companyId
+//             })
+
+//             return fetch(`${backendEndpoint}Modifications`, {
+//                 method: 'PUT',
+//                 headers: {
+//                     'Authorization': `Bearer ${bearerToken}`,
+//                     'Content-Type': 'application/json'
+//                 },
+//                 body: body
+//             })
 //         }
-//     }, [isConnected, chain, isPrepareError, isError, write, isLoading])
+//     })
 
 //     React.useEffect(() => {
-//         if (isSuccess) {
+//         if (calledOnce.current == false && bearerToken && bearerToken !== "") {
+//             console.log(companyId)
+
+//             if (companyId){
+//                 mutationUpdateCompany.mutate()
+//             }
+//             else{
+//                 mutationAddCompany.mutate()
+//             }
+//         }
+//     }, [])
+
+//     React.useEffect(() => {
+//         if (
+//                 (mutationAddCompany.isSuccess && mutationAddCompany?.data?.status === 200)
+//                 ||
+//                 (mutationUpdateCompany.isSuccess && mutationUpdateCompany?.data?.status === 200)
+//             ) {
 //             props.setState(prevState => ({
 //                 ...prevState,
 //                 activeStep: 2
@@ -244,22 +347,18 @@ const ErrorSavingFilecoin = ({retry}: {retry: () => void}) => {
 
 //             dispatch(setCompanyData(newCompanyData))
 //         }
-//     }, [isSuccess])
+//     }, [mutationAddCompany.isSuccess, mutationUpdateCompany])
 
-//     // if (!isConnected) {
-//     //     return <WalletNotConnected />
-//     // }
-
-//     if (chain?.id != chainId) {
-//         return <WrongChain />
-//     }
-
-//     if (isPrepareError || isError) {
+//     if (
+//         (mutationAddCompany.isError || (mutationAddCompany.isSuccess && mutationAddCompany?.data?.status !== 200))
+//         ||
+//         (mutationUpdateCompany.isError || (mutationUpdateCompany.isSuccess && mutationUpdateCompany?.data?.status !== 200))
+//     ) {
 //         return (
 //             <>
-//                 <Alert severity='error' style={{ marginBottom: '10px' }}>{(prepareError || error)?.message}</Alert>
+//                 <Alert severity='error' style={{ marginBottom: '10px' }}>There was an error</Alert>
 //                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-//                     <Button variant='contained' onClick={() => write?.()}>Try again</Button>
+//                     <Button variant='contained' onClick={() => companyId ? mutationAddCompany.mutate() : mutationUpdateCompany.mutate()}>Try again</Button>
 //                 </div>
 //             </>
 //         )
@@ -268,141 +367,43 @@ const ErrorSavingFilecoin = ({retry}: {retry: () => void}) => {
 //     return <StepSpinner />
 // }
 
-const SaveDataBackend = (props: {
-    cid: string,
-    setState: React.Dispatch<React.SetStateAction<{
-        activeStep: number;
-        cid: string;
-    }>>
-}) => {
-    const companyId = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.Id)
-    const newCompanyData = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData)
-    const bearerToken = useAppSelector((state: { general: IGeneral }) => state.general.googleOauthToken)
+// // const WalletNotConnected = () => {
+// //     return (
+// //         <>
+// //             <Alert severity='error' style={{ marginBottom: '10px' }}>Wallet not connected!</Alert>
+// //             <div style={{ display: 'flex', justifyContent: 'center' }}>
+// //                 <ConnectButton />
+// //             </div>
+// //         </>
+// //     )
+// // }
 
-    const dispatch = useAppDispatch()
+// // const WrongChain = () => {
+// //     const { switchNetwork } = useSwitchNetwork({
+// //         chainId: Number(chainId)
+// //     })
 
-    const calledOnce = React.useRef(false)
+// //     return (
+// //         <>
+// //             <Alert severity='error' style={{ marginBottom: '10px' }}>Wrong network!</Alert>
+// //             <div style={{ display: 'flex', justifyContent: 'center' }}>
+// //                 <Button variant='contained' onClick={() => switchNetwork?.()}>Switch network</Button>
+// //             </div>
+// //         </>
+// //     )
+// // }
 
-    const mutationAddCompany = useMutation({
-        mutationFn: () => {
-            calledOnce.current = true
-
-            return fetch(`${backendEndpoint}Modifications`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${bearerToken}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    DataHash: props.cid
-                })
-            })
-        },
-    })
-
-    const mutationUpdateCompany = useMutation({
-        mutationFn: () => {
-            calledOnce.current = true
-
-            const body = JSON.stringify({
-                DataHash: props.cid,
-                CompanyId: companyId
-            })
-
-            return fetch(`${backendEndpoint}Modifications`, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `Bearer ${bearerToken}`,
-                    'Content-Type': 'application/json'
-                },
-                body: body
-            })
-        }
-    })
-
-    React.useEffect(() => {
-        if (calledOnce.current == false && bearerToken && bearerToken !== "") {
-            console.log(companyId)
-
-            if (companyId){
-                mutationUpdateCompany.mutate()
-            }
-            else{
-                mutationAddCompany.mutate()
-            }
-        }
-    }, [])
-
-    React.useEffect(() => {
-        if (
-                (mutationAddCompany.isSuccess && mutationAddCompany?.data?.status === 200)
-                ||
-                (mutationUpdateCompany.isSuccess && mutationUpdateCompany?.data?.status === 200)
-            ) {
-            props.setState(prevState => ({
-                ...prevState,
-                activeStep: 2
-            }))
-
-            dispatch(setCompanyData(newCompanyData))
-        }
-    }, [mutationAddCompany.isSuccess, mutationUpdateCompany])
-
-    if (
-        (mutationAddCompany.isError || (mutationAddCompany.isSuccess && mutationAddCompany?.data?.status !== 200))
-        ||
-        (mutationUpdateCompany.isError || (mutationUpdateCompany.isSuccess && mutationUpdateCompany?.data?.status !== 200))
-    ) {
-        return (
-            <>
-                <Alert severity='error' style={{ marginBottom: '10px' }}>There was an error</Alert>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Button variant='contained' onClick={() => companyId ? mutationAddCompany.mutate() : mutationUpdateCompany.mutate()}>Try again</Button>
-                </div>
-            </>
-        )
-    }
-
-    return <StepSpinner />
-}
-
-// const WalletNotConnected = () => {
+// const StepSpinner = () => {
 //     return (
-//         <>
-//             <Alert severity='error' style={{ marginBottom: '10px' }}>Wallet not connected!</Alert>
-//             <div style={{ display: 'flex', justifyContent: 'center' }}>
-//                 <ConnectButton />
-//             </div>
-//         </>
+//         <Box sx={{
+//             display: 'flex',
+//             flexDirection: 'column',
+//             alignItems: 'center',
+//             marginTop: '10px'
+//         }}>
+//             <CircularProgress />
+//         </Box>
 //     )
 // }
 
-// const WrongChain = () => {
-//     const { switchNetwork } = useSwitchNetwork({
-//         chainId: Number(chainId)
-//     })
-
-//     return (
-//         <>
-//             <Alert severity='error' style={{ marginBottom: '10px' }}>Wrong network!</Alert>
-//             <div style={{ display: 'flex', justifyContent: 'center' }}>
-//                 <Button variant='contained' onClick={() => switchNetwork?.()}>Switch network</Button>
-//             </div>
-//         </>
-//     )
-// }
-
-const StepSpinner = () => {
-    return (
-        <Box sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            marginTop: '10px'
-        }}>
-            <CircularProgress />
-        </Box>
-    )
-}
-
-export default SaveDataModal
+// export default SaveDataModal

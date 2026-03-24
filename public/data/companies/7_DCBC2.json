@@ -1,0 +1,286 @@
+{
+  "Id": "7",
+  "Name": "Dundee Commercial Banking Company No. 2",
+  "Ticker": null,
+  "Country": "United Kingdom",
+  "WikipediaPage": null,
+  "Isin": null,
+  "Cik": null,
+  "Currency": 826,
+  "IsDelisted": true,
+  "CustomFinancialsStructure": true,
+  "CompanyPeriod": "1825–1838",
+  "CustomLabels": {
+    "1": {
+      "name": "Total Assets",
+      "title": true,
+      "order": 9
+    },
+    "2": {
+      "name": "Total Advances",
+      "title": true,
+      "parentId": 1,
+      "order": 4
+    },
+    "3": {
+      "name": "Cash Account Advances",
+      "title": false,
+      "parentId": 2,
+      "order": 1
+    },
+    "4": {
+      "name": "Bill Discounts",
+      "title": false,
+      "parentId": 2,
+      "order": 2
+    },
+    "5": {
+      "name": "Other Advances",
+      "title": false,
+      "parentId": 2,
+      "order": 3
+    },
+    "6": {
+      "name": "Branch Advances",
+      "title": false,
+      "parentId": 1,
+      "order": 5
+    },
+    "7": {
+      "name": "Investments and Securities",
+      "title": false,
+      "parentId": 1,
+      "order": 6
+    },
+    "8": {
+      "name": "Sundry Assets",
+      "title": false,
+      "parentId": 1,
+      "order": 7
+    },
+    "9": {
+      "name": "Cash and Coin",
+      "title": false,
+      "parentId": 1,
+      "order": 8
+    },
+    "10": {
+      "name": "Total Liabilities and Equity",
+      "title": true,
+      "order": 18
+    },
+    "11": {
+      "name": "Total Liabilities",
+      "title": true,
+      "parentId": 10,
+      "order": 14
+    },
+    "12": {
+      "name": "Total Public Liabilities",
+      "title": true,
+      "parentId": 11,
+      "order": 12
+    },
+    "13": {
+      "name": "Notes in Circulation",
+      "title": false,
+      "parentId": 12,
+      "order": 10
+    },
+    "14": {
+      "name": "Public Deposits",
+      "title": false,
+      "parentId": 12,
+      "order": 11
+    },
+    "15": {
+      "name": "Sundry Liabilities",
+      "title": false,
+      "parentId": 11,
+      "order": 13
+    },
+    "16": {
+      "name": "Total Equity",
+      "title": true,
+      "parentId": 10,
+      "order": 17
+    },
+    "17": {
+      "name": "Paid-in Capital",
+      "title": false,
+      "parentId": 16,
+      "order": 15
+    },
+    "18": {
+      "name": "Reserves and Retained Earnings",
+      "title": false,
+      "parentId": 16,
+      "order": 16
+    }
+  },
+  "DefaultSelectedLabels": [
+    {
+      "label": 1,
+      "statement": "BalanceSheet",
+      "type": "bar"
+    }
+  ],
+  "FinancialStatements": {
+    "1836": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 472000
+        },
+        "2": {
+          "Value": 425000
+        },
+        "3": {
+          "Value": 45000
+        },
+        "4": {
+          "Value": 341000
+        },
+        "5": {
+          "Value": 39000
+        },
+        "8": {
+          "Value": 40000
+        },
+        "9": {
+          "Value": 7000
+        },
+        "10": {
+          "Value": 472000
+        },
+        "12": {
+          "Value": 376000
+        },
+        "13": {
+          "Value": 37000
+        },
+        "14": {
+          "Value": 339000
+        },
+        "15": {
+          "Value": 22000
+        },
+        "17": {
+          "Value": 50000
+        },
+        "18": {
+          "Value": 24000
+        },
+        "16": {
+          "Value": 74000
+        },
+        "11": {
+          "Value": 398000
+        }
+      }
+    },
+    "1837": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 357000
+        },
+        "2": {
+          "Value": 315000
+        },
+        "3": {
+          "Value": 44000
+        },
+        "4": {
+          "Value": 243000
+        },
+        "5": {
+          "Value": 28000
+        },
+        "8": {
+          "Value": 28000
+        },
+        "9": {
+          "Value": 14000
+        },
+        "10": {
+          "Value": 357000
+        },
+        "12": {
+          "Value": 281000
+        },
+        "13": {
+          "Value": 36000
+        },
+        "14": {
+          "Value": 245000
+        },
+        "15": {
+          "Value": 16000
+        },
+        "17": {
+          "Value": 50000
+        },
+        "18": {
+          "Value": 10000
+        },
+        "16": {
+          "Value": 60000
+        },
+        "11": {
+          "Value": 297000
+        }
+      }
+    },
+    "1838": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 353000
+        },
+        "2": {
+          "Value": 320000
+        },
+        "3": {
+          "Value": 50000
+        },
+        "4": {
+          "Value": 231000
+        },
+        "5": {
+          "Value": 39000
+        },
+        "8": {
+          "Value": 21000
+        },
+        "9": {
+          "Value": 12000
+        },
+        "10": {
+          "Value": 353000
+        },
+        "12": {
+          "Value": 272000
+        },
+        "13": {
+          "Value": 31000
+        },
+        "14": {
+          "Value": 241000
+        },
+        "15": {
+          "Value": 26000
+        },
+        "17": {
+          "Value": 50000
+        },
+        "18": {
+          "Value": 5000
+        },
+        "16": {
+          "Value": 55000
+        },
+        "11": {
+          "Value": 298000
+        }
+      }
+    }
+  }
+}

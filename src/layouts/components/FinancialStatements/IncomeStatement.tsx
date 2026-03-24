@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import ICompanyData from 'src/types/ICompanyData';
 import { StatementType } from 'src/types/IStatement';
-import { incomeStatementTypesNames } from 'src/types/FinancialStatementsTypes';
+import { incomeStatementLabels, incomeStatementTypesNames } from 'src/types/FinancialStatementsTypes';
 import { useAppSelector } from 'src/hooks';
 import { IChartLabel } from './FinancialStatements';
 import IStatementDisplayProps from 'src/types/IStatementDisplayProps';
@@ -54,28 +54,15 @@ const IncomeStatement = (props: IStatementDisplayProps): React.ReactElement => {
                 <Row label={1} />
                 <Row label={2} />
                 <Row label={3} bold={true} />
+                <Row label={4} />
                 <Row label={5} />
                 <Row label={6} />
-                <Row label={22} />
                 <Row label={7} />
-                <Row label={23} />
                 <Row label={8} bold={true} />
                 <Row label={9} />
+                <Row label={10} bold={true} />
                 <Row label={11} />
                 <Row label={12} />
-                <Row label={13} />
-                <Row label={14} />
-                <Row label={15} />
-                <Row label={16} />
-                <Row label={17} bold={true} />
-                <Row label={18} />
-                <Row label={19} bold={true} />
-                <Row label={20} />
-                <Row label={21} bold={true} />
-                <Row label={24} />
-                <Row label={25} />
-                <Row label={26} />
-                <Row label={27} />
             </>
         )
     }
@@ -111,7 +98,8 @@ const IncomeStatement = (props: IStatementDisplayProps): React.ReactElement => {
                 }}
             >
                 <TableCell component="th" sx={{ fontWeight: bold ? 900 : 'initial', position: 'sticky', left: 0, backgroundColor: 'white' }}>
-                    {incomeStatementTypesNames[label]}
+                    {/* {incomeStatementTypesNames[label]} */}
+                    {incomeStatementLabels[label.toString() as keyof typeof incomeStatementLabels]?.name}
                 </TableCell>
 
                 {

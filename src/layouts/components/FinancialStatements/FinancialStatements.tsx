@@ -21,8 +21,8 @@ import { CompanyProfile, FundamentalData } from 'react-ts-tradingview-widgets';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import BusinessIcon from '@mui/icons-material/Business';
 import DescriptionIcon from '@mui/icons-material/Description';
-import BalanceSheetV2 from './BalanceSheetV2';
 import BalanceSheetV3 from './BalanceSheetV3';
+import BalanceSheetV4 from './BalanceSheetV4';
 
 const getSelectedYearsArray = (yearsArray: number[], minAndMax: number[]) => {
     const newArray = []
@@ -415,7 +415,7 @@ const Financials = ({ companyData, selectedLabels, yearsSelected, years, setSele
                             }}
                         />
                         :
-                        <BalanceSheet
+                        <BalanceSheetV4
                             data={companyData}
                             yearsSelected={getSelectedYearsArray(years, yearsSelected)}
                             selectedLabels={selectedLabels}

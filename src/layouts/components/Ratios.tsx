@@ -1,7 +1,8 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 import * as React from 'react'
 import { useAppSelector } from 'src/hooks'
-import { IRatio, ratios } from 'src/types/FinancialStatementsTypes'
+import { calculateGeneralRatio, IRatio, ratios } from 'src/types/FinancialStatementsTypes'
+import { ICustomRatio } from 'src/types/ICompanyData'
 
 interface IRatiosProps {
     yearsSelected: number[]
@@ -38,6 +39,18 @@ const Ratios = (props: IRatiosProps): React.ReactElement => {
         </>
     )
 
+    const CustomTableRows = () => (
+        <>
+            {
+                companyData.CustomRatios?.map((ratio, index) => {
+                    return (
+                        <CustomRatioRow ratio={ratio} key={index} />
+                    )
+                })
+            }
+        </>
+    )
+
     const Row = ({ ratio }: {
         ratio: IRatio
     }) => {
@@ -62,6 +75,30 @@ const Ratios = (props: IRatiosProps): React.ReactElement => {
         )
     }
 
+    const CustomRatioRow = ({ ratio }: {
+        ratio: ICustomRatio
+    }) => {
+        return (
+            <TableRow
+                hover
+            >
+                <TableCell component="th" sx={{ position: 'sticky', left: 0, backgroundColor: 'white' }}>
+                    {ratio.Title}
+                </TableCell>
+
+                {
+                    props.yearsSelected.map((year, index) => {
+                        return (
+                            <TableCell align="right" key={index}>
+                                {calculateGeneralRatio(year, ratio.Numerator, ratio.Denominator, companyData, ratio.Statement, ratio.Percentage)}
+                            </TableCell>
+                        )
+                    })
+                }
+            </TableRow>
+        )
+    }
+
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }}>
@@ -70,7 +107,8 @@ const Ratios = (props: IRatiosProps): React.ReactElement => {
                 </TableHead>
 
                 <TableBody>
-                    <TableRows />
+                    { companyData.CustomRatios && <CustomTableRows /> }
+                    { !companyData.CustomLabels && <TableRows /> }
                 </TableBody>
             </Table>
         </TableContainer>

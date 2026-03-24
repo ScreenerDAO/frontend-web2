@@ -66,7 +66,7 @@ const SearchBar = () => {
                 clearOnBlur
                 handleHomeEndKeys
                 renderOption={(props, option) => (
-                    <li {...props} style={{ display: 'grid', gridTemplateColumns: '1fr 9fr' }}>
+                    <li {...props} key={option.Name} style={{ display: 'grid', gridTemplateColumns: '1fr 9fr' }}>
                         <div style={{ marginRight: '10px' }}><b>{option.Ticker == "" ? '-' : option.Ticker}</b></div>
                         <div>{option.Name}</div>
                     </li>

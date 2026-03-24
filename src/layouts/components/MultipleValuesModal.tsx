@@ -1,163 +1,164 @@
 import React from "react";
-import { 
-    Button, 
-    Dialog, 
-    DialogActions, 
-    DialogContent, 
-    DialogContentText, 
-    DialogTitle, 
-    FormControl, 
-    InputAdornment, 
-    InputLabel, 
-    OutlinedInput, 
-    Tooltip 
-} from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
-import ClearIcon from '@mui/icons-material/Clear';
-import ICompanyData from "src/types/ICompanyData";
-import IFinancialStatement from "src/types/IFinancialStatement";
-import IStatementElement from "src/types/IStatementElement";
-import { StatementType } from "src/types/IStatement";
-import { useAppSelector } from "src/hooks";
 
-interface IProps {
-    open: boolean;
-    closeModal: () => void;
-    year: number,
-    statementType: StatementType,
-    label: number,
-    setValue: (element: IStatementElement) => void;
-}
+// import { 
+//     Button, 
+//     Dialog, 
+//     DialogActions, 
+//     DialogContent, 
+//     DialogContentText, 
+//     DialogTitle, 
+//     FormControl, 
+//     InputAdornment, 
+//     InputLabel, 
+//     OutlinedInput, 
+//     Tooltip 
+// } from "@mui/material";
+// import AddIcon from '@mui/icons-material/Add';
+// import ClearIcon from '@mui/icons-material/Clear';
+// import ICompanyData from "src/types/ICompanyData";
+// import IFinancialStatement from "src/types/IFinancialStatement";
+// import IStatementElement from "src/types/IStatementElement";
+// import { StatementType } from "src/types/IStatement";
+// import { useAppSelector } from "src/hooks";
 
-const MultipleValuesModal = ({
-    open,
-    closeModal,
-    year,
-    statementType,
-    label,
-    setValue
-}: IProps) => {
-    const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.FinancialStatements[year]?.[statementType as keyof IFinancialStatement][label])
+// interface IProps {
+//     open: boolean;
+//     closeModal: () => void;
+//     year: number,
+//     statementType: StatementType,
+//     label: number,
+//     setValue: (element: IStatementElement) => void;
+// }
 
-    const updateStateAndCloseModal = () => {
-        let total = 0
+// const MultipleValuesModal = ({
+//     open,
+//     closeModal,
+//     year,
+//     statementType,
+//     label,
+//     setValue
+// }: IProps) => {
+//     const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.FinancialStatements[year]?.[statementType as keyof IFinancialStatement][label])
 
-        for (const multipleValuesElement of element?.MultipleValues ?? []) {
-            const value = Number(multipleValuesElement)
+//     const updateStateAndCloseModal = () => {
+//         let total = 0
 
-            if (!isNaN(value)) {
-                total += value
-            }
-        }
+//         for (const multipleValuesElement of element?.MultipleValues ?? []) {
+//             const value = Number(multipleValuesElement)
 
-        const newElementMultipleValues = (element?.MultipleValues as string[] ?? []).filter((element: any) => element !== '')
+//             if (!isNaN(value)) {
+//                 total += value
+//             }
+//         }
 
-        setValue({
-            Value: total !== 0 ? parseFloat(total.toFixed(2)).toString() : "",
-            MultipleValues: newElementMultipleValues.length > 0 ? newElementMultipleValues : null
-        })
-        closeModal()
-    }
+//         const newElementMultipleValues = (element?.MultipleValues as string[] ?? []).filter((element: any) => element !== '')
 
-    return (
-        <Dialog open={open} onClose={closeModal} maxWidth="xs" fullWidth>
-            <DialogTitle>Add multiple values</DialogTitle>
-            <DialogContent>
-                <DialogContentText sx={{ paddingTop: '5px' }}>
-                    <ModalContent element={element} setValue={setValue} />
-                </DialogContentText>
-            </DialogContent>
+//         setValue({
+//             Value: total !== 0 ? parseFloat(total.toFixed(2)).toString() : "",
+//             MultipleValues: newElementMultipleValues.length > 0 ? newElementMultipleValues : null
+//         })
+//         closeModal()
+//     }
 
-            <DialogActions>
-                <Button onClick={closeModal}>Cancel</Button>
-                <Button onClick={updateStateAndCloseModal}>Add values</Button>
-            </DialogActions>
-        </Dialog>
-    )
-}
+//     return (
+//         <Dialog open={open} onClose={closeModal} maxWidth="xs" fullWidth>
+//             <DialogTitle>Add multiple values</DialogTitle>
+//             <DialogContent>
+//                 <DialogContentText sx={{ paddingTop: '5px' }}>
+//                     <ModalContent element={element} setValue={setValue} />
+//                 </DialogContentText>
+//             </DialogContent>
 
-const ModalContent = ({ element, setValue }: {
-    element: IStatementElement,
-    setValue: (element: IStatementElement) => void
-}) => {
-    return (
-        <>
-            {(element?.MultipleValues ?? ['']).map((multipleValuesElement, index) => (
-                <FormControl key={index} variant="outlined" sx={{ width: '100%', marginBottom: '10px' }}>
-                    <InputLabel>{`Value ${index + 1}`}</InputLabel>
-                    <OutlinedInput
-                        autoFocus
-                        fullWidth
-                        type='number'
-                        label={`Value ${index + 1}`}
-                        endAdornment={
-                            <>
-                                {(multipleValuesElement ?? "") !== "" ?
-                                    <InputAdornment position="end">
-                                        <Tooltip title="Clear">
-                                            <ClearIcon
-                                                onClick={() => {
-                                                    const newElementMultipleValues = [...element.MultipleValues ?? ['']]
-                                                    newElementMultipleValues[index] = ''
+//             <DialogActions>
+//                 <Button onClick={closeModal}>Cancel</Button>
+//                 <Button onClick={updateStateAndCloseModal}>Add values</Button>
+//             </DialogActions>
+//         </Dialog>
+//     )
+// }
 
-                                                    const newElement = { ...element }
-                                                    newElement.MultipleValues = newElementMultipleValues as any
+// const ModalContent = ({ element, setValue }: {
+//     element: IStatementElement,
+//     setValue: (element: IStatementElement) => void
+// }) => {
+//     return (
+//         <>
+//             {(element?.MultipleValues ?? ['']).map((multipleValuesElement, index) => (
+//                 <FormControl key={index} variant="outlined" sx={{ width: '100%', marginBottom: '10px' }}>
+//                     <InputLabel>{`Value ${index + 1}`}</InputLabel>
+//                     <OutlinedInput
+//                         autoFocus
+//                         fullWidth
+//                         type='number'
+//                         label={`Value ${index + 1}`}
+//                         endAdornment={
+//                             <>
+//                                 {(multipleValuesElement ?? "") !== "" ?
+//                                     <InputAdornment position="end">
+//                                         <Tooltip title="Clear">
+//                                             <ClearIcon
+//                                                 onClick={() => {
+//                                                     const newElementMultipleValues = [...element.MultipleValues ?? ['']]
+//                                                     newElementMultipleValues[index] = ''
 
-                                                    setValue(newElement)
-                                                }}
-                                                sx={{ cursor: 'pointer' }}
-                                            />
-                                        </Tooltip>
-                                    </InputAdornment>
-                                    :
-                                    null
-                                }
-                            </>
-                        }
-                        value={multipleValuesElement ?? ''}
-                        onChange={ev => {
-                            const newElementMultipleValues = [...element?.MultipleValues ?? ['']]
-                            newElementMultipleValues[index] = ev.target.value
+//                                                     const newElement = { ...element }
+//                                                     newElement.MultipleValues = newElementMultipleValues as any
 
-                            const newElement = { ...element }
-                            newElement.MultipleValues = newElementMultipleValues as any
+//                                                     setValue(newElement)
+//                                                 }}
+//                                                 sx={{ cursor: 'pointer' }}
+//                                             />
+//                                         </Tooltip>
+//                                     </InputAdornment>
+//                                     :
+//                                     null
+//                                 }
+//                             </>
+//                         }
+//                         value={multipleValuesElement ?? ''}
+//                         onChange={ev => {
+//                             const newElementMultipleValues = [...element?.MultipleValues ?? ['']]
+//                             newElementMultipleValues[index] = ev.target.value
 
-                            setValue(newElement)
-                        }}
-                    />
-                </ FormControl>
-            ))}
+//                             const newElement = { ...element }
+//                             newElement.MultipleValues = newElementMultipleValues as any
 
-            <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                marginTop: '10px',
-                width: '100%'
-            }}>
-                <Tooltip title="Add another value">
-                    <AddIcon
-                        sx={{
-                            cursor: 'pointer',
+//                             setValue(newElement)
+//                         }}
+//                     />
+//                 </ FormControl>
+//             ))}
 
-                            '&:hover': {
-                                color: 'primary.main',  // highlight icon in red on hover
-                            },
-                        }}
-                        onClick={() => {
-                            const newElementMultipleValues = [...element?.MultipleValues ?? ['']]
-                            newElementMultipleValues.push('')
+//             <div style={{
+//                 display: 'flex',
+//                 flexDirection: 'row',
+//                 justifyContent: 'center',
+//                 marginTop: '10px',
+//                 width: '100%'
+//             }}>
+//                 <Tooltip title="Add another value">
+//                     <AddIcon
+//                         sx={{
+//                             cursor: 'pointer',
 
-                            const newElement = { ...element }
-                            newElement.MultipleValues = newElementMultipleValues as any
+//                             '&:hover': {
+//                                 color: 'primary.main',  // highlight icon in red on hover
+//                             },
+//                         }}
+//                         onClick={() => {
+//                             const newElementMultipleValues = [...element?.MultipleValues ?? ['']]
+//                             newElementMultipleValues.push('')
 
-                            setValue(newElement)
-                        }}
-                    />
-                </Tooltip>
-            </div>
-        </>
-    )
-}
+//                             const newElement = { ...element }
+//                             newElement.MultipleValues = newElementMultipleValues as any
 
-export default MultipleValuesModal
+//                             setValue(newElement)
+//                         }}
+//                     />
+//                 </Tooltip>
+//             </div>
+//         </>
+//     )
+// }
+
+// export default MultipleValuesModal

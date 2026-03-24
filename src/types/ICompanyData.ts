@@ -16,6 +16,7 @@ export default interface ICompanyData {
     CustomLabels?: {
         [key: number | string]: ICustomLabel
     },
+    CustomRatios?: ICustomRatio[],
     DefaultSelectedLabels?: IChartLabel[],
     FinancialStatements: {
         [key: number | string]: IFinancialStatement
@@ -24,8 +25,14 @@ export default interface ICompanyData {
 }
 
 export interface AnnualReports{
-        [key: number | string]: {
-            Filing?: string,
-            Report?: string
-        } 
+    [key: number | string]: string[]
+}
+
+export interface ICustomRatio {
+    Title: string,
+    Numerator: number,
+    Denominator: number,
+    Statement: string,
+    Type: string,
+    Percentage: boolean
 }

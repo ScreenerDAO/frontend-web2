@@ -1,4 +1,5 @@
 import ICompanyData from "./ICompanyData";
+import IFinancialStatement from "./IFinancialStatement";
 
 enum AutofillOperation {
     Add,
@@ -316,6 +317,23 @@ const ratios: IRatio[] = [
     }}
 ]
 
+const calculateGeneralRatio = (year: number, numeratorLabel: number, denominatorLabel: number, companyData: ICompanyData, statement: string, percentage: boolean = false): string => {
+    const numerator = Number(companyData.FinancialStatements[year][statement as keyof IFinancialStatement][numeratorLabel]?.Value)
+    const denominator = Number(companyData.FinancialStatements[year][statement as keyof IFinancialStatement][denominatorLabel]?.Value)
+
+    if (!numerator || !denominator) {
+        return "-"
+    }
+
+    const result = parseFloat((numerator / denominator).toFixed(4))
+
+    if (percentage) {
+        return result ? `${(result * 100).toFixed(2)}%` : "-"
+    } else {
+        return result ? `${result.toFixed(2)}x` : "-"
+    }
+}
+
 const cashFlowStatementTypesNames: { [key: number]: string } = {
     1: "Operating cash flow",
     2: "Net income",
@@ -417,6 +435,48 @@ const countries: { [key: number]: {
     2: {name: "Spain"}
 }
 
+const balanceSheetLabels = {
+  "1":  { "name": "Cash and Equivalents",        "title": false, "parentId": 5,  "order": 1  },
+  "2":  { "name": "Receivables",                  "title": false, "parentId": 5,  "order": 2  },
+  "3":  { "name": "Inventory",                    "title": false, "parentId": 5,  "order": 3  },
+  "4":  { "name": "Other Current Assets",         "title": false, "parentId": 5,  "order": 4  },
+  "5":  { "name": "Total Current Assets",         "title": true,  "parentId": 11, "order": 5  },
+  "6":  { "name": "Net Property Plant Equipment", "title": false, "parentId": 10, "order": 6  },
+  "7":  { "name": "Investments",                  "title": false, "parentId": 10, "order": 7  },
+  "8":  { "name": "Intangible Assets",            "title": false, "parentId": 10, "order": 8  },
+  "9":  { "name": "Other Non-Current Assets",     "title": false, "parentId": 10, "order": 9  },
+  "10": { "name": "Total Non-Current Assets",     "title": true,  "parentId": 11, "order": 10 },
+  "11": { "name": "Total Assets",                 "title": true,  "parentId": null, "order": 11 },
+  "12": { "name": "Accounts Payable",             "title": false, "parentId": 15, "order": 12 },
+  "13": { "name": "Short-Term Debt",              "title": false, "parentId": 15, "order": 13 },
+  "14": { "name": "Other Current Liabilities",    "title": false, "parentId": 15, "order": 14 },
+  "15": { "name": "Total Current Liabilities",    "title": true,  "parentId": 19, "order": 15 },
+  "16": { "name": "Long-Term Debt",               "title": false, "parentId": 18, "order": 16 },
+  "17": { "name": "Other Non-Current Liabilities","title": false, "parentId": 18, "order": 17 },
+  "18": { "name": "Total Non-Current Liabilities","title": true,  "parentId": 19, "order": 18 },
+  "19": { "name": "Total Liabilities",            "title": true,  "parentId": 24, "order": 19 },
+  "20": { "name": "Paid-In Capital",              "title": false, "parentId": 23, "order": 20 },
+  "21": { "name": "Retained Earnings",            "title": false, "parentId": 23, "order": 21 },
+  "22": { "name": "Other Equity",                 "title": false, "parentId": 23, "order": 22 },
+  "23": { "name": "Total Equity",                 "title": true,  "parentId": 24, "order": 23 },
+  "24": { "name": "Total Liabilities and Equity", "title": true,  "parentId": null, "order": 24 }
+}
+
+const incomeStatementLabels = {
+  "1":  { "name": "Revenue",               "title": false,              "order": 1  },
+  "2":  { "name": "Cost of Revenue",       "title": false,              "order": 2  },
+  "3":  { "name": "Gross Profit",          "title": true,               "order": 3  },
+  "4":  { "name": "Operating Expenses",    "title": false, "parentId": 5, "order": 4  },
+  "5":  { "name": "Operating Income",      "title": true,               "order": 5  },
+  "6":  { "name": "Interest Expense",      "title": false, "parentId": 8, "order": 6  },
+  "7":  { "name": "Other Non-Operating",   "title": false, "parentId": 8, "order": 7  },
+  "8":  { "name": "Earnings Before Tax",   "title": true,               "order": 8  },
+  "9":  { "name": "Income Tax",            "title": false, "parentId": 10, "order": 9  },
+  "10": { "name": "Net Income",            "title": true,               "order": 10 },
+  "11": { "name": "Shares Outstanding",    "title": false,              "order": 11 },
+  "12": { "name": "EPS",                   "title": false,              "order": 12 }
+}
+
 export {
     balanceSheetTypesNames,
     balanceSheetStructure,
@@ -427,7 +487,10 @@ export {
     ratios,
     AutofillOperation,
     getFinancialStatementStructureFromCustomLabels,
-    getFinancialStatementStructureFromCustomLabelsV2
+    getFinancialStatementStructureFromCustomLabelsV2,
+    balanceSheetLabels,
+    incomeStatementLabels,
+    calculateGeneralRatio
 }
 
 export type {

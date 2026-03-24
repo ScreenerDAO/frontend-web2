@@ -13,6 +13,7 @@ const initialState: ICompanyData = {
     IsDelisted: false,
     CustomFinancialsStructure: false,
     CustomLabels: undefined,
+    CustomRatios: undefined,
     DefaultSelectedLabels: undefined,
     FinancialStatements: {},
     AnnualReports: {}
@@ -34,6 +35,7 @@ export const companyDataSlice = createSlice({
             state.IsDelisted = action.payload.IsDelisted
             state.CustomFinancialsStructure = action.payload.CustomFinancialsStructure
             state.CustomLabels = action.payload.CustomLabels
+            state.CustomRatios = action.payload.CustomRatios
             state.DefaultSelectedLabels = action.payload.DefaultSelectedLabels
             state.FinancialStatements = action.payload.FinancialStatements
             state.AnnualReports = action.payload.AnnualReports 

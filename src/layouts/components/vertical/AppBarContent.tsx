@@ -10,7 +10,8 @@ import { BriefcasePlusOutline } from 'mdi-material-ui'
 import { useRouter } from 'next/router'
 import { useAppDispatch } from 'src/hooks'
 import { setCompanyData, initialState } from 'src/features/companyDataSlice'
-import { setCompanyData as setNewCompanyData, initialState as newCompanyInitialState } from 'src/features/newCompanyDataSlice'
+
+// import { setCompanyData as setNewCompanyData, initialState as newCompanyInitialState } from 'src/features/newCompanyDataSlice'
 import Tooltip from '@mui/material/Tooltip';
 import SearchBar from '../SearchBar'
 import { setGoogleOauthToken, setUserFavoriteCompanies } from 'src/features/general'
@@ -68,7 +69,8 @@ const AppBarContent = (props: Props) => {
                 <Tooltip title="Add company">
                     <IconButton color='inherit' aria-haspopup='true' onClick={() => {
                         dispatch(setCompanyData(initialState))
-                        dispatch(setNewCompanyData(newCompanyInitialState))
+                        
+                        // dispatch(setNewCompanyData(newCompanyInitialState))
 
                         router.push('/edit-records?isNewCompany=true', undefined, { shallow: true })
                     }}>

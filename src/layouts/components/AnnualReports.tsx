@@ -29,8 +29,7 @@ const AnnualReports = ({data}: {
                 initialRows.push({
                     id: year,
                     year: year,
-                    ipfsLink: data.AnnualReports[year]?.Report ?? '-',
-                    pdfLink: data.AnnualReports[year]?.Report
+                    link: data.AnnualReports[year][0],
                 })
             }
 
@@ -50,14 +49,15 @@ const AnnualReports = ({data}: {
 }
 
 const RenderIpfs = (props: GridRenderCellParams) => {
-    const link = props.row.ipfsLink
+    const link = props.row.link
 
-    if (link && link !== '-') {
+    if (link) {
         return (
             <>
-                <Button variant="text" onClick={() => openPDF(`https://${link}.ipfs.w3s.link/`)}>Link 1</Button>
+                <Button variant="text" onClick={() => openPDF(link)}>Open report</Button>
+                {/* <Button variant="text" onClick={() => openPDF(`https://${link}.ipfs.w3s.link/`)}>Link 1</Button>
                 <Button variant="text" onClick={() => openPDF(`https://ipfs.io/ipfs/${link}`)}>Link 2</Button>
-                <Button variant="text" onClick={() => openPDF(`https://ipfs.io/ipfs/${link}`)}>Link 3</Button>
+                <Button variant="text" onClick={() => openPDF(`https://ipfs.io/ipfs/${link}`)}>Link 3</Button> */}
             </>
         )
     } else {

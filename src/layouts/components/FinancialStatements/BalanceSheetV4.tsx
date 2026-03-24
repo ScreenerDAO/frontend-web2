@@ -14,14 +14,7 @@ import CellValue from './CellValue';
 
 const BalanceSheet = (props: IStatementDisplayProps): React.ReactElement => {
     const calculatedBalanceSheetStructure = useMemo(() => {
-        if (props.data.CustomFinancialsStructure && props.data.CustomLabels) {
-            return getFinancialStatementStructureFromCustomLabelsV2(props.data.CustomLabels);
-        }
-        else {
-            return getFinancialStatementStructureFromCustomLabelsV2(balanceSheetLabels);
-        }
-
-        return []
+        return getFinancialStatementStructureFromCustomLabelsV2(balanceSheetLabels);
     }, [props.data.CustomFinancialsStructure, props.data.CustomLabels]);
 
     const TableHeaders = () => {
@@ -61,7 +54,8 @@ const BalanceSheet = (props: IStatementDisplayProps): React.ReactElement => {
 
     const Row = ({ label, bold }: { label: number, bold?: boolean }): React.ReactElement => {
         const selected = props.selectedLabels.filter(label => label.statement === StatementType.BalanceSheet).map(label => (label.label)).includes(label)
-        const displayName = props.data.CustomLabels?.[label]?.name
+        // const displayName = props.data.CustomLabels?.[label]?.name
+        const displayName = balanceSheetLabels[label.toString() as keyof typeof balanceSheetLabels]?.name
 
         return (
             <TableRow

@@ -1,0 +1,594 @@
+{
+  "Id": "8",
+  "Name": "Ship Bank, Glasgow",
+  "Ticker": null,
+  "Country": "United Kingdom",
+  "WikipediaPage": null,
+  "Isin": null,
+  "Cik": null,
+  "Currency": 826,
+  "IsDelisted": true,
+  "CustomFinancialsStructure": true,
+  "CompanyPeriod": "1749–1836",
+  "CustomLabels": {
+    "1": {
+      "name": "Total Assets",
+      "title": true,
+      "order": 9
+    },
+    "2": {
+      "name": "Total Advances",
+      "title": true,
+      "parentId": 1,
+      "order": 4
+    },
+    "3": {
+      "name": "Cash Account Advances",
+      "title": false,
+      "parentId": 2,
+      "order": 1
+    },
+    "4": {
+      "name": "Bill Discounts",
+      "title": false,
+      "parentId": 2,
+      "order": 2
+    },
+    "5": {
+      "name": "Other Advances",
+      "title": false,
+      "parentId": 2,
+      "order": 3
+    },
+    "6": {
+      "name": "Branch Advances",
+      "title": false,
+      "parentId": 1,
+      "order": 5
+    },
+    "7": {
+      "name": "Investments and Securities",
+      "title": false,
+      "parentId": 1,
+      "order": 6
+    },
+    "8": {
+      "name": "Sundry Assets",
+      "title": false,
+      "parentId": 1,
+      "order": 7
+    },
+    "9": {
+      "name": "Cash and Coin",
+      "title": false,
+      "parentId": 1,
+      "order": 8
+    },
+    "10": {
+      "name": "Total Liabilities and Equity",
+      "title": true,
+      "order": 18
+    },
+    "11": {
+      "name": "Total Liabilities",
+      "title": true,
+      "parentId": 10,
+      "order": 14
+    },
+    "12": {
+      "name": "Total Public Liabilities",
+      "title": true,
+      "parentId": 11,
+      "order": 12
+    },
+    "13": {
+      "name": "Notes in Circulation",
+      "title": false,
+      "parentId": 12,
+      "order": 10
+    },
+    "14": {
+      "name": "Public Deposits",
+      "title": false,
+      "parentId": 12,
+      "order": 11
+    },
+    "15": {
+      "name": "Sundry Liabilities",
+      "title": false,
+      "parentId": 11,
+      "order": 13
+    },
+    "16": {
+      "name": "Total Equity",
+      "title": true,
+      "parentId": 10,
+      "order": 17
+    },
+    "17": {
+      "name": "Paid-in Capital",
+      "title": false,
+      "parentId": 16,
+      "order": 15
+    },
+    "18": {
+      "name": "Reserves and Retained Earnings",
+      "title": false,
+      "parentId": 16,
+      "order": 16
+    }
+  },
+  "DefaultSelectedLabels": [
+    {
+      "label": 1,
+      "statement": "BalanceSheet",
+      "type": "bar"
+    }
+  ],
+  "CustomRatios": [
+    {
+        "Title": "Reserve ratio",
+        "Numerator": 9,
+        "Denominator": 12,
+        "Statement": "BalanceSheet",
+        "Type": "line",
+        "Percentage": true
+    }
+  ],
+  "FinancialStatements": {
+    "1752": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 55000
+        },
+        "2": {
+          "Value": 47000
+        },
+        "3": {
+          "Value": 38000
+        },
+        "4": {
+          "Value": 9000
+        },
+        "9": {
+          "Value": 8000
+        },
+        "10": {
+          "Value": 55000
+        },
+        "12": {
+          "Value": 45000
+        },
+        "13": {
+          "Value": 25000
+        },
+        "14": {
+          "Value": 20000
+        },
+        "15": {
+          "Value": 8000
+        },
+        "17": {
+          "Value": 2000
+        },
+        "16": {
+          "Value": 2000
+        },
+        "11": {
+          "Value": 53000
+        }
+      }
+    },
+    "1753": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 63000
+        },
+        "2": {
+          "Value": 52000
+        },
+        "3": {
+          "Value": 39000
+        },
+        "4": {
+          "Value": 13000
+        },
+        "8": {
+          "Value": 3000
+        },
+        "9": {
+          "Value": 8000
+        },
+        "10": {
+          "Value": 63000
+        },
+        "12": {
+          "Value": 49000
+        },
+        "13": {
+          "Value": 32000
+        },
+        "14": {
+          "Value": 17000
+        },
+        "15": {
+          "Value": 10000
+        },
+        "17": {
+          "Value": 4000
+        },
+        "16": {
+          "Value": 4000
+        },
+        "11": {
+          "Value": 59000
+        }
+      }
+    },
+    "1754": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 68000
+        },
+        "2": {
+          "Value": 62000
+        },
+        "3": {
+          "Value": 43000
+        },
+        "4": {
+          "Value": 19000
+        },
+        "8": {
+          "Value": 1000
+        },
+        "9": {
+          "Value": 5000
+        },
+        "10": {
+          "Value": 68000
+        },
+        "12": {
+          "Value": 58000
+        },
+        "13": {
+          "Value": 34000
+        },
+        "14": {
+          "Value": 24000
+        },
+        "15": {
+          "Value": 8000
+        },
+        "17": {
+          "Value": 2000
+        },
+        "16": {
+          "Value": 2000
+        },
+        "11": {
+          "Value": 66000
+        }
+      }
+    },
+    "1755": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 70000
+        },
+        "2": {
+          "Value": 64000
+        },
+        "3": {
+          "Value": 46000
+        },
+        "4": {
+          "Value": 18000
+        },
+        "8": {
+          "Value": 1000
+        },
+        "9": {
+          "Value": 5000
+        },
+        "10": {
+          "Value": 70000
+        },
+        "12": {
+          "Value": 58000
+        },
+        "13": {
+          "Value": 31000
+        },
+        "14": {
+          "Value": 27000
+        },
+        "15": {
+          "Value": 9000
+        },
+        "17": {
+          "Value": 3000
+        },
+        "16": {
+          "Value": 3000
+        },
+        "11": {
+          "Value": 67000
+        }
+      }
+    },
+    "1756": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 81000
+        },
+        "2": {
+          "Value": 68000
+        },
+        "3": {
+          "Value": 48000
+        },
+        "4": {
+          "Value": 20000
+        },
+        "8": {
+          "Value": 2000
+        },
+        "9": {
+          "Value": 11000
+        },
+        "10": {
+          "Value": 81000
+        },
+        "12": {
+          "Value": 66000
+        },
+        "13": {
+          "Value": 28000
+        },
+        "14": {
+          "Value": 38000
+        },
+        "15": {
+          "Value": 11000
+        },
+        "17": {
+          "Value": 4000
+        },
+        "16": {
+          "Value": 4000
+        },
+        "11": {
+          "Value": 77000
+        }
+      }
+    },
+    "1757": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 83000
+        },
+        "2": {
+          "Value": 65000
+        },
+        "3": {
+          "Value": 45000
+        },
+        "4": {
+          "Value": 20000
+        },
+        "8": {
+          "Value": 9000
+        },
+        "9": {
+          "Value": 9000
+        },
+        "10": {
+          "Value": 83000
+        },
+        "12": {
+          "Value": 79000
+        },
+        "13": {
+          "Value": 41000
+        },
+        "14": {
+          "Value": 38000
+        },
+        "17": {
+          "Value": 4000
+        },
+        "16": {
+          "Value": 4000
+        },
+        "11": {
+          "Value": 79000
+        }
+      }
+    },
+    "1758": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 98000
+        },
+        "2": {
+          "Value": 87000
+        },
+        "3": {
+          "Value": 51000
+        },
+        "4": {
+          "Value": 36000
+        },
+        "8": {
+          "Value": 2000
+        },
+        "9": {
+          "Value": 9000
+        },
+        "10": {
+          "Value": 98000
+        },
+        "12": {
+          "Value": 79000
+        },
+        "13": {
+          "Value": 40000
+        },
+        "14": {
+          "Value": 39000
+        },
+        "15": {
+          "Value": 11000
+        },
+        "17": {
+          "Value": 8000
+        },
+        "16": {
+          "Value": 8000
+        },
+        "11": {
+          "Value": 90000
+        }
+      }
+    },
+    "1759": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 112000
+        },
+        "2": {
+          "Value": 97000
+        },
+        "3": {
+          "Value": 54000
+        },
+        "4": {
+          "Value": 43000
+        },
+        "8": {
+          "Value": 5000
+        },
+        "9": {
+          "Value": 10000
+        },
+        "10": {
+          "Value": 112000
+        },
+        "12": {
+          "Value": 87000
+        },
+        "13": {
+          "Value": 47000
+        },
+        "14": {
+          "Value": 40000
+        },
+        "15": {
+          "Value": 16000
+        },
+        "17": {
+          "Value": 9000
+        },
+        "16": {
+          "Value": 9000
+        },
+        "11": {
+          "Value": 103000
+        }
+      }
+    },
+    "1760": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 140000
+        },
+        "2": {
+          "Value": 126000
+        },
+        "3": {
+          "Value": 70000
+        },
+        "4": {
+          "Value": 56000
+        },
+        "8": {
+          "Value": 3000
+        },
+        "9": {
+          "Value": 11000
+        },
+        "10": {
+          "Value": 140000
+        },
+        "12": {
+          "Value": 99000
+        },
+        "13": {
+          "Value": 60000
+        },
+        "14": {
+          "Value": 39000
+        },
+        "15": {
+          "Value": 30000
+        },
+        "17": {
+          "Value": 11000
+        },
+        "16": {
+          "Value": 11000
+        },
+        "11": {
+          "Value": 129000
+        }
+      }
+    },
+    "1761": {
+      "BalanceSheet": {
+        "1": {
+          "Value": 183000
+        },
+        "2": {
+          "Value": 167000
+        },
+        "3": {
+          "Value": 85000
+        },
+        "4": {
+          "Value": 82000
+        },
+        "8": {
+          "Value": 3000
+        },
+        "9": {
+          "Value": 13000
+        },
+        "10": {
+          "Value": 183000
+        },
+        "12": {
+          "Value": 129000
+        },
+        "13": {
+          "Value": 82000
+        },
+        "14": {
+          "Value": 47000
+        },
+        "15": {
+          "Value": 41000
+        },
+        "17": {
+          "Value": 13000
+        },
+        "16": {
+          "Value": 13000
+        },
+        "11": {
+          "Value": 170000
+        }
+      }
+    }
+  }
+}

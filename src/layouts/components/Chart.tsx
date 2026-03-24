@@ -76,7 +76,8 @@ const getValue = (
     year: number,
     store: Store<{
         companyData: ICompanyData;
-        newCompanyData: ICompanyData;
+        
+        // newCompanyData: ICompanyData;
         general: IGeneral;
     }, AnyAction>,
     label: {

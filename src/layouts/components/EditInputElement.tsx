@@ -7,191 +7,192 @@ import IFinancialStatement from "src/types/IFinancialStatement";
 import IStatement from "src/types/IStatement";
 import IStatementElement from "src/types/IStatementElement";
 import { StatementType } from "src/types/IStatement";
-import { setStatementElement } from 'src/features/newCompanyDataSlice'
-import ClearIcon from '@mui/icons-material/Clear';
-import { useStore } from "react-redux";
-import { RootState } from "src/store";
-import FunctionsIcon from '@mui/icons-material/Functions';
-import MultipleValuesModal from "./MultipleValuesModal";
-import React from "react";
 
-const getLabelName = (label: number, financialType: StatementType) => {
-    switch (financialType) {
-        case StatementType.BalanceSheet:
-            return balanceSheetTypesNames[label];
-        case StatementType.IncomeStatement:
-            return incomeStatementTypesNames[label];
-        case StatementType.CashFlowStatement:
-            return ""
-    }
-}
+// import { setStatementElement } from 'src/features/newCompanyDataSlice'
+// import ClearIcon from '@mui/icons-material/Clear';
+// import { useStore } from "react-redux";
+// import { RootState } from "src/store";
+// import FunctionsIcon from '@mui/icons-material/Functions';
+// import MultipleValuesModal from "./MultipleValuesModal";
+// import React from "react";
 
-const getValue = (value: string, valuesAsThousands: boolean) => {
-    const number = Number(value)
+// const getLabelName = (label: number, financialType: StatementType) => {
+//     switch (financialType) {
+//         case StatementType.BalanceSheet:
+//             return balanceSheetTypesNames[label];
+//         case StatementType.IncomeStatement:
+//             return incomeStatementTypesNames[label];
+//         case StatementType.CashFlowStatement:
+//             return ""
+//     }
+// }
 
-    if (isNaN(number) || number === 0) {
-        return ""
-    }
+// const getValue = (value: string, valuesAsThousands: boolean) => {
+//     const number = Number(value)
 
-    if (valuesAsThousands) {
-        return (number / 1000000).toString()
-    }
+//     if (isNaN(number) || number === 0) {
+//         return ""
+//     }
 
-    return number.toString()
-}
+//     if (valuesAsThousands) {
+//         return (number / 1000000).toString()
+//     }
 
-const getAutofillValue = (elements: IElement[], statementValues: IStatement) => {
-    let total = 0
+//     return number.toString()
+// }
 
-    for (const element of (elements ?? [])) {
-        const number = Number(statementValues[element.label]?.Value)
+// const getAutofillValue = (elements: IElement[], statementValues: IStatement) => {
+//     let total = 0
 
-        if (!isNaN(number)) {
-            if (element.operation === AutofillOperation.Add) {
-                total += number
-            }
+//     for (const element of (elements ?? [])) {
+//         const number = Number(statementValues[element.label]?.Value)
 
-            if (element.operation === AutofillOperation.Subtract) {
-                total -= number
-            }
-        }
-    }
+//         if (!isNaN(number)) {
+//             if (element.operation === AutofillOperation.Add) {
+//                 total += number
+//             }
 
-    return total === 0 ? "" : parseFloat(total.toFixed(2)).toString()
-}
+//             if (element.operation === AutofillOperation.Subtract) {
+//                 total -= number
+//             }
+//         }
+//     }
 
-const setValueFormatter = (value: string, valuesAsThousands: boolean) => {
-    if (valuesAsThousands) {
-        const number = Number(value)
+//     return total === 0 ? "" : parseFloat(total.toFixed(2)).toString()
+// }
 
-        if (isNaN(number) || number === 0) {
-            return ""
-        }
+// const setValueFormatter = (value: string, valuesAsThousands: boolean) => {
+//     if (valuesAsThousands) {
+//         const number = Number(value)
 
-        return (number * 1000000).toString()
-    }
+//         if (isNaN(number) || number === 0) {
+//             return ""
+//         }
 
-    return value
-}
+//         return (number * 1000000).toString()
+//     }
 
-type EditInputElementProps = {
-    label: number;
-    statementType: StatementType;
-    year: number
-    valuesAsThousands: boolean
-    autofillElements?: IElement[]
-};
+//     return value
+// }
 
-const EditInputElement = ({
-    label,
-    statementType,
-    year,
-    valuesAsThousands,
-    autofillElements
-}: EditInputElementProps) => {
-    const store = useStore<RootState>()
-    const dispatch = useAppDispatch()
-    const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.FinancialStatements[year]?.[statementType as keyof IFinancialStatement][label])
-    const [multipleValuesModalOpen, setMultipleValuesModalOpen] = React.useState(false)
+// type EditInputElementProps = {
+//     label: number;
+//     statementType: StatementType;
+//     year: number
+//     valuesAsThousands: boolean
+//     autofillElements?: IElement[]
+// };
 
-    const setElement = (statementElement: IStatementElement) => {
-        dispatch(setStatementElement({
-            year: year,
-            statement: statementType,
-            element: label,
-            value: statementElement
-        }))
-    }
+// const EditInputElement = ({
+//     label,
+//     statementType,
+//     year,
+//     valuesAsThousands,
+//     autofillElements
+// }: EditInputElementProps) => {
+//     const store = useStore<RootState>()
+//     const dispatch = useAppDispatch()
+//     const element = useAppSelector((state: { newCompanyData: ICompanyData }) => state.newCompanyData.FinancialStatements[year]?.[statementType as keyof IFinancialStatement][label])
+//     const [multipleValuesModalOpen, setMultipleValuesModalOpen] = React.useState(false)
 
-    const openMultipleValuesModal = () => {
-        if (element && !element?.MultipleValues) {
-            const newElement = {...element}
-            newElement.MultipleValues = [element.Value]
+//     const setElement = (statementElement: IStatementElement) => {
+//         dispatch(setStatementElement({
+//             year: year,
+//             statement: statementType,
+//             element: label,
+//             value: statementElement
+//         }))
+//     }
 
-            setElement(newElement)
-        }
+//     const openMultipleValuesModal = () => {
+//         if (element && !element?.MultipleValues) {
+//             const newElement = {...element}
+//             newElement.MultipleValues = [element.Value]
 
-        setMultipleValuesModalOpen(true)
-    }
+//             setElement(newElement)
+//         }
 
-    return (
-        <>
-            <FormControl sx={{ marginTop: '10px', marginLeft: 0, width: '100%', flex: 1 }} variant="outlined">
-                <InputLabel>{getLabelName(label, statementType)}</InputLabel>
-                <OutlinedInput
-                    type='number'
-                    label={getLabelName(label, statementType)}
-                    endAdornment={
-                        <InputAdornment position="end">
-                            {(element?.Value ?? "") !== "" ?
-                                <InputAdornment position="end">
-                                    <Tooltip title="Clear">
-                                        <ClearIcon
-                                            onClick={() => setElement({ Value: "", MultipleValues: null })}
-                                            sx={{ cursor: 'pointer' }}
-                                        />
-                                    </Tooltip>
-                                </InputAdornment>
-                                :
-                                null
-                            }
+//         setMultipleValuesModalOpen(true)
+//     }
 
-                            <InputAdornment position="end">
-                                <Tooltip title="Add multiple values">
-                                    <FunctionsIcon
-                                        onClick={openMultipleValuesModal}
-                                        sx={{ cursor: 'pointer' }}
-                                    />
-                                </Tooltip>
-                            </InputAdornment>
+//     return (
+//         <>
+//             <FormControl sx={{ marginTop: '10px', marginLeft: 0, width: '100%', flex: 1 }} variant="outlined">
+//                 <InputLabel>{getLabelName(label, statementType)}</InputLabel>
+//                 <OutlinedInput
+//                     type='number'
+//                     label={getLabelName(label, statementType)}
+//                     endAdornment={
+//                         <InputAdornment position="end">
+//                             {(element?.Value ?? "") !== "" ?
+//                                 <InputAdornment position="end">
+//                                     <Tooltip title="Clear">
+//                                         <ClearIcon
+//                                             onClick={() => setElement({ Value: "", MultipleValues: null })}
+//                                             sx={{ cursor: 'pointer' }}
+//                                         />
+//                                     </Tooltip>
+//                                 </InputAdornment>
+//                                 :
+//                                 null
+//                             }
 
-                            {autofillElements ?
-                                <InputAdornment position="end">
-                                    <Tooltip title="Autofill">
-                                        <AutoAwesomeIcon sx={{ cursor: 'pointer' }} onClick={() => {
-                                            setElement({
-                                                Value: getAutofillValue(autofillElements, store.getState().newCompanyData.FinancialStatements[year][statementType as keyof IFinancialStatement]),
-                                                MultipleValues: null
-                                            })
-                                        }} />
-                                    </Tooltip>
-                                </ InputAdornment>
-                                :
-                                null
-                            }
-                        </InputAdornment>
-                    }
-                    value={getValue(element?.Value, valuesAsThousands)}
-                    onChange={(e) => setElement({
-                        Value: setValueFormatter(e.target.value, valuesAsThousands),
-                        MultipleValues: null
-                    })}
+//                             <InputAdornment position="end">
+//                                 <Tooltip title="Add multiple values">
+//                                     <FunctionsIcon
+//                                         onClick={openMultipleValuesModal}
+//                                         sx={{ cursor: 'pointer' }}
+//                                     />
+//                                 </Tooltip>
+//                             </InputAdornment>
+
+//                             {autofillElements ?
+//                                 <InputAdornment position="end">
+//                                     <Tooltip title="Autofill">
+//                                         <AutoAwesomeIcon sx={{ cursor: 'pointer' }} onClick={() => {
+//                                             setElement({
+//                                                 Value: getAutofillValue(autofillElements, store.getState().newCompanyData.FinancialStatements[year][statementType as keyof IFinancialStatement]),
+//                                                 MultipleValues: null
+//                                             })
+//                                         }} />
+//                                     </Tooltip>
+//                                 </ InputAdornment>
+//                                 :
+//                                 null
+//                             }
+//                         </InputAdornment>
+//                     }
+//                     value={getValue(element?.Value, valuesAsThousands)}
+//                     onChange={(e) => setElement({
+//                         Value: setValueFormatter(e.target.value, valuesAsThousands),
+//                         MultipleValues: null
+//                     })}
                     
-                    // startAdornment={
-                    //   <InputAdornment position="start">$</InputAdornment>
-                    // }
-                />
-            </FormControl>
+//                     // startAdornment={
+//                     //   <InputAdornment position="start">$</InputAdornment>
+//                     // }
+//                 />
+//             </FormControl>
 
-            <MultipleValuesModal
-                open={multipleValuesModalOpen}
-                closeModal={() => setMultipleValuesModalOpen(false)}
-                year={year}
-                statementType={statementType}
-                label={label}
-                setValue={(element: IStatementElement) => {
-                    setElement({
-                        Value: setValueFormatter(element.Value, valuesAsThousands),
-                        MultipleValues: element.MultipleValues
-                    })
-                }}
-            />
-        </>
-    );
-}
+//             <MultipleValuesModal
+//                 open={multipleValuesModalOpen}
+//                 closeModal={() => setMultipleValuesModalOpen(false)}
+//                 year={year}
+//                 statementType={statementType}
+//                 label={label}
+//                 setValue={(element: IStatementElement) => {
+//                     setElement({
+//                         Value: setValueFormatter(element.Value, valuesAsThousands),
+//                         MultipleValues: element.MultipleValues
+//                     })
+//                 }}
+//             />
+//         </>
+//     );
+// }
 
-export {
-    getLabelName,
-}
+// export {
+//     getLabelName,
+// }
 
-export default EditInputElement;
+// export default EditInputElement;
