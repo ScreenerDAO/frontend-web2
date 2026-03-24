@@ -317,7 +317,7 @@ const ratios: IRatio[] = [
     }}
 ]
 
-const calculateGeneralRatio = (year: number, numeratorLabel: number, denominatorLabel: number, companyData: ICompanyData, statement: string, percentage: boolean = false): string => {
+const calculateGeneralRatio = (year: number, numeratorLabel: number, denominatorLabel: number, companyData: ICompanyData, statement: string, percentage = false): string => {
     const numerator = Number(companyData.FinancialStatements[year][statement as keyof IFinancialStatement][numeratorLabel]?.Value)
     const denominator = Number(companyData.FinancialStatements[year][statement as keyof IFinancialStatement][denominatorLabel]?.Value)
 

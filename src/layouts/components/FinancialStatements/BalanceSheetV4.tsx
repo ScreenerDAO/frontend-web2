@@ -54,6 +54,7 @@ const BalanceSheet = (props: IStatementDisplayProps): React.ReactElement => {
 
     const Row = ({ label, bold }: { label: number, bold?: boolean }): React.ReactElement => {
         const selected = props.selectedLabels.filter(label => label.statement === StatementType.BalanceSheet).map(label => (label.label)).includes(label)
+        
         // const displayName = props.data.CustomLabels?.[label]?.name
         const displayName = balanceSheetLabels[label.toString() as keyof typeof balanceSheetLabels]?.name
 
